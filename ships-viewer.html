@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Корабли Corsairs</title>
+    <style>
+      :root {
+        --bg: #0f1a24;
+        --bg-soft: #162634;
+        --panel: rgba(14, 29, 43, 0.78);
+        --panel-solid: #132735;
+        --text: #e7ecf2;
+        --muted: #9fb1c3;
+        --accent: #2ec4b6;
+        --accent-2: #f6bd60;
+        --danger: #ff6b6b;
+        --border: rgba(255, 255, 255, 0.12);
+        --ok: #93d58d;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        --radius: 14px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        font-family: "Segoe UI Variable", "Trebuchet MS", "Verdana", sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(
+            circle at 20% -10%,
+            rgba(46, 196, 182, 0.2),
+            transparent 35%
+          ),
+          radial-gradient(
+            circle at 80% -20%,
+            rgba(246, 189, 96, 0.18),
+            transparent 35%
+          ),
+          linear-gradient(180deg, #0b151e 0%, var(--bg) 65%);
+        background-attachment: fixed;
+      }
+
+      .page {
+        width: min(1280px, 94vw);
+        margin: 28px auto 40px;
+        display: grid;
+        gap: 16px;
+      }
+
+      .header {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 20px;
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(6px);
+      }
+
+      .title {
+        margin: 0 0 6px;
+        font-size: clamp(1.4rem, 2.4vw, 2rem);
+        letter-spacing: 0.02em;
+      }
+
+      .subtitle {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .toolbar {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 14px;
+        box-shadow: var(--shadow);
+        display: grid;
+        gap: 10px;
+      }
+
+      .toolbar-row {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+      }
+
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .field label {
+        color: var(--muted);
+        font-size: 0.8rem;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+      }
+
+      input,
+      select,
+      button {
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        background: var(--panel-solid);
+        color: var(--text);
+        padding: 9px 10px;
+        font: inherit;
+      }
+
+      input:focus,
+      select:focus,
+      button:focus {
+        outline: 2px solid color-mix(in srgb, var(--accent) 70%, transparent);
+        outline-offset: 1px;
+      }
+
+      button {
+        cursor: pointer;
+        transition: 0.16s ease;
+      }
+
+      button:hover {
+        transform: translateY(-1px);
+        border-color: color-mix(in srgb, var(--accent) 55%, white 20%);
+      }
+
+      .status {
+        color: var(--muted);
+        font-size: 0.9rem;
+        min-height: 1.2em;
+      }
+
+      .content {
+        display: grid;
+        gap: 14px;
+        grid-template-columns: 1.6fr 1fr;
+        min-height: 62vh;
+      }
+
+      .cards {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 14px;
+        box-shadow: var(--shadow);
+        overflow: auto;
+        max-height: 70vh;
+      }
+
+      .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 10px;
+      }
+
+      .ship-card {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background:
+          linear-gradient(170deg, rgba(255, 255, 255, 0.04), transparent 40%),
+          var(--panel-solid);
+        padding: 12px;
+        cursor: pointer;
+        transition: 0.18s ease;
+      }
+
+      .ship-card:hover {
+        transform: translateY(-2px);
+        border-color: color-mix(in srgb, var(--accent) 50%, white 20%);
+      }
+
+      .ship-card.active {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 55%, transparent);
+      }
+
+      .ship-name {
+        margin: 0 0 6px;
+        font-size: 1rem;
+        font-weight: 700;
+      }
+
+      .ship-meta {
+        color: var(--muted);
+        font-size: 0.84rem;
+        margin-bottom: 8px;
+      }
+
+      .chip-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .chip {
+        padding: 4px 8px;
+        border-radius: 99px;
+        font-size: 0.74rem;
+        border: 1px solid var(--border);
+        color: var(--muted);
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .chip.ok {
+        color: #0c2b12;
+        background: color-mix(in srgb, var(--ok) 75%, white 10%);
+        border-color: transparent;
+      }
+
+      .chip.warn {
+        color: #2f1b00;
+        background: color-mix(in srgb, var(--accent-2) 82%, white 8%);
+        border-color: transparent;
+      }
+
+      .details {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 14px;
+        box-shadow: var(--shadow);
+        overflow: auto;
+        max-height: 70vh;
+      }
+
+      .detail-list {
+        display: grid;
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+
+      .detail-item {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
+        padding-bottom: 4px;
+        font-size: 0.9rem;
+      }
+
+      .empty {
+        color: var(--muted);
+        text-align: center;
+        padding: 20px;
+        border: 1px dashed var(--border);
+        border-radius: 12px;
+      }
+
+      .span-3 {
+        grid-column: span 3;
+      }
+      .span-2 {
+        grid-column: span 2;
+      }
+      .span-4 {
+        grid-column: span 4;
+      }
+
+      @media (max-width: 1080px) {
+        .content {
+          grid-template-columns: 1fr;
+        }
+
+        .cards,
+        .details {
+          max-height: none;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .toolbar-row {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .span-2,
+        .span-3,
+        .span-4 {
+          grid-column: span 2;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="header">
+        <h1 class="title">Корабли Corsairs</h1>
+        <p class="subtitle">
+          Выберите корабль, сравните характеристики и найдите подходящий для
+          плавания и боя.
+        </p>
+      </section>
+
+      <section class="toolbar">
+        <div class="toolbar-row">
+          <div class="field span-4">
+            <label for="search">Поиск</label>
+            <input id="search" type="text" placeholder="Название корабля" />
+          </div>
+
+          <div class="field span-2">
+            <label for="classFilter">Класс</label>
+            <select id="classFilter">
+              <option value="all">Все</option>
+            </select>
+          </div>
+
+          <div class="field span-2">
+            <label for="encounterFilter">Встречается в мире</label>
+            <select id="encounterFilter">
+              <option value="all">Все</option>
+              <option value="yes">Да</option>
+              <option value="no">Нет</option>
+            </select>
+          </div>
+
+          <div class="field span-2">
+            <label for="typeFilter">Тип</label>
+            <select id="typeFilter">
+              <option value="all">Все</option>
+              <option value="merchant">Торговый</option>
+              <option value="war">Военный</option>
+              <option value="mixed">Торгово-военный</option>
+              <option value="none">Без назначения</option>
+            </select>
+          </div>
+
+          <div class="field span-2">
+            <label for="sortBy">Сортировка</label>
+            <select id="sortBy">
+              <option value="name-asc">По названию (А-Я)</option>
+              <option value="name-desc">По названию (Я-А)</option>
+              <option value="class-asc">По классу (меньше-больше)</option>
+              <option value="class-desc">По классу (больше-меньше)</option>
+              <option value="price-asc">По цене (дешевле-дороже)</option>
+              <option value="price-desc">По цене (дороже-дешевле)</option>
+              <option value="speed-desc">
+                По скорости (быстрее-медленнее)
+              </option>
+              <option value="crew-desc">По экипажу (больше-меньше)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="toolbar-row">
+          <div class="field span-2">
+            <label>&nbsp;</label>
+            <button id="resetBtn">Сбросить фильтры</button>
+          </div>
+
+          <div class="field span-4">
+            <label>Статус</label>
+            <div id="status" class="status">Инициализация...</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content">
+        <section class="cards">
+          <div id="cards" class="cards-grid"></div>
+        </section>
+
+        <aside class="details">
+          <div id="details" class="empty">
+            Выберите карточку корабля, чтобы увидеть детали.
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <script>
+      const state = {
+        allShips: [],
+        filteredShips: [],
+        selectedType: null,
+      };
+
+      const elements = {
+        cards: document.getElementById("cards"),
+        details: document.getElementById("details"),
+        status: document.getElementById("status"),
+        search: document.getElementById("search"),
+        classFilter: document.getElementById("classFilter"),
+        encounterFilter: document.getElementById("encounterFilter"),
+        typeFilter: document.getElementById("typeFilter"),
+        sortBy: document.getElementById("sortBy"),
+        resetBtn: document.getElementById("resetBtn"),
+      };
+
+      function normalizeShip(raw, index) {
+        return {
+          index,
+          type: raw._type ?? "UNKNOWN",
+          name: raw.Name ?? "(no name)",
+          classNum: Number(raw.Class ?? 0),
+          price: Number(raw.Price ?? 0),
+          speed: Number(raw.SpeedRate ?? 0),
+          crew: Number(raw.MaxCrew ?? 0),
+          canEncounter: Boolean(raw.CanEncounter),
+          isMerchant: Boolean(raw.Type?.Merchant),
+          isWar: Boolean(raw.Type?.War),
+          soundType: raw.Soundtype ?? "-",
+          raw,
+        };
+      }
+
+      function updateStatus(message, isError = false) {
+        elements.status.textContent = message;
+        elements.status.style.color = isError
+          ? "var(--danger)"
+          : "var(--muted)";
+      }
+
+      function setData(data) {
+        if (!Array.isArray(data)) {
+          throw new Error("Ожидался JSON-массив объектов кораблей.");
+        }
+
+        state.allShips = data.map(normalizeShip);
+        buildClassFilter();
+        applyFiltersAndRender();
+        updateStatus(`Загружено кораблей: ${state.allShips.length}`);
+      }
+
+      function buildClassFilter() {
+        const values = [
+          ...new Set(
+            state.allShips.map((s) => s.classNum).filter(Number.isFinite),
+          ),
+        ].sort((a, b) => a - b);
+        const selected = elements.classFilter.value;
+        elements.classFilter.innerHTML = '<option value="all">Все</option>';
+        values.forEach((v) => {
+          const option = document.createElement("option");
+          option.value = String(v);
+          option.textContent = String(v);
+          elements.classFilter.appendChild(option);
+        });
+        if (
+          [...elements.classFilter.options].some((o) => o.value === selected)
+        ) {
+          elements.classFilter.value = selected;
+        }
+      }
+
+      function shipMatchesTypeFilter(ship, value) {
+        if (value === "all") return true;
+        if (value === "merchant") return ship.isMerchant;
+        if (value === "war") return ship.isWar;
+        if (value === "mixed") return ship.isMerchant && ship.isWar;
+        if (value === "none") return !ship.isMerchant && !ship.isWar;
+        return true;
+      }
+
+      function applyFiltersAndRender() {
+        const q = elements.search.value.trim().toLowerCase();
+        const classFilter = elements.classFilter.value;
+        const encounterFilter = elements.encounterFilter.value;
+        const typeFilter = elements.typeFilter.value;
+        const sortBy = elements.sortBy.value;
+
+        let list = state.allShips.filter((ship) => {
+          if (q) {
+            const hay =
+              `${ship.name} ${ship.type} ${ship.soundType}`.toLowerCase();
+            if (!hay.includes(q)) return false;
+          }
+
+          if (classFilter !== "all" && String(ship.classNum) !== classFilter) {
+            return false;
+          }
+
+          if (encounterFilter === "yes" && !ship.canEncounter) return false;
+          if (encounterFilter === "no" && ship.canEncounter) return false;
+
+          return shipMatchesTypeFilter(ship, typeFilter);
+        });
+
+        list.sort((a, b) => {
+          switch (sortBy) {
+            case "name-desc":
+              return b.name.localeCompare(a.name);
+            case "class-asc":
+              return a.classNum - b.classNum;
+            case "class-desc":
+              return b.classNum - a.classNum;
+            case "price-asc":
+              return a.price - b.price;
+            case "price-desc":
+              return b.price - a.price;
+            case "speed-desc":
+              return b.speed - a.speed;
+            case "crew-desc":
+              return b.crew - a.crew;
+            case "name-asc":
+            default:
+              return a.name.localeCompare(b.name);
+          }
+        });
+
+        state.filteredShips = list;
+        renderCards();
+
+        if (
+          state.selectedType &&
+          !list.some((s) => s.type === state.selectedType)
+        ) {
+          state.selectedType = null;
+          elements.details.innerHTML =
+            '<div class="empty">Выберите карточку корабля, чтобы увидеть детали.</div>';
+        }
+
+        updateStatus(`Показано: ${list.length} из ${state.allShips.length}`);
+      }
+
+      function formatNumber(value) {
+        if (!Number.isFinite(value)) return "-";
+        return Number.isInteger(value) ? String(value) : value.toFixed(2);
+      }
+
+      function renderCards() {
+        elements.cards.innerHTML = "";
+
+        if (!state.filteredShips.length) {
+          elements.cards.innerHTML =
+            '<div class="empty">Ничего не найдено. Измените фильтры.</div>';
+          return;
+        }
+
+        const fragment = document.createDocumentFragment();
+
+        state.filteredShips.forEach((ship) => {
+          const card = document.createElement("article");
+          card.className = "ship-card";
+          if (ship.type === state.selectedType) card.classList.add("active");
+
+          card.innerHTML = `
+          <h3 class="ship-name">${escapeHtml(ship.name)}</h3>
+          <div class="ship-meta">Класс: ${formatNumber(ship.classNum)}</div>
+          <div class="chip-row">
+            <span class="chip">Скорость: ${formatNumber(ship.speed)}</span>
+            <span class="chip">Экипаж: ${formatNumber(ship.crew)}</span>
+            <span class="chip">Цена: ${formatNumber(ship.price)}</span>
+            ${ship.canEncounter ? '<span class="chip ok">Можно встретить</span>' : '<span class="chip">Не встречается</span>'}
+            ${ship.isMerchant ? '<span class="chip warn">Торговый</span>' : ""}
+            ${ship.isWar ? '<span class="chip warn">Военный</span>' : ""}
+          </div>
+        `;
+
+          card.addEventListener("click", () => {
+            state.selectedType = ship.type;
+            renderCards();
+            renderDetails(ship);
+          });
+
+          fragment.appendChild(card);
+        });
+
+        elements.cards.appendChild(fragment);
+      }
+
+      function renderDetails(ship) {
+        const d = ship.raw;
+        const role =
+          ship.isMerchant && ship.isWar
+            ? "Торгово-военный"
+            : ship.isMerchant
+              ? "Торговый"
+              : ship.isWar
+                ? "Военный"
+                : "Без назначения";
+        elements.details.innerHTML = `
+        <h2 style="margin-top:0; margin-bottom:8px;">${escapeHtml(ship.name)}</h2>
+        <div class="detail-list">
+          <div class="detail-item"><span>Класс</span><strong>${formatNumber(ship.classNum)}</strong></div>
+          <div class="detail-item"><span>Скорость</span><strong>${formatNumber(ship.speed)}</strong></div>
+          <div class="detail-item"><span>Экипаж (макс.)</span><strong>${formatNumber(ship.crew)}</strong></div>
+          <div class="detail-item"><span>Цена</span><strong>${formatNumber(ship.price)}</strong></div>
+          <div class="detail-item"><span>Макс. калибр</span><strong>${formatNumber(Number(d.MaxCaliber ?? 0))}</strong></div>
+          <div class="detail-item"><span>Пушек</span><strong>${formatNumber(Number(d.CannonsQuantity ?? 0))}</strong></div>
+          <div class="detail-item"><span>Грузоподъемность</span><strong>${formatNumber(Number(d.Capacity ?? 0))}</strong></div>
+          <div class="detail-item"><span>Назначение</span><strong>${role}</strong></div>
+          <div class="detail-item"><span>Встречается в мире</span><strong>${ship.canEncounter ? "Да" : "Нет"}</strong></div>
+        </div>
+      `;
+      }
+
+      function escapeHtml(text) {
+        return String(text)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+
+      async function loadDefaultFile() {
+        updateStatus("Загрузка ships.json...");
+
+        try {
+          const response = await fetch("./ships.json", { cache: "no-store" });
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+          }
+          const data = await response.json();
+          setData(data);
+        } catch (err) {
+          updateStatus(
+            "Не удалось загрузить ships.json. Выберите файл вручную.",
+            true,
+          );
+        }
+      }
+
+      elements.search.addEventListener("input", applyFiltersAndRender);
+      elements.classFilter.addEventListener("change", applyFiltersAndRender);
+      elements.encounterFilter.addEventListener(
+        "change",
+        applyFiltersAndRender,
+      );
+      elements.typeFilter.addEventListener("change", applyFiltersAndRender);
+      elements.sortBy.addEventListener("change", applyFiltersAndRender);
+
+      elements.resetBtn.addEventListener("click", () => {
+        elements.search.value = "";
+        elements.classFilter.value = "all";
+        elements.encounterFilter.value = "all";
+        elements.typeFilter.value = "all";
+        elements.sortBy.value = "name-asc";
+        applyFiltersAndRender();
+      });
+
+      loadDefaultFile();
+    </script>
+  </body>
+</html>
