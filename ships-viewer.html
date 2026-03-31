@@ -208,12 +208,6 @@
         background: rgba(255, 255, 255, 0.03);
       }
 
-      .chip.ok {
-        color: #0c2b12;
-        background: color-mix(in srgb, var(--ok) 75%, white 10%);
-        border-color: transparent;
-      }
-
       .chip.warn {
         color: #2f1b00;
         background: color-mix(in srgb, var(--accent-2) 82%, white 8%);
@@ -312,22 +306,23 @@
           </div>
 
           <div class="field span-2">
-            <label for="encounterFilter">Встречается в мире</label>
-            <select id="encounterFilter">
+            <label for="speedFilter">Скорость</label>
+            <select id="speedFilter">
               <option value="all">Все</option>
-              <option value="yes">Да</option>
-              <option value="no">Нет</option>
+              <option value="fast">Быстрые (12+)</option>
+              <option value="medium">Средние (9-11.99)</option>
+              <option value="slow">Медленные (до 8.99)</option>
             </select>
           </div>
 
           <div class="field span-2">
-            <label for="typeFilter">Тип</label>
-            <select id="typeFilter">
+            <label for="cannonFilter">Вооружение</label>
+            <select id="cannonFilter">
               <option value="all">Все</option>
-              <option value="merchant">Торговый</option>
-              <option value="war">Военный</option>
-              <option value="mixed">Торгово-военный</option>
-              <option value="none">Без назначения</option>
+              <option value="heavy">Тяжелое (30+ пушек)</option>
+              <option value="medium">Среднее (12-29 пушек)</option>
+              <option value="light">Легкое (1-11 пушек)</option>
+              <option value="none">Без пушек</option>
             </select>
           </div>
 
@@ -387,8 +382,8 @@
         status: document.getElementById("status"),
         search: document.getElementById("search"),
         classFilter: document.getElementById("classFilter"),
-        encounterFilter: document.getElementById("encounterFilter"),
-        typeFilter: document.getElementById("typeFilter"),
+        speedFilter: document.getElementById("speedFilter"),
+        cannonFilter: document.getElementById("cannonFilter"),
         sortBy: document.getElementById("sortBy"),
         resetBtn: document.getElementById("resetBtn"),
       };
@@ -402,7 +397,7 @@
           price: Number(raw.Price ?? 0),
           speed: Number(raw.SpeedRate ?? 0),
           crew: Number(raw.MaxCrew ?? 0),
-          canEncounter: Boolean(raw.CanEncounter),
+          cannons: Number(raw.CannonsQuantity ?? 0),
           isMerchant: Boolean(raw.Type?.Merchant),
           isWar: Boolean(raw.Type?.War),
           soundType: raw.Soundtype ?? "-",
@@ -449,20 +444,28 @@
         }
       }
 
-      function shipMatchesTypeFilter(ship, value) {
+      function shipMatchesSpeedFilter(ship, value) {
         if (value === "all") return true;
-        if (value === "merchant") return ship.isMerchant;
-        if (value === "war") return ship.isWar;
-        if (value === "mixed") return ship.isMerchant && ship.isWar;
-        if (value === "none") return !ship.isMerchant && !ship.isWar;
+        if (value === "fast") return ship.speed >= 12;
+        if (value === "medium") return ship.speed >= 9 && ship.speed < 12;
+        if (value === "slow") return ship.speed < 9;
+        return true;
+      }
+
+      function shipMatchesCannonFilter(ship, value) {
+        if (value === "all") return true;
+        if (value === "heavy") return ship.cannons >= 30;
+        if (value === "medium") return ship.cannons >= 12 && ship.cannons < 30;
+        if (value === "light") return ship.cannons >= 1 && ship.cannons < 12;
+        if (value === "none") return ship.cannons === 0;
         return true;
       }
 
       function applyFiltersAndRender() {
         const q = elements.search.value.trim().toLowerCase();
         const classFilter = elements.classFilter.value;
-        const encounterFilter = elements.encounterFilter.value;
-        const typeFilter = elements.typeFilter.value;
+        const speedFilter = elements.speedFilter.value;
+        const cannonFilter = elements.cannonFilter.value;
         const sortBy = elements.sortBy.value;
 
         let list = state.allShips.filter((ship) => {
@@ -476,10 +479,8 @@
             return false;
           }
 
-          if (encounterFilter === "yes" && !ship.canEncounter) return false;
-          if (encounterFilter === "no" && ship.canEncounter) return false;
-
-          return shipMatchesTypeFilter(ship, typeFilter);
+          if (!shipMatchesSpeedFilter(ship, speedFilter)) return false;
+          return shipMatchesCannonFilter(ship, cannonFilter);
         });
 
         list.sort((a, b) => {
@@ -547,7 +548,7 @@
             <span class="chip">Скорость: ${formatNumber(ship.speed)}</span>
             <span class="chip">Экипаж: ${formatNumber(ship.crew)}</span>
             <span class="chip">Цена: ${formatNumber(ship.price)}</span>
-            ${ship.canEncounter ? '<span class="chip ok">Можно встретить</span>' : '<span class="chip">Не встречается</span>'}
+            <span class="chip">Пушек: ${formatNumber(ship.cannons)}</span>
             ${ship.isMerchant ? '<span class="chip warn">Торговый</span>' : ""}
             ${ship.isWar ? '<span class="chip warn">Военный</span>' : ""}
           </div>
@@ -585,8 +586,9 @@
           <div class="detail-item"><span>Макс. калибр</span><strong>${formatNumber(Number(d.MaxCaliber ?? 0))}</strong></div>
           <div class="detail-item"><span>Пушек</span><strong>${formatNumber(Number(d.CannonsQuantity ?? 0))}</strong></div>
           <div class="detail-item"><span>Грузоподъемность</span><strong>${formatNumber(Number(d.Capacity ?? 0))}</strong></div>
+          <div class="detail-item"><span>Прочность корпуса (HP)</span><strong>${formatNumber(Number(d.HP ?? 0))}</strong></div>
+          <div class="detail-item"><span>Маневренность</span><strong>${formatNumber(Number(d.TurnRate ?? 0))}</strong></div>
           <div class="detail-item"><span>Назначение</span><strong>${role}</strong></div>
-          <div class="detail-item"><span>Встречается в мире</span><strong>${ship.canEncounter ? "Да" : "Нет"}</strong></div>
         </div>
       `;
       }
@@ -620,18 +622,15 @@
 
       elements.search.addEventListener("input", applyFiltersAndRender);
       elements.classFilter.addEventListener("change", applyFiltersAndRender);
-      elements.encounterFilter.addEventListener(
-        "change",
-        applyFiltersAndRender,
-      );
-      elements.typeFilter.addEventListener("change", applyFiltersAndRender);
+      elements.speedFilter.addEventListener("change", applyFiltersAndRender);
+      elements.cannonFilter.addEventListener("change", applyFiltersAndRender);
       elements.sortBy.addEventListener("change", applyFiltersAndRender);
 
       elements.resetBtn.addEventListener("click", () => {
         elements.search.value = "";
         elements.classFilter.value = "all";
-        elements.encounterFilter.value = "all";
-        elements.typeFilter.value = "all";
+        elements.speedFilter.value = "all";
+        elements.cannonFilter.value = "all";
         elements.sortBy.value = "name-asc";
         applyFiltersAndRender();
       });
