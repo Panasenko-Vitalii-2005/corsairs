@@ -603,20 +603,19 @@
       }
 
       async function loadDefaultFile() {
-        updateStatus("Загрузка ships.json...");
+        updateStatus("Загрузка public-ships-data.json...");
 
         try {
-          const response = await fetch("./ships.json", { cache: "no-store" });
+          const response = await fetch("./public-ships-data.json", {
+            cache: "no-store",
+          });
           if (!response.ok) {
             throw new Error(`HTTP ${response.status}`);
           }
           const data = await response.json();
           setData(data);
         } catch (err) {
-          updateStatus(
-            "Не удалось загрузить ships.json. Выберите файл вручную.",
-            true,
-          );
+          updateStatus("Не удалось загрузить public-ships-data.json.", true);
         }
       }
 

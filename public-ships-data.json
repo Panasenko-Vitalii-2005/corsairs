@@ -1,0 +1,5931 @@
+[
+  {
+    "_type": "SHIP_BOAT",
+    "Name": "Boat",
+    "Soundtype": "lugger",
+    "Class": 7,
+    "Cannon": "CANNON_TYPE_NONECANNON",
+    "MaxCaliber": 0,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 10
+    },
+    "Capacity": 50,
+    "CannonsQuantity": 0,
+    "rcannon": 0,
+    "lcannon": 0,
+    "fcannon": 0,
+    "bcannon": 0,
+    "MaxCrew": 10,
+    "MinCrew": 2,
+    "BoardingCrew": 0,
+    "GunnerCrew": 0,
+    "CannonerCrew": 0,
+    "SailorCrew": 10,
+    "SpeedRate": 4,
+    "TurnRate": 40,
+    "Price": 100,
+    "HP": 100,
+    "SP": 100,
+    "CanEncounter": false,
+    "Type": {
+      "Merchant": false,
+      "War": false
+    },
+    "lowpolycrew": 0,
+    "WaterLine": -0.3,
+    "Massa": 10000,
+    "Volume": 100,
+    "InertiaAccelerationX": 5,
+    "InertiaBrakingX": 3,
+    "InertiaAccelerationY": 0.4,
+    "InertiaBrakingY": 0.2,
+    "InertiaAccelerationZ": 0.15,
+    "InertiaBrakingZ": 0.05
+  },
+  {
+    "_type": "SHIP_BARKAS",
+    "Name": "Barkas",
+    "Soundtype": "lugger",
+    "Class": 7,
+    "Cannon": "CANNON_TYPE_NONECANNON",
+    "MaxCaliber": 0,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 10
+    },
+    "Capacity": 60,
+    "CannonsQuantity": 0,
+    "rcannon": 0,
+    "lcannon": 0,
+    "fcannon": 0,
+    "bcannon": 0,
+    "MaxCrew": 12,
+    "MinCrew": 3,
+    "BoardingCrew": 2,
+    "GunnerCrew": 2,
+    "CannonerCrew": 16,
+    "SailorCrew": 20,
+    "SpeedRate": 9.5,
+    "TurnRate": 50,
+    "Price": 650,
+    "HP": 105,
+    "SP": 100,
+    "CanEncounter": false,
+    "Type": {
+      "Merchant": false,
+      "War": false
+    },
+    "fWindAgainstSpeed": 10,
+    "sea_enchantment": 4,
+    "lowpolycrew": 2,
+    "buildtime": 10,
+    "Massa": 10000,
+    "Volume": 20,
+    "WaterLine": -0.05,
+    "WindAgainstSpeed": 8,
+    "InertiaAccelerationX": 3,
+    "InertiaBrakingX": 2,
+    "InertiaAccelerationY": 14,
+    "InertiaBrakingY": 5,
+    "InertiaAccelerationZ": 5,
+    "InertiaBrakingZ": 3,
+    "Height": {
+      "Bombs": {
+        "Y": 0.4,
+        "DY": 0.2
+      },
+      "Grapes": {
+        "Y": 1.3,
+        "DY": 0.6
+      },
+      "Knippels": {
+        "Y": 6.5,
+        "DY": 5.8
+      },
+      "Balls": {
+        "Y": 0.4,
+        "DY": 0.2
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.2,
+      "LifeTime": 9,
+      "Width": "1.0, 2.0",
+      "Speed": "5.2, 6.2"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 7,
+      "Width": "1.2, 2.0",
+      "Speed": "0.15, 0.25"
+    },
+    "nation": {
+      "england": true,
+      "france": true,
+      "spain": true,
+      "holland": true,
+      "pirate": false
+    }
+  },
+  {
+    "_type": "SHIP_TARTANE",
+    "Name": "Tartane",
+    "Soundtype": "lugger",
+    "Class": 7,
+    "Cannon": "CANNON_TYPE_NONECANNON",
+    "MaxCaliber": 0,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 10
+    },
+    "Capacity": 155,
+    "CannonsQuantity": 0,
+    "rcannon": 0,
+    "lcannon": 0,
+    "fcannon": 0,
+    "bcannon": 0,
+    "MaxCrew": 17,
+    "MinCrew": 4,
+    "BoardingCrew": 2,
+    "GunnerCrew": 2,
+    "CannonerCrew": 16,
+    "SailorCrew": 20,
+    "SpeedRate": 11.8,
+    "TurnRate": 55,
+    "Price": 1000,
+    "HP": 215,
+    "SP": 100,
+    "CanEncounter": false,
+    "Type": {
+      "Merchant": false,
+      "War": false
+    },
+    "fWindAgainstSpeed": 10,
+    "sea_enchantment": 4,
+    "lowpolycrew": 3,
+    "buildtime": 10,
+    "Massa": 10000,
+    "Volume": 20,
+    "WaterLine": 0.1,
+    "WindAgainstSpeed": 8.7,
+    "InertiaAccelerationX": 3,
+    "InertiaBrakingX": 2,
+    "InertiaAccelerationY": 14,
+    "InertiaBrakingY": 5,
+    "InertiaAccelerationZ": 5,
+    "InertiaBrakingZ": 3,
+    "Height": {
+      "Bombs": {
+        "Y": 0.4,
+        "DY": 0.2
+      },
+      "Grapes": {
+        "Y": 1.3,
+        "DY": 0.6
+      },
+      "Knippels": {
+        "Y": 6.5,
+        "DY": 5.8
+      },
+      "Balls": {
+        "Y": 0.4,
+        "DY": 0.2
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.2,
+      "LifeTime": 9,
+      "Width": "1.0, 2.0",
+      "Speed": "5.2, 6.2"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 7,
+      "Width": "1.2, 2.0",
+      "Speed": "0.15, 0.25"
+    },
+    "nation": {
+      "england": true,
+      "france": true,
+      "spain": true,
+      "holland": true,
+      "pirate": false
+    }
+  },
+  {
+    "_type": "SHIP_LIUTO",
+    "Name": "Liuto",
+    "Soundtype": "lugger",
+    "Class": 7,
+    "Cannon": "CANNON_TYPE_NONECANNON",
+    "MaxCaliber": 0,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 10
+    },
+    "Capacity": 310,
+    "CannonsQuantity": 0,
+    "rcannon": 0,
+    "lcannon": 0,
+    "fcannon": 0,
+    "bcannon": 0,
+    "MaxCrew": 25,
+    "MinCrew": 4,
+    "BoardingCrew": 2,
+    "GunnerCrew": 2,
+    "CannonerCrew": 16,
+    "SailorCrew": 20,
+    "SpeedRate": 13.6,
+    "TurnRate": 55,
+    "Price": 2250,
+    "HP": 325,
+    "SP": 100,
+    "CanEncounter": true,
+    "Type": {
+      "Merchant": true,
+      "War": false
+    },
+    "fWindAgainstSpeed": 12,
+    "sea_enchantment": 4,
+    "lowpolycrew": 2,
+    "buildtime": 10,
+    "Massa": 10000,
+    "Volume": 20,
+    "WaterLine": 0,
+    "WindAgainstSpeed": 9.5,
+    "InertiaAccelerationX": 3,
+    "InertiaBrakingX": 2,
+    "InertiaAccelerationY": 14,
+    "InertiaBrakingY": 5,
+    "InertiaAccelerationZ": 5,
+    "InertiaBrakingZ": 3,
+    "Height": {
+      "Bombs": {
+        "Y": 0.4,
+        "DY": 0.2
+      },
+      "Grapes": {
+        "Y": 1.3,
+        "DY": 0.6
+      },
+      "Knippels": {
+        "Y": 6.5,
+        "DY": 5.8
+      },
+      "Balls": {
+        "Y": 0.4,
+        "DY": 0.2
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.2,
+      "LifeTime": 9,
+      "Width": "1.0, 2.0",
+      "Speed": "5.2, 6.2"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 7,
+      "Width": "1.2, 2.0",
+      "Speed": "0.15, 0.25"
+    },
+    "nation": {
+      "england": true,
+      "france": true,
+      "spain": true,
+      "holland": true,
+      "pirate": false
+    }
+  },
+  {
+    "_type": "SHIP_WAR_TARTANE",
+    "Name": "WarTartane",
+    "Soundtype": "lugger",
+    "Class": 7,
+    "Cannon": "CANNON_TYPE_CANNON_LBS3",
+    "MaxCaliber": 3,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 30
+    },
+    "Capacity": 400,
+    "CannonsQuantity": 6,
+    "rcannon": 3,
+    "lcannon": 3,
+    "fcannon": 0,
+    "bcannon": 0,
+    "MaxCrew": 32,
+    "MinCrew": 5,
+    "BoardingCrew": 2,
+    "GunnerCrew": 2,
+    "CannonerCrew": 16,
+    "SailorCrew": 20,
+    "SpeedRate": 14.2,
+    "TurnRate": 65,
+    "Price": 4500,
+    "HP": 360,
+    "SP": 100,
+    "CanEncounter": true,
+    "Type": {
+      "Merchant": true,
+      "War": true
+    },
+    "fWindAgainstSpeed": 10,
+    "sea_enchantment": 4,
+    "lowpolycrew": 3,
+    "buildtime": 10,
+    "Massa": 50000,
+    "Volume": 100,
+    "WaterLine": 0.1,
+    "SpeedDependWeight": 0.2,
+    "SubSeaDependWeight": 0.4,
+    "TurnDependWeight": 0.2,
+    "WindAgainstSpeed": 10.9,
+    "InertiaAccelerationX": 3,
+    "InertiaBrakingX": 2,
+    "InertiaAccelerationY": 14,
+    "InertiaBrakingY": 5,
+    "InertiaAccelerationZ": 5,
+    "InertiaBrakingZ": 3,
+    "Height": {
+      "Bombs": {
+        "Y": 1,
+        "DY": 0.5
+      },
+      "Grapes": {
+        "Y": 1.8,
+        "DY": 0.9
+      },
+      "Knippels": {
+        "Y": 6.7,
+        "DY": 6.7
+      },
+      "Balls": {
+        "Y": 1,
+        "DY": 0.5
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.2,
+      "LifeTime": 9,
+      "Width": "1.0, 2.0",
+      "Speed": "5.2, 6.2"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 7,
+      "Width": "1.2, 2.0",
+      "Speed": "0.15, 0.25"
+    },
+    "nation": {
+      "england": true,
+      "france": true,
+      "spain": true,
+      "holland": true,
+      "pirate": true
+    }
+  },
+  {
+    "_type": "SHIP_FELUCA",
+    "Name": "Feluca",
+    "Soundtype": "lugger",
+    "Class": 7,
+    "Cannon": "CANNON_TYPE_CANNON_LBS6",
+    "MaxCaliber": 6,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 10
+    },
+    "Capacity": 500,
+    "CannonsQuantity": 8,
+    "rcannon": 4,
+    "lcannon": 4,
+    "fcannon": 0,
+    "bcannon": 0,
+    "MaxCrew": 38,
+    "MinCrew": 5,
+    "BoardingCrew": 2,
+    "GunnerCrew": 2,
+    "CannonerCrew": 16,
+    "SailorCrew": 20,
+    "SpeedRate": 12.1,
+    "TurnRate": 55,
+    "Price": 7500,
+    "HP": 420,
+    "SP": 100,
+    "CanEncounter": true,
+    "Type": {
+      "Merchant": true,
+      "War": true
+    },
+    "fWindAgainstSpeed": 10,
+    "sea_enchantment": 4,
+    "lowpolycrew": 3,
+    "buildtime": 10,
+    "Massa": 50000,
+    "Volume": 100,
+    "WaterLine": -0.25,
+    "SpeedDependWeight": 0.07,
+    "SubSeaDependWeight": 0.4,
+    "TurnDependWeight": 0.8,
+    "WindAgainstSpeed": 8.9,
+    "InertiaAccelerationX": 3,
+    "InertiaBrakingX": 2,
+    "InertiaAccelerationY": 14,
+    "InertiaBrakingY": 5,
+    "InertiaAccelerationZ": 5,
+    "InertiaBrakingZ": 3,
+    "Height": {
+      "Bombs": {
+        "Y": 1,
+        "DY": 0.5
+      },
+      "Grapes": {
+        "Y": 1,
+        "DY": 0.5
+      },
+      "Knippels": {
+        "Y": 11,
+        "DY": 3.5
+      },
+      "Balls": {
+        "Y": 1,
+        "DY": 0.5
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.2,
+      "LifeTime": 9,
+      "Width": "1.0, 2.0",
+      "Speed": "5.2, 6.2"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 7,
+      "Width": "1.2, 2.0",
+      "Speed": "0.15, 0.25"
+    },
+    "nation": {
+      "england": true,
+      "france": true,
+      "spain": true,
+      "holland": true,
+      "pirate": true
+    }
+  },
+  {
+    "_type": "SHIP_BILANCETTA",
+    "Name": "Bilancetta",
+    "Soundtype": "lugger",
+    "Class": 7,
+    "Cannon": "CANNON_TYPE_CANNON_LBS6",
+    "MaxCaliber": 6,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 80
+    },
+    "Capacity": 450,
+    "CannonsQuantity": 6,
+    "rcannon": 3,
+    "lcannon": 3,
+    "fcannon": 0,
+    "bcannon": 0,
+    "MaxCrew": 45,
+    "MinCrew": 8,
+    "BoardingCrew": 70,
+    "GunnerCrew": 12,
+    "CannonerCrew": 48,
+    "SailorCrew": 120,
+    "SpeedRate": 14.4,
+    "TurnRate": 62,
+    "Price": 9500,
+    "HP": 550,
+    "SP": 100,
+    "Type": {
+      "Merchant": false,
+      "War": true
+    },
+    "fWindAgainstSpeed": 6,
+    "sea_enchantment": 2,
+    "lowpolycrew": 4,
+    "buildtime": 15,
+    "Rocking": {
+      "y": 0.5,
+      "az": 0.035
+    },
+    "WaterLine": -0.1,
+    "SpeedDependWeight": 0.2,
+    "SubSeaDependWeight": 0.6,
+    "TurnDependWeight": 0.2,
+    "WindAgainstSpeed": 11.2,
+    "InertiaAccelerationX": 10,
+    "InertiaBrakingX": 10,
+    "InertiaAccelerationY": 10,
+    "InertiaBrakingY": 10,
+    "InertiaAccelerationZ": 10,
+    "InertiaBrakingZ": 10,
+    "Height": {
+      "Bombs": {
+        "Y": 1.65,
+        "DY": 1.35
+      },
+      "Grapes": {
+        "Y": 2.64,
+        "DY": 0.5
+      },
+      "Knippels": {
+        "Y": 14.64,
+        "DY": 13.5
+      },
+      "Balls": {
+        "Y": 1.65,
+        "DY": 1.35
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.2,
+      "LifeTime": 9,
+      "Width": "2.0, 3.0",
+      "Speed": "8.0, 10.0"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 7,
+      "Width": "3.0, 4.5",
+      "Speed": "0.15, 0.25"
+    },
+    "nation": {
+      "england": true,
+      "france": true,
+      "spain": true,
+      "holland": true,
+      "pirate": true
+    }
+  },
+  {
+    "_type": "SHIP_WAR_TARTANE",
+    "Name": "WarTartane",
+    "Soundtype": "lugger",
+    "Class": 7,
+    "Cannon": "CANNON_TYPE_CANNON_LBS8",
+    "MaxCaliber": 8,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 10
+    },
+    "Capacity": 210,
+    "CannonsQuantity": 8,
+    "rcannon": 4,
+    "lcannon": 4,
+    "fcannon": 0,
+    "bcannon": 0,
+    "MaxCrew": 20,
+    "MinCrew": 3,
+    "BoardingCrew": 2,
+    "GunnerCrew": 2,
+    "CannonerCrew": 16,
+    "SailorCrew": 20,
+    "SpeedRate": 14,
+    "TurnRate": 70,
+    "Price": 2500,
+    "HP": 210,
+    "SP": 100,
+    "CanEncounter": true,
+    "Type": {
+      "Merchant": true,
+      "War": true
+    },
+    "fWindAgainstSpeed": 10,
+    "sea_enchantment": 4,
+    "lowpolycrew": 3,
+    "buildtime": 10,
+    "Massa": 50000,
+    "Volume": 100,
+    "WaterLine": 0.1,
+    "SpeedDependWeight": 0.2,
+    "SubSeaDependWeight": 0.4,
+    "TurnDependWeight": 0.2,
+    "WindAgainstSpeed": 7,
+    "InertiaAccelerationX": 3,
+    "InertiaBrakingX": 2,
+    "InertiaAccelerationY": 14,
+    "InertiaBrakingY": 5,
+    "InertiaAccelerationZ": 5,
+    "InertiaBrakingZ": 3,
+    "Height": {
+      "Bombs": {
+        "Y": 1,
+        "DY": 0.5
+      },
+      "Grapes": {
+        "Y": 1.8,
+        "DY": 0.9
+      },
+      "Knippels": {
+        "Y": 6.7,
+        "DY": 6.7
+      },
+      "Balls": {
+        "Y": 1,
+        "DY": 0.5
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.2,
+      "LifeTime": 9,
+      "Width": "1.0, 2.0",
+      "Speed": "5.2, 6.2"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 7,
+      "Width": "1.2, 2.0",
+      "Speed": "0.15, 0.25"
+    }
+  },
+  {
+    "_type": "SHIP_LUGGER",
+    "Name": "Lugger",
+    "Soundtype": "lugger",
+    "Class": 6,
+    "Cannon": "CANNON_TYPE_CANNON_LBS6",
+    "MaxCaliber": 6,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 150
+    },
+    "Capacity": 750,
+    "CannonsQuantity": 12,
+    "CannonDiff": 1,
+    "rcannon": 4,
+    "lcannon": 4,
+    "fcannon": 2,
+    "bcannon": 2,
+    "MaxCrew": 51,
+    "MinCrew": 10,
+    "BoardingCrew": 25,
+    "GunnerCrew": 6,
+    "CannonerCrew": 24,
+    "SailorCrew": 50,
+    "SpeedRate": 14.7,
+    "TurnRate": 60,
+    "Price": 14000,
+    "HP": 620,
+    "SP": 100,
+    "Type": {
+      "Merchant": true,
+      "War": false
+    },
+    "fWindAgainstSpeed": 6,
+    "sea_enchantment": 2,
+    "lowpolycrew": 6,
+    "buildtime": 20,
+    "Rocking": {
+      "y": 0.5,
+      "az": 0.035
+    },
+    "WaterLine": 0.2,
+    "SpeedDependWeight": 0.2,
+    "SubSeaDependWeight": 0.6,
+    "TurnDependWeight": 0.2,
+    "WindAgainstSpeed": 10,
+    "InertiaAccelerationX": 10,
+    "InertiaBrakingX": 10,
+    "InertiaAccelerationY": 10,
+    "InertiaBrakingY": 10,
+    "InertiaAccelerationZ": 10,
+    "InertiaBrakingZ": 10,
+    "Height": {
+      "Bombs": {
+        "Y": 2.1,
+        "DY": 1
+      },
+      "Grapes": {
+        "Y": 3.1,
+        "DY": 1.5
+      },
+      "Knippels": {
+        "Y": 10.5,
+        "DY": 8.5
+      },
+      "Balls": {
+        "Y": 2.1,
+        "DY": 1
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.2,
+      "LifeTime": 9,
+      "Width": "2.0, 3.0",
+      "Speed": "8.0, 10.0"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 7,
+      "Width": "3.0, 4.5",
+      "Speed": "0.15, 0.25"
+    },
+    "nation": {
+      "england": true,
+      "france": true,
+      "spain": true,
+      "holland": true,
+      "pirate": true
+    }
+  },
+  {
+    "_type": "SHIP_LUGGER_W",
+    "Name": "Lugger_w",
+    "Soundtype": "lugger",
+    "Class": 6,
+    "Cannon": "CANNON_TYPE_CANNON_LBS8",
+    "MaxCaliber": 8,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 145
+    },
+    "Capacity": 650,
+    "CannonsQuantity": 12,
+    "CannonDiff": 1,
+    "rcannon": 4,
+    "lcannon": 4,
+    "fcannon": 2,
+    "bcannon": 2,
+    "MaxCrew": 63,
+    "MinCrew": 11,
+    "BoardingCrew": 70,
+    "GunnerCrew": 12,
+    "CannonerCrew": 48,
+    "SailorCrew": 120,
+    "SpeedRate": 13.7,
+    "TurnRate": 51,
+    "Price": 16500,
+    "HP": 850,
+    "SP": 100,
+    "Type": {
+      "Merchant": false,
+      "War": true
+    },
+    "fWindAgainstSpeed": 6,
+    "sea_enchantment": 2,
+    "lowpolycrew": 7,
+    "buildtime": 20,
+    "Rocking": {
+      "y": 0.5,
+      "az": 0.035
+    },
+    "CabinType": "Cabin_Small",
+    "WaterLine": -0.01,
+    "SpeedDependWeight": 0.2,
+    "SubSeaDependWeight": 0.6,
+    "TurnDependWeight": 0.2,
+    "WindAgainstSpeed": 11,
+    "InertiaAccelerationX": 10,
+    "InertiaBrakingX": 10,
+    "InertiaAccelerationY": 10,
+    "InertiaBrakingY": 10,
+    "InertiaAccelerationZ": 10,
+    "InertiaBrakingZ": 10,
+    "Height": {
+      "Bombs": {
+        "Y": 1.5,
+        "DY": 0.7
+      },
+      "Grapes": {
+        "Y": 2.7,
+        "DY": 1.3
+      },
+      "Knippels": {
+        "Y": 13.4,
+        "DY": 9.7
+      },
+      "Balls": {
+        "Y": 1.5,
+        "DY": 0.7
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.2,
+      "LifeTime": 9,
+      "Width": "2.0, 3.0",
+      "Speed": "8.0, 10.0"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 7,
+      "Width": "3.0, 4.5",
+      "Speed": "0.15, 0.25"
+    },
+    "HullsAmount": 6,
+    "nation": {
+      "england": true,
+      "france": true,
+      "spain": true,
+      "holland": true,
+      "pirate": true
+    }
+  },
+  {
+    "_type": "SHIP_SLOOP",
+    "Name": "Sloop",
+    "Soundtype": "lugger",
+    "Class": 6,
+    "Cannon": "CANNON_TYPE_CANNON_LBS6",
+    "MaxCaliber": 6,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 170
+    },
+    "Capacity": 800,
+    "CannonsQuantity": 16,
+    "CannonDiff": 1,
+    "rcannon": 6,
+    "lcannon": 6,
+    "fcannon": 2,
+    "bcannon": 2,
+    "MaxCrew": 66,
+    "MinCrew": 12,
+    "BoardingCrew": 40,
+    "GunnerCrew": 5,
+    "CannonerCrew": 32,
+    "SailorCrew": 80,
+    "SpeedRate": 13.3,
+    "TurnRate": 51,
+    "Price": 19000,
+    "HP": 875,
+    "SP": 100,
+    "Type": {
+      "Merchant": false,
+      "War": true
+    },
+    "fWindAgainstSpeed": 5,
+    "sea_enchantment": 2,
+    "lowpolycrew": 8,
+    "buildtime": 20,
+    "Rocking": {
+      "y": 0.45,
+      "az": 0.02
+    },
+    "CabinType": "Cabin_Small",
+    "WaterLine": 0,
+    "SpeedDependWeight": 0.2,
+    "SubSeaDependWeight": 0.3,
+    "TurnDependWeight": 0.3,
+    "WindAgainstSpeed": 9,
+    "Height": {
+      "Bombs": {
+        "Y": 2,
+        "DY": 1
+      },
+      "Grapes": {
+        "Y": 3.8,
+        "DY": 1.9
+      },
+      "Knippels": {
+        "Y": 15.2,
+        "DY": 13.9
+      },
+      "Balls": {
+        "Y": 2,
+        "DY": 1
+      }
+    },
+    "InertiaAccelerationX": 8,
+    "InertiaBrakingX": 8,
+    "InertiaAccelerationY": 8,
+    "InertiaBrakingY": 8,
+    "InertiaAccelerationZ": 8,
+    "InertiaBrakingZ": 8,
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.2,
+      "LifeTime": 9,
+      "Width": "2.0, 2.5",
+      "Speed": "5.2, 6.2"
+    },
+    "Track2": {
+      "ZStart": -0.05,
+      "LifeTime": 7,
+      "Width": "3.0, 4.0",
+      "Speed": "0.15, 0.25"
+    },
+    "nation": {
+      "england": true,
+      "france": true,
+      "spain": true,
+      "holland": true,
+      "pirate": true
+    }
+  },
+  {
+    "_type": "SHIP_SLOOP_W",
+    "Name": "Sloop_w",
+    "Soundtype": "lugger",
+    "Class": 6,
+    "Cannon": "CANNON_TYPE_CANNON_LBS8",
+    "MaxCaliber": 8,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 175
+    },
+    "Capacity": 750,
+    "CannonsQuantity": 14,
+    "CannonDiff": 0,
+    "rcannon": 5,
+    "lcannon": 5,
+    "fcannon": 2,
+    "bcannon": 2,
+    "MaxCrew": 84,
+    "MinCrew": 13,
+    "BoardingCrew": 40,
+    "GunnerCrew": 5,
+    "CannonerCrew": 32,
+    "SailorCrew": 80,
+    "SpeedRate": 12.5,
+    "TurnRate": 46,
+    "Price": 23000,
+    "HP": 950,
+    "SP": 100,
+    "Type": {
+      "Merchant": false,
+      "War": true
+    },
+    "fWindAgainstSpeed": 5,
+    "sea_enchantment": 2,
+    "lowpolycrew": 8,
+    "buildtime": 20,
+    "Rocking": {
+      "y": 0.45,
+      "az": 0.02
+    },
+    "CabinType": "Cabin_Small",
+    "WaterLine": 0,
+    "SpeedDependWeight": 0.2,
+    "SubSeaDependWeight": 0.3,
+    "TurnDependWeight": 0.3,
+    "WindAgainstSpeed": 8.5,
+    "Height": {
+      "Bombs": {
+        "Y": 1.6,
+        "DY": 1.25
+      },
+      "Grapes": {
+        "Y": 2.75,
+        "DY": 0.6
+      },
+      "Knippels": {
+        "Y": 13.2,
+        "DY": 8.5
+      },
+      "Balls": {
+        "Y": 1.6,
+        "DY": 1.25
+      }
+    },
+    "InertiaAccelerationX": 8,
+    "InertiaBrakingX": 8,
+    "InertiaAccelerationY": 8,
+    "InertiaBrakingY": 8,
+    "InertiaAccelerationZ": 8,
+    "InertiaBrakingZ": 8,
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.2,
+      "LifeTime": 9,
+      "Width": "2.0, 2.5",
+      "Speed": "5.2, 6.2"
+    },
+    "Track2": {
+      "ZStart": -0.05,
+      "LifeTime": 7,
+      "Width": "3.0, 4.0",
+      "Speed": "0.15, 0.25"
+    },
+    "HullsAmount": 6,
+    "nation": {
+      "england": true,
+      "france": true,
+      "spain": true,
+      "holland": true,
+      "pirate": false
+    }
+  },
+  {
+    "_type": "SHIP_CUTTER",
+    "Name": "Cutter",
+    "Soundtype": "lugger",
+    "Class": 6,
+    "Cannon": "CANNON_TYPE_CANNON_LBS8",
+    "MaxCaliber": 8,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 170
+    },
+    "Capacity": 700,
+    "CannonsQuantity": 18,
+    "CannonDiff": 2,
+    "rcannon": 7,
+    "lcannon": 7,
+    "fcannon": 2,
+    "bcannon": 2,
+    "MaxCrew": 71,
+    "MinCrew": 18,
+    "BoardingCrew": 40,
+    "GunnerCrew": 5,
+    "CannonerCrew": 32,
+    "SailorCrew": 80,
+    "SpeedRate": 14,
+    "TurnRate": 53,
+    "Price": 24400,
+    "HP": 900,
+    "SP": 100,
+    "Type": {
+      "Merchant": true,
+      "War": true
+    },
+    "fWindAgainstSpeed": 5,
+    "sea_enchantment": 2,
+    "lowpolycrew": 9,
+    "buildtime": 20,
+    "Rocking": {
+      "y": 0.45,
+      "az": 0.02
+    },
+    "CabinType": "Cabin_Small",
+    "WaterLine": 0.4,
+    "SpeedDependWeight": 0.15,
+    "SubSeaDependWeight": 0.3,
+    "TurnDependWeight": 0.15,
+    "WindAgainstSpeed": 8.5,
+    "Height": {
+      "Bombs": {
+        "Y": 1.2,
+        "DY": 0.6
+      },
+      "Grapes": {
+        "Y": 1.5,
+        "DY": 0.6
+      },
+      "Knippels": {
+        "Y": 14.2,
+        "DY": 8.5
+      },
+      "Balls": {
+        "Y": 1.2,
+        "DY": 0.6
+      }
+    },
+    "InertiaAccelerationX": 8,
+    "InertiaBrakingX": 8,
+    "InertiaAccelerationY": 8,
+    "InertiaBrakingY": 8,
+    "InertiaAccelerationZ": 8,
+    "InertiaBrakingZ": 8,
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.2,
+      "LifeTime": 9,
+      "Width": "2.0, 2.5",
+      "Speed": "5.2, 6.2"
+    },
+    "Track2": {
+      "ZStart": -0.05,
+      "LifeTime": 7,
+      "Width": "3.0, 4.0",
+      "Speed": "0.15, 0.25"
+    },
+    "HullsAmount": 4,
+    "nation": {
+      "england": true,
+      "france": true,
+      "spain": true,
+      "holland": true,
+      "pirate": true
+    }
+  },
+  {
+    "_type": "SHIP_SCHOONER",
+    "Name": "Schooner",
+    "Soundtype": "lugger",
+    "Class": 5,
+    "Cannon": "CANNON_TYPE_CANNON_LBS8",
+    "MaxCaliber": 8,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 250
+    },
+    "Capacity": 1600,
+    "CannonsQuantity": 12,
+    "CannonDiff": 1,
+    "rcannon": 5,
+    "lcannon": 5,
+    "fcannon": 0,
+    "bcannon": 2,
+    "MaxCrew": 115,
+    "MinCrew": 22,
+    "BoardingCrew": 60,
+    "GunnerCrew": 12,
+    "CannonerCrew": 40,
+    "SailorCrew": 120,
+    "SpeedRate": 13.9,
+    "TurnRate": 44,
+    "Price": 28000,
+    "HP": 1250,
+    "SP": 100,
+    "Type": {
+      "Merchant": true,
+      "War": false
+    },
+    "fWindAgainstSpeed": 8,
+    "sea_enchantment": 2,
+    "lowpolycrew": 10,
+    "buildtime": 40,
+    "Rocking": {
+      "y": 0.4,
+      "az": 0.03
+    },
+    "CabinType": "Cabin_Small",
+    "WaterLine": 0,
+    "SpeedDependWeight": 0.2,
+    "SubSeaDependWeight": 0.2,
+    "TurnDependWeight": 0.3,
+    "WindAgainstSpeed": 8.1,
+    "InertiaAccelerationX": 8,
+    "InertiaBrakingX": 8,
+    "InertiaAccelerationY": 6,
+    "InertiaBrakingY": 6,
+    "InertiaAccelerationZ": 6,
+    "InertiaBrakingZ": 6,
+    "Height": {
+      "Bombs": {
+        "Y": 1.7,
+        "DY": 0.8
+      },
+      "Grapes": {
+        "Y": 2.9,
+        "DY": 1.4
+      },
+      "Knippels": {
+        "Y": 13.9,
+        "DY": 13.7
+      },
+      "Balls": {
+        "Y": 1.7,
+        "DY": 0.8
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.2,
+      "LifeTime": 8,
+      "Width": "1.2, 2.2",
+      "Speed": "7.2, 8.2"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 6,
+      "Width": "2.2, 3.2",
+      "Speed": "0.15, 0.25"
+    },
+    "nation": {
+      "england": true,
+      "france": true,
+      "spain": true,
+      "holland": true,
+      "pirate": false
+    }
+  },
+  {
+    "_type": "SHIP_SCHOONER_W",
+    "Name": "Schooner_w",
+    "Soundtype": "lugger",
+    "Class": 5,
+    "Cannon": "CANNON_TYPE_CANNON_LBS12",
+    "MaxCaliber": 12,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 220
+    },
+    "Capacity": 1350,
+    "CannonsQuantity": 18,
+    "CannonDiff": 1,
+    "rcannon": 7,
+    "lcannon": 7,
+    "fcannon": 2,
+    "bcannon": 2,
+    "MaxCrew": 128,
+    "MinCrew": 24,
+    "BoardingCrew": 60,
+    "GunnerCrew": 12,
+    "CannonerCrew": 40,
+    "SailorCrew": 120,
+    "SpeedRate": 13.1,
+    "TurnRate": 48,
+    "Price": 30500,
+    "HP": 1400,
+    "SP": 100,
+    "Type": {
+      "Merchant": false,
+      "War": true
+    },
+    "fWindAgainstSpeed": 9.5,
+    "sea_enchantment": 2,
+    "lowpolycrew": 12,
+    "buildtime": 40,
+    "Rocking": {
+      "y": 0.4,
+      "az": 0.03
+    },
+    "WaterLine": 0,
+    "SpeedDependWeight": 0.2,
+    "SubSeaDependWeight": 0.2,
+    "TurnDependWeight": 0.3,
+    "WindAgainstSpeed": 9.2,
+    "CabinType": "Cabin_Medium",
+    "InertiaAccelerationX": 8,
+    "InertiaBrakingX": 8,
+    "InertiaAccelerationY": 6,
+    "InertiaBrakingY": 6,
+    "InertiaAccelerationZ": 6,
+    "InertiaBrakingZ": 6,
+    "Height": {
+      "Bombs": {
+        "Y": 1.7,
+        "DY": 0.8
+      },
+      "Grapes": {
+        "Y": 2.9,
+        "DY": 1.4
+      },
+      "Knippels": {
+        "Y": 13.9,
+        "DY": 13.7
+      },
+      "Balls": {
+        "Y": 1.7,
+        "DY": 0.8
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.2,
+      "LifeTime": 8,
+      "Width": "1.2, 2.2",
+      "Speed": "7.2, 8.2"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 6,
+      "Width": "2.2, 3.2",
+      "Speed": "0.15, 0.25"
+    },
+    "nation": {
+      "england": true,
+      "france": true,
+      "spain": true,
+      "holland": true,
+      "pirate": true
+    }
+  },
+  {
+    "_type": "SHIP_SCHOONER",
+    "Name": "Schooner",
+    "Soundtype": "lugger",
+    "Class": 5,
+    "Cannon": "CANNON_TYPE_CANNON_LBS12",
+    "MaxCaliber": 16,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 200
+    },
+    "Capacity": 1300,
+    "CannonsQuantity": 20,
+    "rcannon": 8,
+    "lcannon": 8,
+    "fcannon": 2,
+    "bcannon": 2,
+    "MaxCrew": 120,
+    "MinCrew": 24,
+    "BoardingCrew": 60,
+    "GunnerCrew": 12,
+    "CannonerCrew": 40,
+    "SailorCrew": 120,
+    "SpeedRate": 13,
+    "TurnRate": 35,
+    "Price": 35000,
+    "HP": 1250,
+    "SP": 100,
+    "Type": {
+      "Merchant": true,
+      "War": true
+    },
+    "fWindAgainstSpeed": 8,
+    "sea_enchantment": 2,
+    "lowpolycrew": 12,
+    "buildtime": 40,
+    "Rocking": {
+      "y": 0.4,
+      "az": 0.03
+    },
+    "WaterLine": -0.2,
+    "SpeedDependWeight": 0.2,
+    "SubSeaDependWeight": 0.2,
+    "TurnDependWeight": 0.3,
+    "WindAgainstSpeed": 7.5,
+    "InertiaAccelerationX": 8,
+    "InertiaBrakingX": 8,
+    "InertiaAccelerationY": 6,
+    "InertiaBrakingY": 6,
+    "InertiaAccelerationZ": 6,
+    "InertiaBrakingZ": 6,
+    "Height": {
+      "Bombs": {
+        "Y": 1.7,
+        "DY": 0.8
+      },
+      "Grapes": {
+        "Y": 2.9,
+        "DY": 1.4
+      },
+      "Knippels": {
+        "Y": 13.9,
+        "DY": 13.7
+      },
+      "Balls": {
+        "Y": 1.7,
+        "DY": 0.8
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.2,
+      "LifeTime": 8,
+      "Width": "1.2, 2.2",
+      "Speed": "7.2, 8.2"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 6,
+      "Width": "2.2, 3.2",
+      "Speed": "0.15, 0.25"
+    }
+  },
+  {
+    "_type": "SHIP_BARQUE",
+    "Name": "Barque",
+    "Soundtype": "lugger",
+    "Class": 5,
+    "Cannon": "CANNON_TYPE_CANNON_LBS8",
+    "MaxCaliber": 8,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 350
+    },
+    "Capacity": 1800,
+    "CannonsQuantity": 14,
+    "CannonDiff": 1,
+    "rcannon": 6,
+    "lcannon": 6,
+    "fcannon": 0,
+    "bcannon": 2,
+    "MaxCrew": 120,
+    "MinCrew": 20,
+    "BoardingCrew": 40,
+    "GunnerCrew": 8,
+    "CannonerCrew": 32,
+    "SailorCrew": 80,
+    "SpeedRate": 10.2,
+    "TurnRate": 31.5,
+    "Price": 26500,
+    "HP": 1500,
+    "SP": 100,
+    "Type": {
+      "Merchant": true,
+      "War": false
+    },
+    "fWindAgainstSpeed": 3.1,
+    "sea_enchantment": 1.8,
+    "lowpolycrew": 9,
+    "buildtime": 40,
+    "Rocking": {
+      "y": 0.4,
+      "az": 0.025
+    },
+    "CabinType": "Cabin_Medium",
+    "WaterLine": 0.15,
+    "SpeedDependWeight": 0.15,
+    "SubSeaDependWeight": 0.8,
+    "TurnDependWeight": 0.2,
+    "WindAgainstSpeed": 6.5,
+    "Height": {
+      "Bombs": {
+        "Y": 3.3,
+        "DY": 1.6
+      },
+      "Grapes": {
+        "Y": 4.9,
+        "DY": 2.4
+      },
+      "Knippels": {
+        "Y": 15.8,
+        "DY": 12.4
+      },
+      "Balls": {
+        "Y": 3.3,
+        "DY": 1.6
+      }
+    },
+    "InertiaAccelerationX": 4,
+    "InertiaBrakingX": 4,
+    "InertiaAccelerationY": 4,
+    "InertiaBrakingY": 4,
+    "InertiaAccelerationZ": 6,
+    "InertiaBrakingZ": 6,
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.2,
+      "LifeTime": 7.5,
+      "Width": "6.0, 7.0",
+      "Speed": "7.2, 9.2"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 5,
+      "Width": "6.0, 8.0",
+      "Speed": "0.15, 0.25"
+    },
+    "nation": {
+      "england": true,
+      "france": true,
+      "spain": true,
+      "holland": true,
+      "pirate": false
+    }
+  },
+  {
+    "_type": "SHIP_BARQUE_W",
+    "Name": "Barque_w",
+    "Soundtype": "lugger",
+    "Class": 5,
+    "Cannon": "CANNON_TYPE_CULVERINE_LBS12",
+    "MaxCaliber": 12,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 350
+    },
+    "Capacity": 1400,
+    "CannonsQuantity": 16,
+    "CannonDiff": 1,
+    "rcannon": 6,
+    "lcannon": 6,
+    "fcannon": 2,
+    "bcannon": 2,
+    "MaxCrew": 138,
+    "MinCrew": 18,
+    "BoardingCrew": 40,
+    "GunnerCrew": 8,
+    "CannonerCrew": 32,
+    "SailorCrew": 80,
+    "SpeedRate": 11.3,
+    "TurnRate": 37,
+    "Price": 28500,
+    "HP": 1700,
+    "SP": 100,
+    "Type": {
+      "Merchant": false,
+      "War": true
+    },
+    "fWindAgainstSpeed": 3,
+    "sea_enchantment": 1.8,
+    "lowpolycrew": 11,
+    "buildtime": 40,
+    "Rocking": {
+      "y": 0.4,
+      "az": 0.025
+    },
+    "CabinType": "Cabin_Medium",
+    "WaterLine": 0.5,
+    "SpeedDependWeight": 0.15,
+    "SubSeaDependWeight": 0.8,
+    "TurnDependWeight": 0.2,
+    "WindAgainstSpeed": 6.7,
+    "Height": {
+      "Bombs": {
+        "Y": 3.3,
+        "DY": 1.6
+      },
+      "Grapes": {
+        "Y": 4.9,
+        "DY": 2.4
+      },
+      "Knippels": {
+        "Y": 15.8,
+        "DY": 12.4
+      },
+      "Balls": {
+        "Y": 3.3,
+        "DY": 1.6
+      }
+    },
+    "InertiaAccelerationX": 4,
+    "InertiaBrakingX": 4,
+    "InertiaAccelerationY": 4,
+    "InertiaBrakingY": 4,
+    "InertiaAccelerationZ": 6,
+    "InertiaBrakingZ": 6,
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.2,
+      "LifeTime": 7.5,
+      "Width": "6.0, 7.0",
+      "Speed": "7.2, 9.2"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 5,
+      "Width": "6.0, 8.0",
+      "Speed": "0.15, 0.25"
+    },
+    "nation": {
+      "england": true,
+      "france": true,
+      "spain": true,
+      "holland": true,
+      "pirate": false
+    }
+  },
+  {
+    "_type": "SHIP_XEBEK_L",
+    "Name": "Xebek_l",
+    "Soundtype": "lugger",
+    "Class": 5,
+    "Cannon": "CANNON_TYPE_CANNON_LBS12",
+    "MaxCaliber": 12,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 380
+    },
+    "Capacity": 1350,
+    "CannonsQuantity": 18,
+    "CannonDiff": 1,
+    "rcannon": 7,
+    "lcannon": 7,
+    "fcannon": 2,
+    "bcannon": 2,
+    "MaxCrew": 130,
+    "MinCrew": 21,
+    "BoardingCrew": 130,
+    "GunnerCrew": 20,
+    "CannonerCrew": 38,
+    "SailorCrew": 220,
+    "SpeedRate": 14,
+    "TurnRate": 50,
+    "Price": 32555,
+    "HP": 1520,
+    "SP": 100,
+    "CabinType": "Cabin_Medium",
+    "Type": {
+      "Merchant": true,
+      "War": true
+    },
+    "fWindAgainstSpeed": 2,
+    "sea_enchantment": 1.8,
+    "lowpolycrew": 7,
+    "buildtime": 60,
+    "WindAgainstSpeed": 9.2,
+    "Rocking": {
+      "y": 0.5,
+      "az": 0.04
+    },
+    "WaterLine": 0.2,
+    "SpeedDependWeight": 0.3,
+    "SubSeaDependWeight": 0.6,
+    "TurnDependWeight": 0.3,
+    "InertiaAccelerationX": 5.5,
+    "InertiaBrakingX": 5.5,
+    "InertiaAccelerationY": 8,
+    "InertiaBrakingY": 8,
+    "InertiaAccelerationZ": 6,
+    "InertiaBrakingZ": 6,
+    "Height": {
+      "Bombs": {
+        "Y": 1.7,
+        "DY": 0.8
+      },
+      "Grapes": {
+        "Y": 3.4,
+        "DY": 1.7
+      },
+      "Knippels": {
+        "Y": 10.1,
+        "DY": 9.2
+      },
+      "Balls": {
+        "Y": 1.7,
+        "DY": 0.8
+      }
+    },
+    "GeraldSails": {
+      "rey_b2": {
+        "_value": 1,
+        "vscale": 0.8
+      },
+      "rey_b3": {
+        "_value": 1,
+        "vscale": 0.8
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.2,
+      "LifeTime": 12,
+      "Width": "2.0, 3.0",
+      "Speed": "6.0, 8.0"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 7.5,
+      "Width": "4.0, 6.0",
+      "Speed": "0.15, 0.25"
+    },
+    "nation": {
+      "england": false,
+      "france": true,
+      "spain": true,
+      "holland": true,
+      "pirate": true
+    }
+  },
+  {
+    "_type": "SHIP_BARKENTINE",
+    "Name": "Barkentine",
+    "Soundtype": "lugger",
+    "Class": 4,
+    "Cannon": "CANNON_TYPE_CANNON_LBS12",
+    "MaxCaliber": 12,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 350
+    },
+    "Capacity": 2000,
+    "CannonsQuantity": 16,
+    "CannonDiff": 1,
+    "rcannon": 6,
+    "lcannon": 6,
+    "fcannon": 2,
+    "bcannon": 2,
+    "MaxCrew": 157,
+    "MinCrew": 28,
+    "BoardingCrew": 95,
+    "GunnerCrew": 20,
+    "CannonerCrew": 38,
+    "SailorCrew": 180,
+    "SpeedRate": 11.8,
+    "TurnRate": 39,
+    "Price": 35000,
+    "HP": 2100,
+    "SP": 100,
+    "Type": {
+      "Merchant": true,
+      "War": false
+    },
+    "fWindAgainstSpeed": 2,
+    "sea_enchantment": 1.8,
+    "lowpolycrew": 12,
+    "buildtime": 60,
+    "Rocking": {
+      "y": 0.5,
+      "az": 0.04
+    },
+    "WaterLine": 1.15,
+    "SpeedDependWeight": 0.27,
+    "SubSeaDependWeight": 0.6,
+    "TurnDependWeight": 0.3,
+    "WindAgainstSpeed": 8,
+    "CabinType": "Cabin_Medium",
+    "InertiaAccelerationX": 5.5,
+    "InertiaBrakingX": 5.5,
+    "InertiaAccelerationY": 8,
+    "InertiaBrakingY": 8,
+    "InertiaAccelerationZ": 6,
+    "InertiaBrakingZ": 6,
+    "Height": {
+      "Bombs": {
+        "Y": 3.5,
+        "DY": 1.7
+      },
+      "Grapes": {
+        "Y": 4.8,
+        "DY": 2.4
+      },
+      "Knippels": {
+        "Y": 16.7,
+        "DY": 12.8
+      },
+      "Balls": {
+        "Y": 3.5,
+        "DY": 1.7
+      }
+    },
+    "GeraldSails": {
+      "rey_b2": {
+        "_value": 1,
+        "vscale": 0.8
+      },
+      "rey_b3": {
+        "_value": 1,
+        "vscale": 0.8
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.2,
+      "LifeTime": 12,
+      "Width": "2.0, 3.0",
+      "Speed": "6.0, 8.0"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 7.5,
+      "Width": "4.0, 6.0",
+      "Speed": "0.15, 0.25"
+    },
+    "nation": {
+      "england": false,
+      "france": false,
+      "spain": true,
+      "holland": true,
+      "pirate": false
+    }
+  },
+  {
+    "_type": "SHIP_BRIGANTINE_L",
+    "Name": "Brigantine_l",
+    "Soundtype": "corvette",
+    "Class": 4,
+    "Cannon": "CANNON_TYPE_CULVERINE_LBS16",
+    "MaxCaliber": 16,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 320
+    },
+    "Capacity": 1550,
+    "CannonsQuantity": 20,
+    "rcannon": 8,
+    "lcannon": 8,
+    "fcannon": 2,
+    "bcannon": 2,
+    "MaxCrew": 130,
+    "MinCrew": 30,
+    "BoardingCrew": 110,
+    "GunnerCrew": 18,
+    "CannonerCrew": 36,
+    "SailorCrew": 200,
+    "SpeedRate": 15.6,
+    "TurnRate": 47,
+    "Price": 36545,
+    "HP": 2000,
+    "SP": 100,
+    "CabinType": "Cabin_Medium",
+    "Type": {
+      "Merchant": false,
+      "War": true
+    },
+    "fWindAgainstSpeed": 2,
+    "sea_enchantment": 1.8,
+    "lowpolycrew": 12,
+    "buildtime": 60,
+    "WindAgainstSpeed": 9.5,
+    "Rocking": {
+      "y": 0.5,
+      "az": 0.04
+    },
+    "WaterLine": 0.1,
+    "SpeedDependWeight": 0.27,
+    "SubSeaDependWeight": 0.6,
+    "TurnDependWeight": 0.3,
+    "InertiaAccelerationX": 5.5,
+    "InertiaBrakingX": 5.5,
+    "InertiaAccelerationY": 8,
+    "InertiaBrakingY": 8,
+    "InertiaAccelerationZ": 6,
+    "InertiaBrakingZ": 6,
+    "Height": {
+      "Bombs": {
+        "Y": 2,
+        "DY": 1
+      },
+      "Grapes": {
+        "Y": 3.4,
+        "DY": 1.7
+      },
+      "Knippels": {
+        "Y": 13.2,
+        "DY": 11.6
+      },
+      "Balls": {
+        "Y": 2,
+        "DY": 1
+      }
+    },
+    "GeraldSails": {
+      "rey_b2": {
+        "_value": 1,
+        "vscale": 0.8
+      },
+      "rey_b3": {
+        "_value": 1,
+        "vscale": 0.8
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.2,
+      "LifeTime": 12,
+      "Width": "2.0, 3.0",
+      "Speed": "6.0, 8.0"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 7.5,
+      "Width": "4.0, 6.0",
+      "Speed": "0.15, 0.25"
+    },
+    "nation": {
+      "england": true,
+      "france": true,
+      "spain": false,
+      "holland": false,
+      "pirate": true
+    }
+  },
+  {
+    "_type": "SHIP_BRIGANTINE",
+    "Name": "Brigantine",
+    "Soundtype": "corvette",
+    "Class": 4,
+    "Cannon": "CANNON_TYPE_CULVERINE_LBS16",
+    "MaxCaliber": 16,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 350
+    },
+    "Capacity": 1700,
+    "CannonsQuantity": 16,
+    "CannonDiff": 1,
+    "rcannon": 6,
+    "lcannon": 6,
+    "fcannon": 2,
+    "bcannon": 2,
+    "MaxCrew": 155,
+    "MinCrew": 28,
+    "BoardingCrew": 80,
+    "GunnerCrew": 16,
+    "CannonerCrew": 26,
+    "SailorCrew": 120,
+    "SpeedRate": 14.5,
+    "TurnRate": 45,
+    "Price": 38000,
+    "HP": 2400,
+    "SP": 100,
+    "Type": {
+      "Merchant": false,
+      "War": true
+    },
+    "fWindAgainstSpeed": 2,
+    "sea_enchantment": 1.8,
+    "lowpolycrew": 12,
+    "buildtime": 60,
+    "Rocking": {
+      "y": 0.5,
+      "az": 0.04
+    },
+    "WaterLine": 0.1,
+    "SpeedDependWeight": 0.27,
+    "SubSeaDependWeight": 0.6,
+    "TurnDependWeight": 0.3,
+    "WindAgainstSpeed": 8.9,
+    "CabinType": "Cabin_Medium",
+    "InertiaAccelerationX": 5.5,
+    "InertiaBrakingX": 5.5,
+    "InertiaAccelerationY": 8,
+    "InertiaBrakingY": 8,
+    "InertiaAccelerationZ": 6,
+    "InertiaBrakingZ": 6,
+    "Height": {
+      "Bombs": {
+        "Y": 2,
+        "DY": 1
+      },
+      "Grapes": {
+        "Y": 3.4,
+        "DY": 1.7
+      },
+      "Knippels": {
+        "Y": 13.2,
+        "DY": 11.6
+      },
+      "Balls": {
+        "Y": 2,
+        "DY": 1
+      }
+    },
+    "GeraldSails": {
+      "rey_b2": {
+        "_value": 1,
+        "vscale": 0.8
+      },
+      "rey_b3": {
+        "_value": 1,
+        "vscale": 0.8
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.2,
+      "LifeTime": 12,
+      "Width": "2.0, 3.0",
+      "Speed": "6.0, 8.0"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 7.5,
+      "Width": "4.0, 6.0",
+      "Speed": "0.15, 0.25"
+    },
+    "nation": {
+      "england": false,
+      "france": false,
+      "spain": true,
+      "holland": true,
+      "pirate": true
+    }
+  },
+  {
+    "_type": "SHIP_SHNYAVA",
+    "Name": "Shnyava",
+    "Soundtype": "lugger",
+    "Class": 4,
+    "Cannon": "CANNON_TYPE_CANNON_LBS16",
+    "MaxCaliber": 16,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 350
+    },
+    "Capacity": 2150,
+    "CannonsQuantity": 16,
+    "CannonDiff": 1,
+    "rcannon": 7,
+    "lcannon": 7,
+    "fcannon": 2,
+    "bcannon": 0,
+    "MaxCrew": 165,
+    "MinCrew": 30,
+    "BoardingCrew": 95,
+    "GunnerCrew": 20,
+    "CannonerCrew": 38,
+    "SailorCrew": 180,
+    "SpeedRate": 13.5,
+    "TurnRate": 36.5,
+    "Price": 40000,
+    "HP": 2400,
+    "SP": 100,
+    "Type": {
+      "Merchant": true,
+      "War": true
+    },
+    "fWindAgainstSpeed": 2,
+    "sea_enchantment": 1.8,
+    "lowpolycrew": 12,
+    "buildtime": 60,
+    "Rocking": {
+      "y": 0.5,
+      "az": 0.04
+    },
+    "WaterLine": 1.15,
+    "SpeedDependWeight": 0.27,
+    "SubSeaDependWeight": 0.6,
+    "TurnDependWeight": 0.3,
+    "WindAgainstSpeed": 6.4,
+    "CabinType": "Cabin_Medium",
+    "InertiaAccelerationX": 5.5,
+    "InertiaBrakingX": 5.5,
+    "InertiaAccelerationY": 8,
+    "InertiaBrakingY": 8,
+    "InertiaAccelerationZ": 6,
+    "InertiaBrakingZ": 6,
+    "Height": {
+      "Bombs": {
+        "Y": 3.5,
+        "DY": 1.7
+      },
+      "Grapes": {
+        "Y": 4.8,
+        "DY": 2.4
+      },
+      "Knippels": {
+        "Y": 16.7,
+        "DY": 12.8
+      },
+      "Balls": {
+        "Y": 3.5,
+        "DY": 1.7
+      }
+    },
+    "GeraldSails": {
+      "rey_b2": {
+        "_value": 1,
+        "vscale": 0.8
+      },
+      "rey_b3": {
+        "_value": 1,
+        "vscale": 0.8
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.2,
+      "LifeTime": 12,
+      "Width": "2.0, 3.0",
+      "Speed": "6.0, 8.0"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 7.5,
+      "Width": "4.0, 6.0",
+      "Speed": "0.15, 0.25"
+    },
+    "nation": {
+      "england": true,
+      "france": true,
+      "spain": true,
+      "holland": true,
+      "pirate": true
+    }
+  },
+  {
+    "_type": "SHIP_FLEUT",
+    "Name": "Fleut",
+    "Soundtype": "corvette",
+    "Class": 4,
+    "Cannon": "CANNON_TYPE_CANNON_LBS20",
+    "MaxCaliber": 20,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 450
+    },
+    "Capacity": 2750,
+    "CannonsQuantity": 16,
+    "CannonDiff": 1,
+    "rcannon": 6,
+    "lcannon": 6,
+    "fcannon": 2,
+    "bcannon": 2,
+    "MaxCrew": 195,
+    "MinCrew": 34,
+    "BoardingCrew": 70,
+    "GunnerCrew": 12,
+    "CannonerCrew": 40,
+    "SailorCrew": 140,
+    "SpeedRate": 12.7,
+    "TurnRate": 35,
+    "Price": 43400,
+    "HP": 2900,
+    "SP": 100,
+    "Type": {
+      "Merchant": true,
+      "War": false
+    },
+    "fWindAgainstSpeed": 2,
+    "sea_enchantment": 1.5,
+    "lowpolycrew": 16,
+    "buildtime": 60,
+    "Rocking": {
+      "y": 0.5,
+      "az": 0.035
+    },
+    "WaterLine": 1.2,
+    "SpeedDependWeight": 0.15,
+    "SubSeaDependWeight": 0.8,
+    "TurnDependWeight": 0.25,
+    "WindAgainstSpeed": 4.1,
+    "CabinType": "Cabin_Medium",
+    "DeckType": "Medium",
+    "InertiaAccelerationX": 4.5,
+    "InertiaBrakingX": 4.5,
+    "InertiaAccelerationY": 6,
+    "InertiaBrakingY": 6,
+    "InertiaAccelerationZ": 4,
+    "InertiaBrakingZ": 4,
+    "Height": {
+      "Bombs": {
+        "Y": 3.4,
+        "DY": 1.7
+      },
+      "Grapes": {
+        "Y": 5,
+        "DY": 2.5
+      },
+      "Knippels": {
+        "Y": 17.8,
+        "DY": 13.3
+      },
+      "Balls": {
+        "Y": 3.4,
+        "DY": 1.7
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.2,
+      "LifeTime": 12,
+      "Width": "2.0, 3.0",
+      "Speed": "8.0, 8.0"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 7.5,
+      "Width": "6.0, 8.0",
+      "Speed": "0.15, 0.25"
+    },
+    "nation": {
+      "england": true,
+      "france": true,
+      "spain": true,
+      "holland": true,
+      "pirate": false
+    }
+  },
+  {
+    "_type": "SHIP_BRIG_L",
+    "Name": "Brig_l",
+    "Soundtype": "lugger",
+    "Class": 4,
+    "Cannon": "CANNON_TYPE_CANNON_LBS16",
+    "MaxCaliber": 16,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 400
+    },
+    "Capacity": 1600,
+    "CannonsQuantity": 16,
+    "CannonDiff": 1,
+    "rcannon": 6,
+    "lcannon": 6,
+    "fcannon": 2,
+    "bcannon": 2,
+    "MaxCrew": 157,
+    "MinCrew": 27,
+    "BoardingCrew": 90,
+    "GunnerCrew": 12,
+    "CannonerCrew": 32,
+    "SailorCrew": 160,
+    "SpeedRate": 15.2,
+    "TurnRate": 49,
+    "Price": 46500,
+    "HP": 2350,
+    "SP": 100,
+    "Type": {
+      "Merchant": false,
+      "War": true
+    },
+    "fWindAgainstSpeed": 2.1,
+    "sea_enchantment": 1.8,
+    "lowpolycrew": 12,
+    "buildtime": 60,
+    "Rocking": {
+      "y": 0.5,
+      "az": 0.04
+    },
+    "WaterLine": 0.1,
+    "SpeedDependWeight": 0.27,
+    "SubSeaDependWeight": 0.6,
+    "TurnDependWeight": 0.3,
+    "WindAgainstSpeed": 6.6,
+    "CabinType": "Cabin_Medium",
+    "InertiaAccelerationX": 5.5,
+    "InertiaBrakingX": 5.5,
+    "InertiaAccelerationY": 8,
+    "InertiaBrakingY": 8,
+    "InertiaAccelerationZ": 6,
+    "InertiaBrakingZ": 6,
+    "Height": {
+      "Bombs": {
+        "Y": 2,
+        "DY": 2
+      },
+      "Grapes": {
+        "Y": 3.3,
+        "DY": 1.6
+      },
+      "Knippels": {
+        "Y": 14.9,
+        "DY": 14
+      },
+      "Balls": {
+        "Y": 2,
+        "DY": 2
+      }
+    },
+    "GeraldSails": {
+      "rey_b2": {
+        "_value": 1,
+        "vscale": 0.8
+      },
+      "rey_b3": {
+        "_value": 1,
+        "vscale": 0.8
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.2,
+      "LifeTime": 12,
+      "Width": "2.0, 3.0",
+      "Speed": "6.0, 8.0"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 7.5,
+      "Width": "4.0, 6.0",
+      "Speed": "0.15, 0.25"
+    },
+    "HullsAmount": 3,
+    "nation": {
+      "england": true,
+      "france": true,
+      "spain": false,
+      "holland": false,
+      "pirate": true
+    }
+  },
+  {
+    "_type": "SHIP_BRIG",
+    "Name": "Brig",
+    "Soundtype": "lugger",
+    "Class": 4,
+    "Cannon": "CANNON_TYPE_CANNON_LBS20",
+    "MaxCaliber": 20,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 400
+    },
+    "Capacity": 1800,
+    "CannonsQuantity": 16,
+    "CannonDiff": 1,
+    "rcannon": 6,
+    "lcannon": 6,
+    "fcannon": 2,
+    "bcannon": 2,
+    "MaxCrew": 175,
+    "MinCrew": 32,
+    "BoardingCrew": 90,
+    "GunnerCrew": 16,
+    "CannonerCrew": 32,
+    "SailorCrew": 160,
+    "SpeedRate": 14,
+    "TurnRate": 45,
+    "Price": 49000,
+    "HP": 2700,
+    "SP": 100,
+    "Type": {
+      "Merchant": false,
+      "War": true
+    },
+    "fWindAgainstSpeed": 3.4,
+    "sea_enchantment": 1.8,
+    "lowpolycrew": 14,
+    "buildtime": 60,
+    "Rocking": {
+      "y": 0.5,
+      "az": 0.04
+    },
+    "WaterLine": 0.1,
+    "SpeedDependWeight": 0.27,
+    "SubSeaDependWeight": 0.6,
+    "TurnDependWeight": 0.3,
+    "WindAgainstSpeed": 5.9,
+    "CabinType": "Cabin_Medium",
+    "InertiaAccelerationX": 5.5,
+    "InertiaBrakingX": 5.5,
+    "InertiaAccelerationY": 8,
+    "InertiaBrakingY": 8,
+    "InertiaAccelerationZ": 6,
+    "InertiaBrakingZ": 6,
+    "Height": {
+      "Bombs": {
+        "Y": 2,
+        "DY": 2
+      },
+      "Grapes": {
+        "Y": 3.3,
+        "DY": 1.6
+      },
+      "Knippels": {
+        "Y": 14.9,
+        "DY": 14
+      },
+      "Balls": {
+        "Y": 2,
+        "DY": 2
+      }
+    },
+    "GeraldSails": {
+      "rey_b2": {
+        "_value": 1,
+        "vscale": 0.8
+      },
+      "rey_b3": {
+        "_value": 1,
+        "vscale": 0.8
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.2,
+      "LifeTime": 12,
+      "Width": "2.0, 3.0",
+      "Speed": "6.0, 8.0"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 7.5,
+      "Width": "4.0, 6.0",
+      "Speed": "0.15, 0.25"
+    },
+    "HullsAmount": 4,
+    "nation": {
+      "england": false,
+      "france": false,
+      "spain": true,
+      "holland": true,
+      "pirate": true
+    }
+  },
+  {
+    "_type": "SHIP_CARAVEL",
+    "Name": "Caravel",
+    "Soundtype": "corvette",
+    "Class": 4,
+    "Cannon": "CANNON_TYPE_CANNON_LBS16",
+    "MaxCaliber": 16,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 850
+    },
+    "Capacity": 3450,
+    "CannonsQuantity": 20,
+    "CannonDiff": 1,
+    "rcannon": 8,
+    "lcannon": 8,
+    "fcannon": 2,
+    "bcannon": 2,
+    "MaxCrew": 210,
+    "MinCrew": 39,
+    "BoardingCrew": 90,
+    "GunnerCrew": 15,
+    "CannonerCrew": 64,
+    "SailorCrew": 180,
+    "SpeedRate": 10.1,
+    "TurnRate": 26,
+    "Price": 52000,
+    "HP": 2650,
+    "SP": 100,
+    "Type": {
+      "Merchant": true,
+      "War": false
+    },
+    "fWindAgainstSpeed": 2,
+    "sea_enchantment": 1.5,
+    "lowpolycrew": 16,
+    "buildtime": 40,
+    "Rocking": {
+      "y": 0.5,
+      "az": 0.035
+    },
+    "CabinType": "Cabin_Medium",
+    "DeckType": "Medium",
+    "WaterLine": 1,
+    "SpeedDependWeight": 0.15,
+    "SubSeaDependWeight": 0.6,
+    "TurnDependWeight": 0.2,
+    "WindAgainstSpeed": 5.2,
+    "InertiaAccelerationX": 3,
+    "InertiaBrakingX": 3,
+    "InertiaAccelerationY": 3,
+    "InertiaBrakingY": 3,
+    "InertiaAccelerationZ": 3,
+    "InertiaBrakingZ": 3,
+    "Height": {
+      "Bombs": {
+        "Y": 2.7,
+        "DY": 1.3
+      },
+      "Grapes": {
+        "Y": 4.3,
+        "DY": 2.1
+      },
+      "Knippels": {
+        "Y": 13,
+        "DY": 11.7
+      },
+      "Balls": {
+        "Y": 2.7,
+        "DY": 1.3
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.2,
+      "LifeTime": 10,
+      "Width": "4.0, 5.0",
+      "Speed": "7.2, 9.2"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 7.5,
+      "Width": "5.0, 7.0",
+      "Speed": "0.15, 0.25"
+    },
+    "nation": {
+      "england": true,
+      "france": true,
+      "spain": true,
+      "holland": true,
+      "pirate": false
+    }
+  },
+  {
+    "_type": "SHIP_CARAVEL_W",
+    "Name": "Caravel_w",
+    "Soundtype": "corvette",
+    "Class": 4,
+    "Cannon": "CANNON_TYPE_CANNON_LBS16",
+    "MaxCaliber": 16,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 500
+    },
+    "Capacity": 2900,
+    "CannonsQuantity": 30,
+    "CannonDiff": 2,
+    "rcannon": 13,
+    "lcannon": 13,
+    "fcannon": 2,
+    "bcannon": 2,
+    "MaxCrew": 244,
+    "MinCrew": 41,
+    "BoardingCrew": 90,
+    "GunnerCrew": 15,
+    "CannonerCrew": 64,
+    "SailorCrew": 180,
+    "SpeedRate": 10.5,
+    "TurnRate": 32,
+    "Price": 59500,
+    "HP": 2900,
+    "SP": 100,
+    "Type": {
+      "Merchant": false,
+      "War": true
+    },
+    "fWindAgainstSpeed": 2,
+    "sea_enchantment": 1.5,
+    "lowpolycrew": 19,
+    "buildtime": 40,
+    "Rocking": {
+      "y": 0.5,
+      "az": 0.035
+    },
+    "CabinType": "Cabin_Medium",
+    "DeckType": "Medium",
+    "WaterLine": 1,
+    "SpeedDependWeight": 0.15,
+    "SubSeaDependWeight": 0.6,
+    "TurnDependWeight": 0.2,
+    "WindAgainstSpeed": 3.8,
+    "InertiaAccelerationX": 3,
+    "InertiaBrakingX": 3,
+    "InertiaAccelerationY": 3,
+    "InertiaBrakingY": 3,
+    "InertiaAccelerationZ": 3,
+    "InertiaBrakingZ": 3,
+    "Height": {
+      "Bombs": {
+        "Y": 2.7,
+        "DY": 1.3
+      },
+      "Grapes": {
+        "Y": 4.3,
+        "DY": 2.1
+      },
+      "Knippels": {
+        "Y": 13,
+        "DY": 11.7
+      },
+      "Balls": {
+        "Y": 2.7,
+        "DY": 1.3
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.2,
+      "LifeTime": 10,
+      "Width": "4.0, 5.0",
+      "Speed": "7.2, 9.2"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 7.5,
+      "Width": "5.0, 7.0",
+      "Speed": "0.15, 0.25"
+    },
+    "nation": {
+      "england": true,
+      "france": true,
+      "spain": true,
+      "holland": true,
+      "pirate": false
+    }
+  },
+  {
+    "_type": "SHIP_GALEON_L",
+    "Name": "Galeon_l",
+    "Soundtype": "corvette",
+    "Class": 4,
+    "Cannon": "CANNON_TYPE_CANNON_LBS20",
+    "MaxCaliber": 20,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 800
+    },
+    "Capacity": 3300,
+    "CannonsQuantity": 20,
+    "CannonDiff": 1,
+    "rcannon": 8,
+    "lcannon": 8,
+    "fcannon": 2,
+    "bcannon": 2,
+    "MaxCrew": 263,
+    "MinCrew": 45,
+    "BoardingCrew": 120,
+    "GunnerCrew": 20,
+    "CannonerCrew": 40,
+    "SailorCrew": 240,
+    "SpeedRate": 11.7,
+    "TurnRate": 30,
+    "Price": 62000,
+    "HP": 3150,
+    "SP": 100,
+    "Type": {
+      "Merchant": true,
+      "War": true
+    },
+    "fWindAgainstSpeed": 1,
+    "sea_enchantment": 1.2,
+    "lowpolycrew": 18,
+    "buildtime": 60,
+    "Rocking": {
+      "y": 0.45,
+      "az": 0.035
+    },
+    "WaterLine": 0.85,
+    "SpeedDependWeight": 0.15,
+    "SubSeaDependWeight": 0.95,
+    "TurnDependWeight": 0.2,
+    "WindAgainstSpeed": 3.4,
+    "CabinType": "Cabin_Medium",
+    "DeckType": "Medium",
+    "InertiaAccelerationX": 4,
+    "InertiaBrakingX": 4,
+    "InertiaAccelerationY": 6,
+    "InertiaBrakingY": 6,
+    "InertiaAccelerationZ": 4,
+    "InertiaBrakingZ": 4,
+    "Height": {
+      "Bombs": {
+        "Y": 4.3,
+        "DY": 2.1
+      },
+      "Grapes": {
+        "Y": 5.6,
+        "DY": 2.8
+      },
+      "Knippels": {
+        "Y": 18.7,
+        "DY": 12.7
+      },
+      "Balls": {
+        "Y": 4.3,
+        "DY": 2.1
+      }
+    },
+    "GeraldSails": {
+      "rey_b2": {
+        "_value": 1,
+        "vscale": 0.7
+      },
+      "rey_b3": {
+        "_value": 1,
+        "vscale": 0.7
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.2,
+      "LifeTime": 16.5,
+      "Width": "5.2, 7.3",
+      "Speed": "6.0, 8.0"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 10.5,
+      "Width": "6.0, 8.0",
+      "Speed": "0.15, 0.25"
+    },
+    "HullsAmount": 4,
+    "nation": {
+      "england": true,
+      "france": true,
+      "spain": true,
+      "holland": true,
+      "pirate": true
+    }
+  },
+  {
+    "_type": "SHIP_PINNACE",
+    "Name": "Pinnace",
+    "Soundtype": "frigate",
+    "Class": 3,
+    "Cannon": "CANNON_TYPE_CANNON_LBS24",
+    "MaxCaliber": 24,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 800
+    },
+    "Capacity": 3700,
+    "CannonsQuantity": 18,
+    "CannonDiff": 1,
+    "rcannon": 6,
+    "lcannon": 6,
+    "fcannon": 2,
+    "bcannon": 4,
+    "MaxCrew": 251,
+    "MinCrew": 44,
+    "BoardingCrew": 110,
+    "GunnerCrew": 20,
+    "CannonerCrew": 36,
+    "SailorCrew": 220,
+    "SpeedRate": 11.9,
+    "TurnRate": 33,
+    "Price": 65000,
+    "HP": 3550,
+    "SP": 100,
+    "Type": {
+      "Merchant": true,
+      "War": false
+    },
+    "fWindAgainstSpeed": 2.3,
+    "sea_enchantment": 1.1,
+    "lowpolycrew": 16,
+    "buildtime": 80,
+    "Rocking": {
+      "y": 0.4,
+      "az": 0.035
+    },
+    "WaterLine": 0.1,
+    "SpeedDependWeight": 0.2,
+    "SubSeaDependWeight": 1.3,
+    "TurnDependWeight": 0.25,
+    "WindAgainstSpeed": 5.2,
+    "CabinType": "Cabin_Medium",
+    "DeckType": "Medium",
+    "InertiaAccelerationX": 3,
+    "InertiaBrakingX": 3,
+    "InertiaAccelerationY": 4,
+    "InertiaBrakingY": 4,
+    "InertiaAccelerationZ": 3,
+    "InertiaBrakingZ": 3,
+    "Height": {
+      "Bombs": {
+        "Y": 3,
+        "DY": 1.5
+      },
+      "Grapes": {
+        "Y": 5.5,
+        "DY": 2.7
+      },
+      "Knippels": {
+        "Y": 24.1,
+        "DY": 20.7
+      },
+      "Balls": {
+        "Y": 3,
+        "DY": 1.5
+      }
+    },
+    "GeraldSails": {
+      "rey_b2": {
+        "_value": 1,
+        "vscale": 0.65
+      },
+      "rey_b3": {
+        "_value": 1,
+        "vscale": 0.65
+      },
+      "rey_b1": {
+        "_value": 1,
+        "vscale": 0.85
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.3,
+      "LifeTime": 14.5,
+      "Width": "5.7, 7.9",
+      "Speed": "6.0, 8.0"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 8.5,
+      "Width": "10.0, 12.0",
+      "Speed": "0.15, 0.25"
+    },
+    "nation": {
+      "england": true,
+      "france": true,
+      "spain": false,
+      "holland": false,
+      "pirate": false
+    }
+  },
+  {
+    "_type": "SHIP_CARACCA",
+    "Name": "Caracca",
+    "Soundtype": "corvette",
+    "Class": 3,
+    "Cannon": "CANNON_TYPE_CANNON_LBS20",
+    "MaxCaliber": 20,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 750
+    },
+    "Capacity": 4100,
+    "CannonsQuantity": 20,
+    "CannonDiff": 1,
+    "rcannon": 8,
+    "lcannon": 8,
+    "fcannon": 2,
+    "bcannon": 2,
+    "MaxCrew": 290,
+    "MinCrew": 46,
+    "BoardingCrew": 120,
+    "GunnerCrew": 20,
+    "CannonerCrew": 40,
+    "SailorCrew": 240,
+    "SpeedRate": 10.3,
+    "TurnRate": 30,
+    "Price": 72000,
+    "HP": 3950,
+    "SP": 100,
+    "Type": {
+      "Merchant": true,
+      "War": true
+    },
+    "fWindAgainstSpeed": 1,
+    "sea_enchantment": 1.2,
+    "lowpolycrew": 18,
+    "buildtime": 60,
+    "Rocking": {
+      "y": 0.45,
+      "az": 0.035
+    },
+    "WaterLine": 0.6,
+    "SpeedDependWeight": 0.15,
+    "SubSeaDependWeight": 0.95,
+    "TurnDependWeight": 0.2,
+    "WindAgainstSpeed": 5.4,
+    "CabinType": "Cabin_Medium",
+    "DeckType": "Medium",
+    "InertiaAccelerationX": 4,
+    "InertiaBrakingX": 4,
+    "InertiaAccelerationY": 6,
+    "InertiaBrakingY": 6,
+    "InertiaAccelerationZ": 4,
+    "InertiaBrakingZ": 4,
+    "Height": {
+      "Bombs": {
+        "Y": 4.3,
+        "DY": 2.1
+      },
+      "Grapes": {
+        "Y": 5.6,
+        "DY": 2.8
+      },
+      "Knippels": {
+        "Y": 18.7,
+        "DY": 12.7
+      },
+      "Balls": {
+        "Y": 4.3,
+        "DY": 2.1
+      }
+    },
+    "GeraldSails": {
+      "rey_b2": {
+        "_value": 1,
+        "vscale": 0.7
+      },
+      "rey_b3": {
+        "_value": 1,
+        "vscale": 0.7
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.2,
+      "LifeTime": 16.5,
+      "Width": "5.2, 7.3",
+      "Speed": "6.0, 8.0"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 10.5,
+      "Width": "6.0, 8.0",
+      "Speed": "0.15, 0.25"
+    },
+    "nation": {
+      "england": false,
+      "france": false,
+      "spain": true,
+      "holland": true,
+      "pirate": false
+    }
+  },
+  {
+    "_type": "SHIP_CORVETTE_L",
+    "Name": "Corvette_l",
+    "Soundtype": "corvette",
+    "Class": 3,
+    "Cannon": "CANNON_TYPE_CANNON_LBS20",
+    "MaxCaliber": 20,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 600
+    },
+    "Capacity": 2950,
+    "CannonsQuantity": 32,
+    "CannonDiff": 1,
+    "rcannon": 13,
+    "lcannon": 13,
+    "fcannon": 2,
+    "bcannon": 4,
+    "MaxCrew": 205,
+    "MinCrew": 31,
+    "BoardingCrew": 110,
+    "GunnerCrew": 20,
+    "CannonerCrew": 32,
+    "SailorCrew": 200,
+    "SpeedRate": 16.7,
+    "TurnRate": 47,
+    "Price": 77500,
+    "HP": 3140,
+    "SP": 100,
+    "Type": {
+      "Merchant": false,
+      "War": true
+    },
+    "fWindAgainstSpeed": 2.2,
+    "sea_enchantment": 1.5,
+    "lowpolycrew": 16,
+    "buildtime": 80,
+    "Rocking": {
+      "y": 0.8,
+      "az": 0.025
+    },
+    "WaterLine": -0.4,
+    "SpeedDependWeight": 0.3,
+    "SubSeaDependWeight": 0.7,
+    "TurnDependWeight": 0.35,
+    "WindAgainstSpeed": 6.4,
+    "CabinType": "Cabin_Medium",
+    "InertiaAccelerationX": 8,
+    "InertiaBrakingX": 8,
+    "InertiaAccelerationY": 6,
+    "InertiaBrakingY": 6,
+    "InertiaAccelerationZ": 6,
+    "InertiaBrakingZ": 6,
+    "Height": {
+      "Bombs": {
+        "Y": 1.2,
+        "DY": 0.6
+      },
+      "Grapes": {
+        "Y": 3,
+        "DY": 1.5
+      },
+      "Knippels": {
+        "Y": 15.4,
+        "DY": 14.9
+      },
+      "Balls": {
+        "Y": 1.2,
+        "DY": 0.6
+      }
+    },
+    "GeraldSails": {
+      "rey_b2": {
+        "_value": 1,
+        "vscale": 0.7
+      },
+      "rey_b3": {
+        "_value": 1,
+        "vscale": 0.7
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.17,
+      "LifeTime": 12.5,
+      "Width": "4.0, 5.0",
+      "Speed": "6.0, 8.0"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 6.5,
+      "Width": "5.0, 7.0",
+      "Speed": "0.15, 0.25"
+    },
+    "HullsAmount": 4,
+    "nation": {
+      "england": true,
+      "france": true,
+      "spain": false,
+      "holland": false,
+      "pirate": true
+    }
+  },
+  {
+    "_type": "SHIP_CORVETTE",
+    "Name": "Corvette",
+    "Soundtype": "corvette",
+    "Class": 3,
+    "Cannon": "CANNON_TYPE_CANNON_LBS24",
+    "MaxCaliber": 24,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 600
+    },
+    "Capacity": 2950,
+    "CannonsQuantity": 28,
+    "CannonDiff": 2,
+    "rcannon": 12,
+    "lcannon": 12,
+    "fcannon": 2,
+    "bcannon": 2,
+    "MaxCrew": 255,
+    "MinCrew": 37,
+    "BoardingCrew": 110,
+    "GunnerCrew": 20,
+    "CannonerCrew": 32,
+    "SailorCrew": 200,
+    "SpeedRate": 15.1,
+    "TurnRate": 40,
+    "Price": 85000,
+    "HP": 3350,
+    "SP": 100,
+    "Type": {
+      "Merchant": false,
+      "War": true
+    },
+    "fWindAgainstSpeed": 2.2,
+    "sea_enchantment": 1.5,
+    "lowpolycrew": 19,
+    "buildtime": 80,
+    "Rocking": {
+      "y": 0.8,
+      "az": 0.025
+    },
+    "WaterLine": 0,
+    "SpeedDependWeight": 0.3,
+    "SubSeaDependWeight": 0.7,
+    "TurnDependWeight": 0.35,
+    "WindAgainstSpeed": 5.2,
+    "CabinType": "Cabin_Medium",
+    "InertiaAccelerationX": 8,
+    "InertiaBrakingX": 8,
+    "InertiaAccelerationY": 6,
+    "InertiaBrakingY": 6,
+    "InertiaAccelerationZ": 6,
+    "InertiaBrakingZ": 6,
+    "Height": {
+      "Bombs": {
+        "Y": 1.5,
+        "DY": 0.9
+      },
+      "Grapes": {
+        "Y": 1.8,
+        "DY": 1
+      },
+      "Knippels": {
+        "Y": 15,
+        "DY": 9
+      },
+      "Balls": {
+        "Y": 1.5,
+        "DY": 0.9
+      }
+    },
+    "GeraldSails": {
+      "rey_b2": {
+        "_value": 1,
+        "vscale": 0.7
+      },
+      "rey_b3": {
+        "_value": 1,
+        "vscale": 0.7
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.17,
+      "LifeTime": 12.5,
+      "Width": "4.0, 5.0",
+      "Speed": "6.0, 8.0"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 6.5,
+      "Width": "5.0, 7.0",
+      "Speed": "0.15, 0.25"
+    },
+    "nation": {
+      "england": true,
+      "france": true,
+      "spain": false,
+      "holland": false,
+      "pirate": true
+    }
+  },
+  {
+    "_type": "SHIP_POLACRE",
+    "Name": "Polacre",
+    "Soundtype": "lugger",
+    "Class": 3,
+    "Cannon": "CANNON_TYPE_CANNON_LBS24",
+    "MaxCaliber": 24,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 550
+    },
+    "Capacity": 2650,
+    "CannonsQuantity": 22,
+    "CannonDiff": 1,
+    "rcannon": 9,
+    "lcannon": 9,
+    "fcannon": 2,
+    "bcannon": 2,
+    "MaxCrew": 227,
+    "MinCrew": 40,
+    "BoardingCrew": 170,
+    "GunnerCrew": 30,
+    "CannonerCrew": 92,
+    "SailorCrew": 320,
+    "SpeedRate": 14.7,
+    "TurnRate": 41,
+    "Price": 80000,
+    "HP": 3250,
+    "SP": 100,
+    "CabinType": "Cabin_Medium",
+    "Type": {
+      "Merchant": false,
+      "War": true
+    },
+    "fWindAgainstSpeed": 2,
+    "sea_enchantment": 1.8,
+    "lowpolycrew": 15,
+    "buildtime": 60,
+    "Rocking": {
+      "y": 0.5,
+      "az": 0.04
+    },
+    "WaterLine": 0,
+    "SpeedDependWeight": 0.3,
+    "SubSeaDependWeight": 0.6,
+    "TurnDependWeight": 0.3,
+    "WindAgainstSpeed": 8.3,
+    "InertiaAccelerationX": 5.5,
+    "InertiaBrakingX": 5.5,
+    "InertiaAccelerationY": 8,
+    "InertiaBrakingY": 8,
+    "InertiaAccelerationZ": 6,
+    "InertiaBrakingZ": 6,
+    "Height": {
+      "Bombs": {
+        "Y": 1.7,
+        "DY": 0.8
+      },
+      "Grapes": {
+        "Y": 3.4,
+        "DY": 1.7
+      },
+      "Knippels": {
+        "Y": 10.1,
+        "DY": 9.2
+      },
+      "Balls": {
+        "Y": 1.7,
+        "DY": 0.8
+      }
+    },
+    "GeraldSails": {
+      "rey_b2": {
+        "_value": 1,
+        "vscale": 0.8
+      },
+      "rey_b3": {
+        "_value": 1,
+        "vscale": 0.8
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.2,
+      "LifeTime": 12,
+      "Width": "2.0, 3.0",
+      "Speed": "6.0, 8.0"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 7.5,
+      "Width": "4.0, 6.0",
+      "Speed": "0.15, 0.25"
+    },
+    "nation": {
+      "england": false,
+      "france": false,
+      "spain": true,
+      "holland": true,
+      "pirate": false
+    }
+  },
+  {
+    "_type": "SHIP_GALEON",
+    "Name": "Galeon",
+    "Soundtype": "frigate",
+    "Class": 3,
+    "Cannon": "CANNON_TYPE_CANNON_LBS24",
+    "MaxCaliber": 24,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 1100
+    },
+    "Capacity": 4150,
+    "CannonsQuantity": 36,
+    "CannonDiff": 2,
+    "rcannon": 15,
+    "lcannon": 15,
+    "fcannon": 2,
+    "bcannon": 4,
+    "MaxCrew": 290,
+    "MinCrew": 57,
+    "BoardingCrew": 200,
+    "GunnerCrew": 36,
+    "CannonerCrew": 72,
+    "SailorCrew": 400,
+    "SpeedRate": 10.8,
+    "TurnRate": 30,
+    "Price": 97000,
+    "HP": 4350,
+    "SP": 100,
+    "Type": {
+      "Merchant": true,
+      "War": true
+    },
+    "fWindAgainstSpeed": 2,
+    "sea_enchantment": 1.2,
+    "lowpolycrew": 22,
+    "buildtime": 80,
+    "Rocking": {
+      "y": 0.4,
+      "az": 0.02
+    },
+    "WaterLine": -0.2,
+    "SpeedDependWeight": 0.15,
+    "SubSeaDependWeight": 0.3,
+    "TurnDependWeight": 0.2,
+    "WindAgainstSpeed": 3.5,
+    "CabinType": "Cabin",
+    "DeckType": "Big",
+    "InertiaAccelerationX": 4.5,
+    "InertiaBrakingX": 4.5,
+    "InertiaAccelerationY": 3,
+    "InertiaBrakingY": 3,
+    "InertiaAccelerationZ": 4.5,
+    "InertiaBrakingZ": 4.5,
+    "Height": {
+      "Bombs": {
+        "Y": 3,
+        "DY": 1.5
+      },
+      "Grapes": {
+        "Y": 4.4,
+        "DY": 2.2
+      },
+      "Knippels": {
+        "Y": 21.4,
+        "DY": 19.8
+      },
+      "Balls": {
+        "Y": 3,
+        "DY": 1.5
+      }
+    },
+    "GeraldSails": {
+      "rey_b2": {
+        "_value": 1,
+        "vscale": 0.98
+      },
+      "rey_b3": {
+        "_value": 1,
+        "vscale": 0.8
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0,
+      "LifeTime": 14.5,
+      "Width": "5.2, 7.3",
+      "Speed": "5.5, 6.5"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 8.5,
+      "Width": "6.0, 8.0",
+      "Speed": "0.15, 0.25"
+    },
+    "HullsAmount": 4,
+    "nation": {
+      "england": false,
+      "france": false,
+      "spain": true,
+      "holland": true,
+      "pirate": true
+    }
+  },
+  {
+    "_type": "SHIP_EASTINDIAMAN",
+    "Name": "EastIndiaMan",
+    "Soundtype": "frigate",
+    "Class": 2,
+    "Cannon": "CANNON_TYPE_CULVERINE_LBS24",
+    "MaxCaliber": 24,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 1100
+    },
+    "Capacity": 5600,
+    "CannonsQuantity": 34,
+    "CannonDiff": 2,
+    "rcannon": 15,
+    "lcannon": 15,
+    "fcannon": 2,
+    "bcannon": 2,
+    "MaxCrew": 335,
+    "MinCrew": 53,
+    "BoardingCrew": 200,
+    "GunnerCrew": 36,
+    "CannonerCrew": 72,
+    "SailorCrew": 400,
+    "SpeedRate": 13.4,
+    "TurnRate": 31,
+    "Price": 115000,
+    "HP": 4800,
+    "SP": 100,
+    "Type": {
+      "Merchant": true,
+      "War": false
+    },
+    "fWindAgainstSpeed": 2,
+    "sea_enchantment": 1.2,
+    "lowpolycrew": 22,
+    "buildtime": 80,
+    "Rocking": {
+      "y": 0.4,
+      "az": 0.02
+    },
+    "WaterLine": 0.6,
+    "SpeedDependWeight": 0.15,
+    "SubSeaDependWeight": 0.3,
+    "TurnDependWeight": 0.2,
+    "WindAgainstSpeed": 4.4,
+    "CabinType": "Cabin",
+    "DeckType": "Big",
+    "InertiaAccelerationX": 4.5,
+    "InertiaBrakingX": 4.5,
+    "InertiaAccelerationY": 3,
+    "InertiaBrakingY": 3,
+    "InertiaAccelerationZ": 4.5,
+    "InertiaBrakingZ": 4.5,
+    "Height": {
+      "Bombs": {
+        "Y": 3,
+        "DY": 1.5
+      },
+      "Grapes": {
+        "Y": 5.1,
+        "DY": 1.6
+      },
+      "Knippels": {
+        "Y": 19.5,
+        "DY": 14.1
+      },
+      "Balls": {
+        "Y": 3,
+        "DY": 1.4
+      }
+    },
+    "GeraldSails": {
+      "rey_b2": {
+        "_value": 1,
+        "vscale": 0.98
+      },
+      "rey_b3": {
+        "_value": 1,
+        "vscale": 0.8
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0,
+      "LifeTime": 14.5,
+      "Width": "5.2, 7.3",
+      "Speed": "5.5, 6.5"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 8.5,
+      "Width": "6.0, 8.0",
+      "Speed": "0.15, 0.25"
+    },
+    "nation": {
+      "england": true,
+      "france": true,
+      "spain": false,
+      "holland": true,
+      "pirate": false
+    }
+  },
+  {
+    "_type": "SHIP_GALEON_H",
+    "Name": "Galeon_h",
+    "Soundtype": "frigate",
+    "Class": 2,
+    "Cannon": "CANNON_TYPE_CANNON_LBS32",
+    "MaxCaliber": 32,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 1050
+    },
+    "Capacity": 5150,
+    "CannonsQuantity": 54,
+    "CannonDiff": 3,
+    "rcannon": 22,
+    "lcannon": 22,
+    "fcannon": 4,
+    "bcannon": 6,
+    "MaxCrew": 435,
+    "MinCrew": 66,
+    "BoardingCrew": 200,
+    "GunnerCrew": 36,
+    "CannonerCrew": 72,
+    "SailorCrew": 400,
+    "SpeedRate": 9.6,
+    "TurnRate": 27,
+    "Price": 125000,
+    "HP": 5650,
+    "SP": 100,
+    "Type": {
+      "Merchant": true,
+      "War": true
+    },
+    "fWindAgainstSpeed": 2,
+    "sea_enchantment": 1.2,
+    "lowpolycrew": 26,
+    "buildtime": 80,
+    "Rocking": {
+      "y": 0.4,
+      "az": 0.02
+    },
+    "WaterLine": -0.2,
+    "SpeedDependWeight": 0.15,
+    "SubSeaDependWeight": 0.3,
+    "TurnDependWeight": 0.2,
+    "WindAgainstSpeed": 3.6,
+    "CabinType": "Cabin",
+    "DeckType": "Big",
+    "InertiaAccelerationX": 4.5,
+    "InertiaBrakingX": 4.5,
+    "InertiaAccelerationY": 3,
+    "InertiaBrakingY": 3,
+    "InertiaAccelerationZ": 4.5,
+    "InertiaBrakingZ": 4.5,
+    "Height": {
+      "Bombs": {
+        "Y": 3,
+        "DY": 1.5
+      },
+      "Grapes": {
+        "Y": 4.4,
+        "DY": 2.2
+      },
+      "Knippels": {
+        "Y": 21.4,
+        "DY": 19.8
+      },
+      "Balls": {
+        "Y": 3,
+        "DY": 1.5
+      }
+    },
+    "GeraldSails": {
+      "rey_b2": {
+        "_value": 1,
+        "vscale": 0.98
+      },
+      "rey_b3": {
+        "_value": 1,
+        "vscale": 0.8
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0,
+      "LifeTime": 14.5,
+      "Width": "5.2, 7.3",
+      "Speed": "5.5, 6.5"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 8.5,
+      "Width": "6.0, 8.0",
+      "Speed": "0.15, 0.25"
+    },
+    "nation": {
+      "england": false,
+      "france": false,
+      "spain": true,
+      "holland": true,
+      "pirate": true
+    }
+  },
+  {
+    "_type": "SHIP_FRIGATE",
+    "Name": "Frigate",
+    "Soundtype": "frigate",
+    "Class": 2,
+    "Cannon": "CANNON_TYPE_CANNON_LBS24",
+    "MaxCaliber": 24,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 1000
+    },
+    "Capacity": 3500,
+    "CannonsQuantity": 46,
+    "CannonDiff": 2,
+    "rcannon": 20,
+    "lcannon": 20,
+    "fcannon": 2,
+    "bcannon": 4,
+    "MaxCrew": 345,
+    "MinCrew": 51,
+    "BoardingCrew": 150,
+    "GunnerCrew": 30,
+    "CannonerCrew": 92,
+    "SailorCrew": 300,
+    "SpeedRate": 14.7,
+    "TurnRate": 40,
+    "Price": 138000,
+    "HP": 4650,
+    "SP": 100,
+    "Type": {
+      "Merchant": false,
+      "War": true
+    },
+    "fWindAgainstSpeed": 2,
+    "sea_enchantment": 1.2,
+    "lowpolycrew": 24,
+    "buildtime": 100,
+    "Rocking": {
+      "y": 0.4,
+      "az": 0.035
+    },
+    "WaterLine": 0.33,
+    "SpeedDependWeight": 0.3,
+    "SubSeaDependWeight": 1,
+    "TurnDependWeight": 0.3,
+    "WindAgainstSpeed": 5.4,
+    "CabinType": "Cabin",
+    "DeckType": "Big",
+    "InertiaAccelerationX": 5,
+    "InertiaBrakingX": 5,
+    "InertiaAccelerationY": 4,
+    "InertiaBrakingY": 4,
+    "InertiaAccelerationZ": 5,
+    "InertiaBrakingZ": 5,
+    "Height": {
+      "Bombs": {
+        "Y": 3.7,
+        "DY": 1.8
+      },
+      "Grapes": {
+        "Y": 5.2,
+        "DY": 2.6
+      },
+      "Knippels": {
+        "Y": 24,
+        "DY": 19.7
+      },
+      "Balls": {
+        "Y": 3.7,
+        "DY": 1.8
+      }
+    },
+    "GeraldSails": {
+      "rey_b1": {
+        "_value": 1,
+        "vscale": 0.9
+      },
+      "rey_b2": {
+        "_value": 1,
+        "vscale": 0.7
+      },
+      "rey_b3": {
+        "_value": 1,
+        "vscale": 0.7
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.2,
+      "LifeTime": 14.5,
+      "Width": "3.7, 3.9",
+      "Speed": "7.0, 8.0"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 8.5,
+      "Width": "8.0, 9.0",
+      "Speed": "0.15, 0.25"
+    },
+    "HullsAmount": 4,
+    "nation": {
+      "england": true,
+      "france": true,
+      "spain": false,
+      "holland": false,
+      "pirate": true
+    }
+  },
+  {
+    "_type": "SHIP_FRIGATE_H",
+    "Name": "Frigate_h",
+    "Soundtype": "frigate",
+    "Class": 2,
+    "Cannon": "CANNON_TYPE_CANNON_LBS32",
+    "MaxCaliber": 32,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 1000
+    },
+    "Capacity": 4000,
+    "CannonsQuantity": 52,
+    "CannonDiff": 3,
+    "rcannon": 21,
+    "lcannon": 21,
+    "fcannon": 4,
+    "bcannon": 6,
+    "MaxCrew": 395,
+    "MinCrew": 59,
+    "BoardingCrew": 150,
+    "GunnerCrew": 30,
+    "CannonerCrew": 92,
+    "SailorCrew": 300,
+    "SpeedRate": 13.3,
+    "TurnRate": 35,
+    "Price": 155000,
+    "HP": 5450,
+    "SP": 100,
+    "Type": {
+      "Merchant": false,
+      "War": true
+    },
+    "fWindAgainstSpeed": 2,
+    "sea_enchantment": 1.2,
+    "lowpolycrew": 26,
+    "buildtime": 100,
+    "Rocking": {
+      "y": 0.4,
+      "az": 0.035
+    },
+    "WaterLine": 0,
+    "SpeedDependWeight": 0.3,
+    "SubSeaDependWeight": 1,
+    "TurnDependWeight": 0.3,
+    "WindAgainstSpeed": 4.8,
+    "CabinType": "Cabin",
+    "DeckType": "Big",
+    "InertiaAccelerationX": 5,
+    "InertiaBrakingX": 5,
+    "InertiaAccelerationY": 4,
+    "InertiaBrakingY": 4,
+    "InertiaAccelerationZ": 5,
+    "InertiaBrakingZ": 5,
+    "Height": {
+      "Bombs": {
+        "Y": 2.7,
+        "DY": 1.35
+      },
+      "Grapes": {
+        "Y": 5.325,
+        "DY": 1.575
+      },
+      "Knippels": {
+        "Y": 19.5,
+        "DY": 13.5
+      },
+      "Balls": {
+        "Y": 2.7,
+        "DY": 1.35
+      }
+    },
+    "GeraldSails": {
+      "rey_b1": {
+        "_value": 1,
+        "vscale": 0.9
+      },
+      "rey_b2": {
+        "_value": 1,
+        "vscale": 0.7
+      },
+      "rey_b3": {
+        "_value": 1,
+        "vscale": 0.7
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.2,
+      "LifeTime": 14.5,
+      "Width": "3.7, 3.9",
+      "Speed": "7.0, 8.0"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 8.5,
+      "Width": "8.0, 9.0",
+      "Speed": "0.15, 0.25"
+    },
+    "isNationalHull": false,
+    "HullsAmount": 3,
+    "nation": {
+      "england": true,
+      "france": true,
+      "spain": true,
+      "holland": true,
+      "pirate": false
+    }
+  },
+  {
+    "_type": "SHIP_LINESHIP",
+    "Name": "Lineship",
+    "Soundtype": "lineship",
+    "Class": 1,
+    "Cannon": "CANNON_TYPE_CANNON_LBS32",
+    "MaxCaliber": 32,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 2500
+    },
+    "Capacity": 4850,
+    "CannonsQuantity": 56,
+    "CannonDiff": 3,
+    "rcannon": 25,
+    "lcannon": 25,
+    "fcannon": 2,
+    "bcannon": 4,
+    "MaxCrew": 465,
+    "MinCrew": 60,
+    "BoardingCrew": 210,
+    "GunnerCrew": 30,
+    "CannonerCrew": 112,
+    "SailorCrew": 420,
+    "SpeedRate": 12,
+    "TurnRate": 29,
+    "Price": 195000,
+    "HP": 6100,
+    "SP": 100,
+    "Type": {
+      "Merchant": false,
+      "War": true
+    },
+    "fWindAgainstSpeed": 1,
+    "sea_enchantment": 1.1,
+    "lowpolycrew": 28,
+    "buildtime": 120,
+    "Rocking": {
+      "y": 0.5,
+      "az": 0.035
+    },
+    "WaterLine": 1.05,
+    "SpeedDependWeight": 0.3,
+    "SubSeaDependWeight": 1.15,
+    "TurnDependWeight": 0.4,
+    "WindAgainstSpeed": 2.8,
+    "CabinType": "Cabin",
+    "DeckType": "Big",
+    "InertiaAccelerationX": 4.5,
+    "InertiaBrakingX": 4,
+    "InertiaAccelerationY": 3.5,
+    "InertiaBrakingY": 3,
+    "InertiaAccelerationZ": 4.5,
+    "InertiaBrakingZ": 4,
+    "Height": {
+      "Bombs": {
+        "Y": 6.7,
+        "DY": 3.3
+      },
+      "Grapes": {
+        "Y": 8.3,
+        "DY": 4.1
+      },
+      "Knippels": {
+        "Y": 32.1,
+        "DY": 25.8
+      },
+      "Balls": {
+        "Y": 6.7,
+        "DY": 3.3
+      }
+    },
+    "GeraldSails": {
+      "rey_b2": {
+        "_value": 1,
+        "vscale": 0.6
+      },
+      "rey_b3": {
+        "_value": 1,
+        "vscale": 0.6
+      },
+      "rey_b1": {
+        "_value": 1,
+        "vscale": 0.8
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.15,
+      "LifeTime": 16.5,
+      "Width": "3.0, 4.0",
+      "Speed": "8.0, 8.0"
+    },
+    "Track2": {
+      "ZStart": -0.25,
+      "LifeTime": 10.5,
+      "Width": "6.0, 7.0",
+      "Speed": "0.15, 0.25"
+    },
+    "isNationalHull": true,
+    "nation": {
+      "england": true,
+      "france": true,
+      "spain": true,
+      "holland": true,
+      "pirate": false
+    }
+  },
+  {
+    "_type": "SHIP_WARSHIP",
+    "Name": "Warship",
+    "Soundtype": "lineship",
+    "Class": 1,
+    "Cannon": "CANNON_TYPE_CANNON_LBS36",
+    "MaxCaliber": 36,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 2500
+    },
+    "Capacity": 5450,
+    "CannonsQuantity": 68,
+    "CannonDiff": 3,
+    "rcannon": 32,
+    "lcannon": 32,
+    "fcannon": 2,
+    "bcannon": 2,
+    "MaxCrew": 555,
+    "MinCrew": 80,
+    "BoardingCrew": 250,
+    "GunnerCrew": 50,
+    "CannonerCrew": 136,
+    "SailorCrew": 500,
+    "SpeedRate": 11.3,
+    "TurnRate": 24,
+    "Price": 265000,
+    "HP": 6900,
+    "SP": 100,
+    "Type": {
+      "Merchant": false,
+      "War": true
+    },
+    "fWindAgainstSpeed": 1,
+    "sea_enchantment": 1.1,
+    "lowpolycrew": 29,
+    "buildtime": 120,
+    "Rocking": {
+      "y": 0.5,
+      "az": 0.035
+    },
+    "WaterLine": 0,
+    "SpeedDependWeight": 0.3,
+    "SubSeaDependWeight": 0.55,
+    "TurnDependWeight": 0.2,
+    "WindAgainstSpeed": 2.2,
+    "CabinType": "Cabin",
+    "DeckType": "Big",
+    "InertiaAccelerationX": 4,
+    "InertiaBrakingX": 3.5,
+    "InertiaAccelerationY": 3,
+    "InertiaBrakingY": 2.5,
+    "InertiaAccelerationZ": 4,
+    "InertiaBrakingZ": 3.5,
+    "Height": {
+      "Bombs": {
+        "Y": 3,
+        "DY": 3
+      },
+      "Grapes": {
+        "Y": 4,
+        "DY": 2
+      },
+      "Knippels": {
+        "Y": 23,
+        "DY": 22
+      },
+      "Balls": {
+        "Y": 3,
+        "DY": 3
+      }
+    },
+    "GeraldSails": {
+      "rey_b2": 1,
+      "rey_b3": 1,
+      "rey_b1": {
+        "_value": 1,
+        "vscale": 0.8
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.25,
+      "LifeTime": 9.5,
+      "Width": "7.0, 7.5",
+      "Speed": "8.0, 9.0"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 7.5,
+      "Width": "8.0, 10.0",
+      "Speed": "1.0, 2.0"
+    },
+    "isNationalHull": true,
+    "nation": {
+      "england": true,
+      "france": true,
+      "spain": true,
+      "holland": true,
+      "pirate": false
+    }
+  },
+  {
+    "_type": "SHIP_BATTLESHIP",
+    "Name": "Battleship",
+    "Soundtype": "manowar",
+    "Class": 1,
+    "Cannon": "CANNON_TYPE_CANNON_LBS36",
+    "MaxCaliber": 36,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 2500
+    },
+    "Capacity": 6000,
+    "CannonsQuantity": 78,
+    "CannonDiff": 3,
+    "rcannon": 37,
+    "lcannon": 37,
+    "fcannon": 2,
+    "bcannon": 2,
+    "MaxCrew": 650,
+    "MinCrew": 115,
+    "BoardingCrew": 300,
+    "GunnerCrew": 50,
+    "CannonerCrew": 160,
+    "SailorCrew": 600,
+    "SpeedRate": 9.8,
+    "TurnRate": 19,
+    "Price": 380000,
+    "HP": 7800,
+    "SP": 100,
+    "Type": {
+      "Merchant": false,
+      "War": true
+    },
+    "fWindAgainstSpeed": 1,
+    "sea_enchantment": 1.1,
+    "lowpolycrew": 31,
+    "buildtime": 130,
+    "Rocking": {
+      "y": 0.5,
+      "az": 0.035
+    },
+    "WaterLine": -0.1,
+    "SpeedDependWeight": 0.35,
+    "SubSeaDependWeight": 1,
+    "TurnDependWeight": 0.2,
+    "WindAgainstSpeed": 1.8,
+    "CabinType": "Cabin_Huge",
+    "DeckType": "Big",
+    "InertiaAccelerationX": 3.5,
+    "InertiaBrakingX": 3,
+    "InertiaAccelerationY": 2.5,
+    "InertiaBrakingY": 2.5,
+    "InertiaAccelerationZ": 3.5,
+    "InertiaBrakingZ": 3,
+    "Height": {
+      "Bombs": {
+        "Y": 4,
+        "DY": 3
+      },
+      "Grapes": {
+        "Y": 5,
+        "DY": 1.5
+      },
+      "Knippels": {
+        "Y": 27,
+        "DY": 27
+      },
+      "Balls": {
+        "Y": 4,
+        "DY": 3
+      }
+    },
+    "GeraldSails": {
+      "rey_b2": {
+        "_value": 1,
+        "vscale": 0.65
+      },
+      "rey_b3": {
+        "_value": 1,
+        "vscale": 0.55
+      },
+      "rey_b1": {
+        "_value": 1,
+        "vscale": 0.8
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.25,
+      "LifeTime": 9.5,
+      "Width": "7.0, 7.5",
+      "Speed": "8.0, 9.0"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 7.5,
+      "Width": "8.0, 10.0",
+      "Speed": "1.0, 2.0"
+    },
+    "isNationalHull": true,
+    "nation": {
+      "england": true,
+      "france": true,
+      "spain": true,
+      "holland": true,
+      "pirate": false
+    }
+  },
+  {
+    "_type": "SHIP_MANOWAR",
+    "Name": "Manowar",
+    "Soundtype": "manowar",
+    "Class": 1,
+    "Cannon": "CANNON_TYPE_CANNON_LBS42",
+    "MaxCaliber": 42,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 4000
+    },
+    "Capacity": 6600,
+    "CannonsQuantity": 106,
+    "CannonDiff": 3,
+    "rcannon": 51,
+    "lcannon": 51,
+    "fcannon": 2,
+    "bcannon": 2,
+    "MaxCrew": 830,
+    "MinCrew": 170,
+    "BoardingCrew": 400,
+    "GunnerCrew": 80,
+    "CannonerCrew": 204,
+    "SailorCrew": 800,
+    "SpeedRate": 8.7,
+    "TurnRate": 13.5,
+    "Price": 570000,
+    "HP": 10000,
+    "SP": 100,
+    "Type": {
+      "Merchant": false,
+      "War": true
+    },
+    "fWindAgainstSpeed": 1,
+    "sea_enchantment": 1,
+    "lowpolycrew": 35,
+    "buildtime": 140,
+    "Rocking": {
+      "y": 0.3,
+      "az": 0.02
+    },
+    "WaterLine": 0.3,
+    "SpeedDependWeight": 0.35,
+    "SubSeaDependWeight": 1.8,
+    "TurnDependWeight": 0.3,
+    "WindAgainstSpeed": 1.1,
+    "CabinType": "Cabin_Huge",
+    "DeckType": "Big",
+    "InertiaAccelerationX": 1.5,
+    "InertiaBrakingX": 1.5,
+    "InertiaAccelerationY": 1.5,
+    "InertiaBrakingY": 1.5,
+    "InertiaAccelerationZ": 1.5,
+    "InertiaBrakingZ": 1.5,
+    "Height": {
+      "Bombs": {
+        "Y": 8.6,
+        "DY": 4.3
+      },
+      "Grapes": {
+        "Y": 12.5,
+        "DY": 6.2
+      },
+      "Knippels": {
+        "Y": 36.8,
+        "DY": 29.6
+      },
+      "Balls": {
+        "Y": 8.6,
+        "DY": 4.3
+      }
+    },
+    "GeraldSails": {
+      "rey_b2": {
+        "_value": 1,
+        "vscale": 0.98
+      },
+      "rey_b3": {
+        "_value": 1,
+        "vscale": 0.98
+      },
+      "rey_c1": {
+        "_value": 1,
+        "vscale": 0.98
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.3,
+      "LifeTime": 18.5,
+      "Width": "6.5, 7.5",
+      "Speed": "8.0, 9.0"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 10.5,
+      "Width": "16.0, 18.0",
+      "Speed": "0.15, 0.25"
+    },
+    "isNationalHull": true,
+    "nation": {
+      "england": true,
+      "france": true,
+      "spain": true,
+      "holland": true,
+      "pirate": false
+    }
+  },
+  {
+    "_type": "SHIP_SOLEYRU",
+    "Name": "SoleyRu",
+    "Soundtype": "manowar",
+    "Class": 1,
+    "Cannon": "CANNON_TYPE_CANNON_LBS42",
+    "MaxCaliber": 42,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 4500
+    },
+    "Capacity": 8000,
+    "CannonsQuantity": 112,
+    "rcannon": 52,
+    "lcannon": 52,
+    "fcannon": 4,
+    "bcannon": 4,
+    "MaxCrew": 1000,
+    "MinCrew": 170,
+    "BoardingCrew": 500,
+    "GunnerCrew": 80,
+    "CannonerCrew": 204,
+    "SailorCrew": 800,
+    "SpeedRate": 10,
+    "TurnRate": 20,
+    "Price": 750000,
+    "HP": 14000,
+    "SP": 100,
+    "EmblemedSails": {
+      "normalTex": "ships\\parus_SoleyRu.tga"
+    },
+    "CanEncounter": false,
+    "Type": {
+      "Merchant": false,
+      "War": true
+    },
+    "QuestShip": true,
+    "HullsAmount": 1,
+    "fWindAgainstSpeed": 1,
+    "sea_enchantment": 1,
+    "lowpolycrew": 37,
+    "buildtime": 140,
+    "Rocking": {
+      "y": 0.3,
+      "az": 0.02
+    },
+    "WaterLine": 0.4,
+    "SpeedDependWeight": 0.3,
+    "SubSeaDependWeight": 1.8,
+    "TurnDependWeight": 0.2,
+    "WindAgainstSpeed": 2.2,
+    "CabinType": "Cabin_Huge",
+    "DeckType": "Big",
+    "InertiaAccelerationX": 2,
+    "InertiaBrakingX": 2,
+    "InertiaAccelerationY": 2,
+    "InertiaBrakingY": 2,
+    "InertiaAccelerationZ": 2,
+    "InertiaBrakingZ": 2,
+    "Height": {
+      "Bombs": {
+        "Y": 8.6,
+        "DY": 4.3
+      },
+      "Grapes": {
+        "Y": 12.5,
+        "DY": 6.2
+      },
+      "Knippels": {
+        "Y": 36.8,
+        "DY": 29.6
+      },
+      "Balls": {
+        "Y": 8.6,
+        "DY": 4.3
+      }
+    },
+    "GeraldSails": {
+      "rey_b2": {
+        "_value": 1,
+        "vscale": 0.98
+      },
+      "rey_b3": {
+        "_value": 1,
+        "vscale": 0.98
+      },
+      "rey_c1": {
+        "_value": 1,
+        "vscale": 0.98
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.3,
+      "LifeTime": 18.5,
+      "Width": "6.5, 7.5",
+      "Speed": "8.0, 9.0"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 10.5,
+      "Width": "16.0, 18.0",
+      "Speed": "0.15, 0.25"
+    }
+  },
+  {
+    "_type": "SHIP_SANTISIMA",
+    "Name": "Santisima",
+    "Soundtype": "manowar",
+    "Class": 1,
+    "Cannon": "CANNON_TYPE_CANNON_LBS42",
+    "MaxCaliber": 42,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 1250
+    },
+    "Capacity": 7000,
+    "CannonsQuantity": 108,
+    "rcannon": 51,
+    "lcannon": 51,
+    "fcannon": 2,
+    "bcannon": 4,
+    "MaxCrew": 900,
+    "MinCrew": 150,
+    "BoardingCrew": 500,
+    "GunnerCrew": 80,
+    "CannonerCrew": 204,
+    "SailorCrew": 800,
+    "SpeedRate": 12,
+    "TurnRate": 25,
+    "Price": 680000,
+    "HP": 12000,
+    "SP": 100,
+    "EmblemedSails": {
+      "normalTex": "ships\\parus_silk.tga"
+    },
+    "CanEncounter": false,
+    "Type": {
+      "Merchant": false,
+      "War": true
+    },
+    "QuestShip": true,
+    "HullsAmount": 1,
+    "fWindAgainstSpeed": 1,
+    "sea_enchantment": 1,
+    "lowpolycrew": 33,
+    "buildtime": 140,
+    "Rocking": {
+      "y": 0.5,
+      "az": 0.035
+    },
+    "WaterLine": 0,
+    "SpeedDependWeight": 0.3,
+    "SubSeaDependWeight": 0.9,
+    "TurnDependWeight": 0.2,
+    "WindAgainstSpeed": 2.2,
+    "CabinType": "Cabin_Huge",
+    "DeckType": "Big",
+    "InertiaAccelerationX": 2,
+    "InertiaBrakingX": 2,
+    "InertiaAccelerationY": 2,
+    "InertiaBrakingY": 2,
+    "InertiaAccelerationZ": 2,
+    "InertiaBrakingZ": 2,
+    "Height": {
+      "Bombs": {
+        "Y": 4,
+        "DY": 3.3
+      },
+      "Grapes": {
+        "Y": 4.5,
+        "DY": 3.2
+      },
+      "Knippels": {
+        "Y": 26.8,
+        "DY": 23.6
+      },
+      "Balls": {
+        "Y": 4,
+        "DY": 3.3
+      }
+    },
+    "GeraldSails": {
+      "rey_b2": {
+        "_value": 1,
+        "vscale": 0.7
+      },
+      "rey_b3": {
+        "_value": 1,
+        "vscale": 0.9
+      },
+      "rey_c1": {
+        "_value": 1,
+        "vscale": 0.9
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.3,
+      "LifeTime": 18.5,
+      "Width": "6.5, 7.5",
+      "Speed": "8.0, 9.0"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 10.5,
+      "Width": "16.0, 18.0",
+      "Speed": "0.15, 0.25"
+    }
+  },
+  {
+    "_type": "SHIP_BRIGQEEN",
+    "Name": "BrigQeen",
+    "Soundtype": "corvette",
+    "Class": 4,
+    "Cannon": "CANNON_TYPE_CULVERINE_LBS24",
+    "MaxCaliber": 24,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 320
+    },
+    "Capacity": 2000,
+    "CannonsQuantity": 24,
+    "rcannon": 10,
+    "lcannon": 10,
+    "fcannon": 2,
+    "bcannon": 2,
+    "MaxCrew": 205,
+    "MinCrew": 27,
+    "BoardingCrew": 110,
+    "GunnerCrew": 18,
+    "CannonerCrew": 36,
+    "SailorCrew": 200,
+    "SpeedRate": 18.88,
+    "TurnRate": 57,
+    "Price": 168886,
+    "HP": 3000,
+    "SP": 100,
+    "CabinType": "Cabin_Medium",
+    "Type": {
+      "Merchant": false,
+      "War": true
+    },
+    "QuestShip": true,
+    "HullsAmount": 1,
+    "fWindAgainstSpeed": 2,
+    "sea_enchantment": 1.8,
+    "lowpolycrew": 15,
+    "buildtime": 60,
+    "WindAgainstSpeed": 9.1,
+    "Rocking": {
+      "y": 0.5,
+      "az": 0.04
+    },
+    "WaterLine": -0.5,
+    "SpeedDependWeight": 0.35,
+    "SubSeaDependWeight": 0.6,
+    "TurnDependWeight": 0.34,
+    "InertiaAccelerationX": 5.5,
+    "InertiaBrakingX": 5.5,
+    "InertiaAccelerationY": 8,
+    "InertiaBrakingY": 8,
+    "InertiaAccelerationZ": 6,
+    "InertiaBrakingZ": 6,
+    "Height": {
+      "Bombs": {
+        "Y": 1,
+        "DY": 0.5
+      },
+      "Grapes": {
+        "Y": 2,
+        "DY": 1
+      },
+      "Knippels": {
+        "Y": 10,
+        "DY": 8
+      },
+      "Balls": {
+        "Y": 1,
+        "DY": 0.5
+      }
+    },
+    "GeraldSails": {
+      "rey_b2": {
+        "_value": 1,
+        "vscale": 0.8
+      },
+      "rey_b3": {
+        "_value": 1,
+        "vscale": 0.8
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.2,
+      "LifeTime": 14.5,
+      "Width": "3.7, 3.9",
+      "Speed": "7.0, 8.0"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 8.5,
+      "Width": "8.0, 9.0",
+      "Speed": "0.15, 0.25"
+    }
+  },
+  {
+    "_type": "SHIP_BRIGSW",
+    "Name": "BrigSW",
+    "Soundtype": "lugger",
+    "Class": 4,
+    "Cannon": "CANNON_TYPE_CANNON_LBS24",
+    "MaxCaliber": 24,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 400
+    },
+    "Capacity": 2250,
+    "CannonsQuantity": 24,
+    "rcannon": 10,
+    "lcannon": 10,
+    "fcannon": 2,
+    "bcannon": 2,
+    "MaxCrew": 236,
+    "MinCrew": 32,
+    "BoardingCrew": 100,
+    "GunnerCrew": 18,
+    "CannonerCrew": 36,
+    "SailorCrew": 190,
+    "SpeedRate": 17.3,
+    "TurnRate": 51,
+    "Price": 177777,
+    "HP": 3250,
+    "SP": 100,
+    "CabinType": "Cabin_Medium",
+    "Type": {
+      "Merchant": false,
+      "War": true
+    },
+    "QuestShip": true,
+    "HullsAmount": 1,
+    "fWindAgainstSpeed": 2,
+    "sea_enchantment": 1.8,
+    "lowpolycrew": 15,
+    "buildtime": 60,
+    "WindAgainstSpeed": 7.4,
+    "Rocking": {
+      "y": 0.5,
+      "az": 0.04
+    },
+    "WaterLine": -0.8,
+    "SpeedDependWeight": 0.3,
+    "SubSeaDependWeight": 0.6,
+    "TurnDependWeight": 0.3,
+    "InertiaAccelerationX": 5.5,
+    "InertiaBrakingX": 5.5,
+    "InertiaAccelerationY": 8,
+    "InertiaBrakingY": 8,
+    "InertiaAccelerationZ": 6,
+    "InertiaBrakingZ": 6,
+    "Height": {
+      "Bombs": {
+        "Y": 1.5,
+        "DY": 0.7
+      },
+      "Grapes": {
+        "Y": 2.8,
+        "DY": 1.4
+      },
+      "Knippels": {
+        "Y": 16.9,
+        "DY": 15.4
+      },
+      "Balls": {
+        "Y": 1.5,
+        "DY": 0.7
+      }
+    },
+    "GeraldSails": {
+      "rey_b2": {
+        "_value": 1,
+        "vscale": 0.8
+      },
+      "rey_b3": {
+        "_value": 1,
+        "vscale": 0.8
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.2,
+      "LifeTime": 12,
+      "Width": "2.0, 3.0",
+      "Speed": "6.0, 8.0"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 7.5,
+      "Width": "4.0, 6.0",
+      "Speed": "0.15, 0.25"
+    }
+  },
+  {
+    "_type": "SHIP_XebekVML",
+    "Name": "XebekVML",
+    "Soundtype": "lugger",
+    "Class": 5,
+    "Cannon": "CANNON_TYPE_CANNON_LBS16",
+    "MaxCaliber": 16,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 380
+    },
+    "Capacity": 1650,
+    "CannonsQuantity": 22,
+    "rcannon": 9,
+    "lcannon": 9,
+    "fcannon": 2,
+    "bcannon": 2,
+    "MaxCrew": 175,
+    "MinCrew": 25,
+    "BoardingCrew": 130,
+    "GunnerCrew": 20,
+    "CannonerCrew": 38,
+    "SailorCrew": 220,
+    "SpeedRate": 18,
+    "TurnRate": 60,
+    "Price": 150500,
+    "HP": 2550,
+    "SP": 100,
+    "CabinType": "Cabin_Medium",
+    "Type": {
+      "Merchant": false,
+      "War": true
+    },
+    "QuestShip": true,
+    "HullsAmount": 1,
+    "fWindAgainstSpeed": 2,
+    "sea_enchantment": 1.8,
+    "lowpolycrew": 10,
+    "buildtime": 60,
+    "WindAgainstSpeed": 11.7,
+    "Rocking": {
+      "y": 0.5,
+      "az": 0.04
+    },
+    "WaterLine": 0.2,
+    "SpeedDependWeight": 0.3,
+    "SubSeaDependWeight": 0.6,
+    "TurnDependWeight": 0.3,
+    "InertiaAccelerationX": 5.5,
+    "InertiaBrakingX": 5.5,
+    "InertiaAccelerationY": 8,
+    "InertiaBrakingY": 8,
+    "InertiaAccelerationZ": 6,
+    "InertiaBrakingZ": 6,
+    "Height": {
+      "Bombs": {
+        "Y": 1.7,
+        "DY": 0.8
+      },
+      "Grapes": {
+        "Y": 3.4,
+        "DY": 1.7
+      },
+      "Knippels": {
+        "Y": 10.1,
+        "DY": 9.2
+      },
+      "Balls": {
+        "Y": 1.7,
+        "DY": 0.8
+      }
+    },
+    "GeraldSails": {
+      "rey_b2": {
+        "_value": 1,
+        "vscale": 0.8
+      },
+      "rey_b3": {
+        "_value": 1,
+        "vscale": 0.8
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.2,
+      "LifeTime": 12,
+      "Width": "2.0, 3.0",
+      "Speed": "6.0, 8.0"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 7.5,
+      "Width": "4.0, 6.0",
+      "Speed": "0.15, 0.25"
+    }
+  },
+  {
+    "_type": "SHIP_CORVETTE_QUEST",
+    "Name": "Corvette_quest",
+    "Soundtype": "corvette",
+    "Class": 3,
+    "Cannon": "CANNON_TYPE_CANNON_LBS24",
+    "MaxCaliber": 24,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 680
+    },
+    "Capacity": 2700,
+    "CannonsQuantity": 40,
+    "rcannon": 16,
+    "lcannon": 16,
+    "fcannon": 4,
+    "bcannon": 4,
+    "MaxCrew": 285,
+    "MinCrew": 15,
+    "BoardingCrew": 170,
+    "GunnerCrew": 30,
+    "CannonerCrew": 92,
+    "SailorCrew": 320,
+    "SpeedRate": 17.5,
+    "TurnRate": 54,
+    "Price": 250000,
+    "HP": 4000,
+    "SP": 100,
+    "CabinType": "Cabin_Quest",
+    "EmblemedSails": {
+      "normalTex": "ships\\parus_pesgovna.tga"
+    },
+    "Type": {
+      "Merchant": false,
+      "War": true
+    },
+    "QuestShip": true,
+    "HullsAmount": 1,
+    "fWindAgainstSpeed": 2.2,
+    "sea_enchantment": 1.5,
+    "lowpolycrew": 19,
+    "buildtime": 80,
+    "Rocking": {
+      "y": 0.8,
+      "az": 0.025
+    },
+    "WaterLine": 0,
+    "SpeedDependWeight": 0.3,
+    "SubSeaDependWeight": 0.7,
+    "TurnDependWeight": 0.35,
+    "WindAgainstSpeed": 5.7,
+    "InertiaAccelerationX": 8,
+    "InertiaBrakingX": 8,
+    "InertiaAccelerationY": 6,
+    "InertiaBrakingY": 6,
+    "InertiaAccelerationZ": 6,
+    "InertiaBrakingZ": 6,
+    "Height": {
+      "Bombs": {
+        "Y": 1.3,
+        "DY": 0.6
+      },
+      "Grapes": {
+        "Y": 3.1,
+        "DY": 1.5
+      },
+      "Knippels": {
+        "Y": 14.7,
+        "DY": 15
+      },
+      "Balls": {
+        "Y": 1.3,
+        "DY": 0.6
+      }
+    },
+    "GeraldSails": {
+      "rey_b2": {
+        "_value": 1,
+        "vscale": 0.7
+      },
+      "rey_b3": {
+        "_value": 1,
+        "vscale": 0.7
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.17,
+      "LifeTime": 12.5,
+      "Width": "4.0, 5.0",
+      "Speed": "6.0, 8.0"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 6.5,
+      "Width": "5.0, 7.0",
+      "Speed": "0.15, 0.25"
+    }
+  },
+  {
+    "_type": "SHIP_CORVETTE_QUEST_O",
+    "Name": "Corvette_quest_o",
+    "Soundtype": "corvette",
+    "Class": 3,
+    "Cannon": "CANNON_TYPE_CANNON_LBS32",
+    "MaxCaliber": 32,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 680
+    },
+    "Capacity": 3350,
+    "CannonsQuantity": 40,
+    "rcannon": 16,
+    "lcannon": 16,
+    "fcannon": 4,
+    "bcannon": 4,
+    "MaxCrew": 345,
+    "MinCrew": 30,
+    "BoardingCrew": 170,
+    "GunnerCrew": 30,
+    "CannonerCrew": 92,
+    "SailorCrew": 320,
+    "SpeedRate": 19,
+    "TurnRate": 60,
+    "Price": 500000,
+    "HP": 5000,
+    "SP": 100,
+    "Type": {
+      "Merchant": false,
+      "War": true
+    },
+    "QuestShip": true,
+    "HullsAmount": 1,
+    "fWindAgainstSpeed": 2.2,
+    "sea_enchantment": 1.5,
+    "lowpolycrew": 20,
+    "buildtime": 80,
+    "Rocking": {
+      "y": 0.8,
+      "az": 0.025
+    },
+    "WaterLine": -0.5,
+    "SpeedDependWeight": 0.3,
+    "SubSeaDependWeight": 0.7,
+    "TurnDependWeight": 0.35,
+    "WindAgainstSpeed": 7.7,
+    "CabinType": "Cabin_Quest",
+    "InertiaAccelerationX": 8,
+    "InertiaBrakingX": 8,
+    "InertiaAccelerationY": 6,
+    "InertiaBrakingY": 6,
+    "InertiaAccelerationZ": 6,
+    "InertiaBrakingZ": 6,
+    "Height": {
+      "Bombs": {
+        "Y": 1.3,
+        "DY": 0.6
+      },
+      "Grapes": {
+        "Y": 3.1,
+        "DY": 1.5
+      },
+      "Knippels": {
+        "Y": 14.7,
+        "DY": 15
+      },
+      "Balls": {
+        "Y": 1.3,
+        "DY": 0.6
+      }
+    },
+    "GeraldSails": {
+      "rey_b2": {
+        "_value": 1,
+        "vscale": 0.7
+      },
+      "rey_b3": {
+        "_value": 1,
+        "vscale": 0.7
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.17,
+      "LifeTime": 12.5,
+      "Width": "4.0, 5.0",
+      "Speed": "6.0, 8.0"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 6.5,
+      "Width": "5.0, 7.0",
+      "Speed": "0.15, 0.25"
+    }
+  },
+  {
+    "_type": "SHIP_ARABELLA",
+    "Name": "ArabellaShip",
+    "Soundtype": "frigate",
+    "Class": 2,
+    "Cannon": "CANNON_TYPE_CANNON_LBS36",
+    "MaxCaliber": 36,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 1050
+    },
+    "Capacity": 3750,
+    "CannonsQuantity": 52,
+    "rcannon": 22,
+    "lcannon": 22,
+    "fcannon": 4,
+    "bcannon": 4,
+    "MaxCrew": 425,
+    "MinCrew": 38,
+    "BoardingCrew": 240,
+    "GunnerCrew": 40,
+    "CannonerCrew": 92,
+    "SailorCrew": 400,
+    "SpeedRate": 17.3,
+    "TurnRate": 42,
+    "Price": 450000,
+    "HP": 6240,
+    "SP": 100,
+    "Type": {
+      "Merchant": false,
+      "War": true
+    },
+    "QuestShip": true,
+    "HullsAmount": 1,
+    "fWindAgainstSpeed": 2,
+    "sea_enchantment": 1.2,
+    "lowpolycrew": 22,
+    "buildtime": 100,
+    "Rocking": {
+      "y": 0.4,
+      "az": 0.035
+    },
+    "WaterLine": -0.6,
+    "SpeedDependWeight": 0.3,
+    "SubSeaDependWeight": 1,
+    "TurnDependWeight": 0.3,
+    "WindAgainstSpeed": 5.5,
+    "CabinType": "Cabin_Quest",
+    "DeckType": "Big",
+    "InertiaAccelerationX": 5,
+    "InertiaBrakingX": 5,
+    "InertiaAccelerationY": 4,
+    "InertiaBrakingY": 4,
+    "InertiaAccelerationZ": 5,
+    "InertiaBrakingZ": 5,
+    "Height": {
+      "Bombs": {
+        "Y": 3.1,
+        "DY": 1.5
+      },
+      "Grapes": {
+        "Y": 4.5,
+        "DY": 2.2
+      },
+      "Knippels": {
+        "Y": 21.2,
+        "DY": 18.3
+      },
+      "Balls": {
+        "Y": 3.1,
+        "DY": 1.5
+      }
+    },
+    "GeraldSails": {
+      "rey_b1": {
+        "_value": 1,
+        "vscale": 0.9
+      },
+      "rey_b2": {
+        "_value": 1,
+        "vscale": 0.7
+      },
+      "rey_b3": {
+        "_value": 1,
+        "vscale": 0.7
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.2,
+      "LifeTime": 14.5,
+      "Width": "3.7, 3.9",
+      "Speed": "7.0, 8.0"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 8.5,
+      "Width": "8.0, 9.0",
+      "Speed": "0.15, 0.25"
+    }
+  },
+  {
+    "_type": "SHIP_ARABELLA_O",
+    "Name": "ArabellaShip_o",
+    "Soundtype": "frigate",
+    "Class": 2,
+    "Cannon": "CANNON_TYPE_CANNON_LBS36",
+    "MaxCaliber": 36,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 1050
+    },
+    "Capacity": 4000,
+    "CannonsQuantity": 52,
+    "rcannon": 22,
+    "lcannon": 22,
+    "fcannon": 4,
+    "bcannon": 4,
+    "MaxCrew": 455,
+    "MinCrew": 38,
+    "BoardingCrew": 240,
+    "GunnerCrew": 40,
+    "CannonerCrew": 92,
+    "SailorCrew": 400,
+    "SpeedRate": 18.3,
+    "TurnRate": 42,
+    "Price": 650000,
+    "HP": 6540,
+    "SP": 100,
+    "EmblemedSails": {
+      "normalTex": "ships\\sail_Arabella.tga"
+    },
+    "Type": {
+      "Merchant": false,
+      "War": true
+    },
+    "QuestShip": true,
+    "HullsAmount": 1,
+    "fWindAgainstSpeed": 2,
+    "sea_enchantment": 1.2,
+    "lowpolycrew": 22,
+    "buildtime": 100,
+    "Rocking": {
+      "y": 0.4,
+      "az": 0.035
+    },
+    "WaterLine": -0.6,
+    "SpeedDependWeight": 0.3,
+    "SubSeaDependWeight": 1,
+    "TurnDependWeight": 0.3,
+    "WindAgainstSpeed": 6.1,
+    "CabinType": "Cabin_Quest",
+    "DeckType": "Big",
+    "InertiaAccelerationX": 5,
+    "InertiaBrakingX": 5,
+    "InertiaAccelerationY": 4,
+    "InertiaBrakingY": 4,
+    "InertiaAccelerationZ": 5,
+    "InertiaBrakingZ": 5,
+    "Height": {
+      "Bombs": {
+        "Y": 3.1,
+        "DY": 1.5
+      },
+      "Grapes": {
+        "Y": 4.5,
+        "DY": 2.2
+      },
+      "Knippels": {
+        "Y": 21.2,
+        "DY": 18.3
+      },
+      "Balls": {
+        "Y": 3.1,
+        "DY": 1.5
+      }
+    },
+    "GeraldSails": {
+      "rey_b1": {
+        "_value": 1,
+        "vscale": 0.9
+      },
+      "rey_b2": {
+        "_value": 1,
+        "vscale": 0.7
+      },
+      "rey_b3": {
+        "_value": 1,
+        "vscale": 0.7
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.2,
+      "LifeTime": 14.5,
+      "Width": "3.7, 3.9",
+      "Speed": "7.0, 8.0"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 8.5,
+      "Width": "8.0, 9.0",
+      "Speed": "0.15, 0.25"
+    }
+  },
+  {
+    "_type": "SHIP_FRIGATEQUEEN",
+    "Name": "FrigateQueen",
+    "Soundtype": "frigate",
+    "Class": 2,
+    "Cannon": "CANNON_TYPE_CULVERINE_LBS32",
+    "MaxCaliber": 32,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 950
+    },
+    "Capacity": 3550,
+    "CannonsQuantity": 52,
+    "rcannon": 22,
+    "lcannon": 22,
+    "fcannon": 4,
+    "bcannon": 4,
+    "MaxCrew": 385,
+    "MinCrew": 40,
+    "BoardingCrew": 240,
+    "GunnerCrew": 40,
+    "CannonerCrew": 92,
+    "SailorCrew": 400,
+    "SpeedRate": 18,
+    "TurnRate": 51,
+    "Price": 350000,
+    "HP": 6000,
+    "SP": 100,
+    "Type": {
+      "Merchant": false,
+      "War": true
+    },
+    "QuestShip": true,
+    "HullsAmount": 1,
+    "fWindAgainstSpeed": 2,
+    "sea_enchantment": 1.2,
+    "lowpolycrew": 21,
+    "buildtime": 100,
+    "Rocking": {
+      "y": 0.4,
+      "az": 0.035
+    },
+    "WaterLine": -0.6,
+    "SpeedDependWeight": 0.3,
+    "SubSeaDependWeight": 1,
+    "TurnDependWeight": 0.3,
+    "WindAgainstSpeed": 7.2,
+    "CabinType": "Cabin_Quest",
+    "DeckType": "Big",
+    "InertiaAccelerationX": 5,
+    "InertiaBrakingX": 5,
+    "InertiaAccelerationY": 4,
+    "InertiaBrakingY": 4,
+    "InertiaAccelerationZ": 5,
+    "InertiaBrakingZ": 5,
+    "Height": {
+      "Bombs": {
+        "Y": 3.1,
+        "DY": 1.5
+      },
+      "Grapes": {
+        "Y": 4.5,
+        "DY": 2.2
+      },
+      "Knippels": {
+        "Y": 21.2,
+        "DY": 18.3
+      },
+      "Balls": {
+        "Y": 3.1,
+        "DY": 1.5
+      }
+    },
+    "GeraldSails": {
+      "rey_b1": {
+        "_value": 1,
+        "vscale": 0.9
+      },
+      "rey_b2": {
+        "_value": 1,
+        "vscale": 0.7
+      },
+      "rey_b3": {
+        "_value": 1,
+        "vscale": 0.7
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.2,
+      "LifeTime": 14.5,
+      "Width": "3.7, 3.9",
+      "Speed": "7.0, 8.0"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 8.5,
+      "Width": "8.0, 9.0",
+      "Speed": "0.15, 0.25"
+    }
+  },
+  {
+    "_type": "SHIP_FLYINGDUTCHMAN",
+    "Name": "Flyingdutchman",
+    "Soundtype": "lineship",
+    "Class": 2,
+    "Cannon": "CANNON_TYPE_CANNON_LBS36",
+    "MaxCaliber": 36,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 1800
+    },
+    "Capacity": 5300,
+    "CannonsQuantity": 60,
+    "rcannon": 24,
+    "lcannon": 24,
+    "fcannon": 4,
+    "bcannon": 8,
+    "MaxCrew": 500,
+    "MinCrew": 66,
+    "BoardingCrew": 250,
+    "GunnerCrew": 50,
+    "CannonerCrew": 136,
+    "SailorCrew": 500,
+    "SpeedRate": 15.2,
+    "TurnRate": 40,
+    "Price": 666666,
+    "HP": 6999,
+    "SP": 100,
+    "EmblemedSails": {
+      "normalTex": "ships\\parus_common_torn.tga"
+    },
+    "Type": {
+      "Merchant": false,
+      "War": true
+    },
+    "QuestShip": true,
+    "HullsAmount": 1,
+    "fWindAgainstSpeed": 1,
+    "sea_enchantment": 1.1,
+    "lowpolycrew": 28,
+    "buildtime": 120,
+    "Rocking": {
+      "y": 0.5,
+      "az": 0.035
+    },
+    "WaterLine": 0,
+    "SpeedDependWeight": 0.35,
+    "SubSeaDependWeight": 1,
+    "TurnDependWeight": 0.4,
+    "WindAgainstSpeed": 4.5,
+    "CabinType": "CabineFDM",
+    "DeckType": "Big",
+    "InertiaAccelerationX": 4,
+    "InertiaBrakingX": 3.5,
+    "InertiaAccelerationY": 3,
+    "InertiaBrakingY": 2.5,
+    "InertiaAccelerationZ": 4,
+    "InertiaBrakingZ": 3.5,
+    "Height": {
+      "Bombs": {
+        "Y": 6.4,
+        "DY": 3.2
+      },
+      "Grapes": {
+        "Y": 8.5,
+        "DY": 4.2
+      },
+      "Knippels": {
+        "Y": 27.4,
+        "DY": 23.4
+      },
+      "Balls": {
+        "Y": 6.4,
+        "DY": 3.2
+      }
+    },
+    "GeraldSails": {
+      "rey_b2": {
+        "_value": 1,
+        "vscale": 0.65
+      },
+      "rey_b3": {
+        "_value": 1,
+        "vscale": 0.55
+      },
+      "rey_b1": {
+        "_value": 1,
+        "vscale": 0.8
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.25,
+      "LifeTime": 9.5,
+      "Width": "7.0, 7.5",
+      "Speed": "8.0, 9.0"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 7.5,
+      "Width": "8.0, 10.0",
+      "Speed": "1.0, 2.0"
+    }
+  },
+  {
+    "_type": "SHIP_FLYINGDUTCHMAN_O",
+    "Name": "Flyingdutchman_o",
+    "Soundtype": "lineship",
+    "Class": 2,
+    "Cannon": "CANNON_TYPE_CANNON_LBS42",
+    "MaxCaliber": 42,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 1800
+    },
+    "Capacity": 6100,
+    "CannonsQuantity": 62,
+    "rcannon": 25,
+    "lcannon": 25,
+    "fcannon": 4,
+    "bcannon": 8,
+    "MaxCrew": 600,
+    "MinCrew": 66,
+    "BoardingCrew": 250,
+    "GunnerCrew": 50,
+    "CannonerCrew": 136,
+    "SailorCrew": 500,
+    "SpeedRate": 16.5,
+    "TurnRate": 45,
+    "Price": 777777,
+    "HP": 8000,
+    "SP": 100,
+    "Type": {
+      "Merchant": false,
+      "War": true
+    },
+    "QuestShip": true,
+    "HullsAmount": 1,
+    "fWindAgainstSpeed": 1,
+    "sea_enchantment": 1.1,
+    "lowpolycrew": 30,
+    "buildtime": 120,
+    "Rocking": {
+      "y": 0.5,
+      "az": 0.035
+    },
+    "WaterLine": 0,
+    "SpeedDependWeight": 0.35,
+    "SubSeaDependWeight": 1,
+    "TurnDependWeight": 0.4,
+    "WindAgainstSpeed": 5,
+    "CabinType": "Cabin_Huge",
+    "DeckType": "Big",
+    "InertiaAccelerationX": 4,
+    "InertiaBrakingX": 3.5,
+    "InertiaAccelerationY": 3,
+    "InertiaBrakingY": 2.5,
+    "InertiaAccelerationZ": 4,
+    "InertiaBrakingZ": 3.5,
+    "Height": {
+      "Bombs": {
+        "Y": 6.4,
+        "DY": 3.2
+      },
+      "Grapes": {
+        "Y": 8.5,
+        "DY": 4.2
+      },
+      "Knippels": {
+        "Y": 27.4,
+        "DY": 23.4
+      },
+      "Balls": {
+        "Y": 6.4,
+        "DY": 3.2
+      }
+    },
+    "GeraldSails": {
+      "rey_b2": {
+        "_value": 1,
+        "vscale": 0.65
+      },
+      "rey_b3": {
+        "_value": 1,
+        "vscale": 0.55
+      },
+      "rey_b1": {
+        "_value": 1,
+        "vscale": 0.8
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.25,
+      "LifeTime": 9.5,
+      "Width": "7.0, 7.5",
+      "Speed": "8.0, 9.0"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 7.5,
+      "Width": "8.0, 10.0",
+      "Speed": "1.0, 2.0"
+    }
+  },
+  {
+    "_type": "SHIP_LUGGERQUEST",
+    "Name": "LuggerQuest",
+    "Soundtype": "lugger",
+    "Class": 6,
+    "Cannon": "CANNON_TYPE_CULVERINE_LBS12",
+    "MaxCaliber": 12,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 120
+    },
+    "Capacity": 1000,
+    "CannonsQuantity": 12,
+    "rcannon": 4,
+    "lcannon": 4,
+    "fcannon": 2,
+    "bcannon": 2,
+    "MaxCrew": 110,
+    "MinCrew": 10,
+    "BoardingCrew": 70,
+    "GunnerCrew": 12,
+    "CannonerCrew": 48,
+    "SailorCrew": 120,
+    "SpeedRate": 19.9,
+    "TurnRate": 65,
+    "Price": 100000,
+    "HP": 1500,
+    "SP": 100,
+    "CabinType": "Cabin_Small",
+    "Type": {
+      "Merchant": false,
+      "War": true
+    },
+    "QuestShip": true,
+    "HullsAmount": 3,
+    "fWindAgainstSpeed": 6,
+    "sea_enchantment": 2,
+    "lowpolycrew": 8,
+    "buildtime": 20,
+    "Rocking": {
+      "y": 0.5,
+      "az": 0.035
+    },
+    "WaterLine": -0.7,
+    "SpeedDependWeight": 0.2,
+    "SubSeaDependWeight": 0.6,
+    "TurnDependWeight": 0.2,
+    "WindAgainstSpeed": 11,
+    "InertiaAccelerationX": 10,
+    "InertiaBrakingX": 10,
+    "InertiaAccelerationY": 10,
+    "InertiaBrakingY": 10,
+    "InertiaAccelerationZ": 10,
+    "InertiaBrakingZ": 10,
+    "Height": {
+      "Bombs": {
+        "Y": 1.65,
+        "DY": 1.35
+      },
+      "Grapes": {
+        "Y": 2.64,
+        "DY": 0.5
+      },
+      "Knippels": {
+        "Y": 14.64,
+        "DY": 13.5
+      },
+      "Balls": {
+        "Y": 1.65,
+        "DY": 1.35
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.2,
+      "LifeTime": 9,
+      "Width": "2.0, 3.0",
+      "Speed": "8.0, 10.0"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 7,
+      "Width": "3.0, 4.5",
+      "Speed": "0.15, 0.25"
+    }
+  },
+  {
+    "_type": "SHIP_POLACRE_QUEST",
+    "Name": "Polacre_q",
+    "Soundtype": "lugger",
+    "Class": 3,
+    "Cannon": "CANNON_TYPE_CANNON_LBS24",
+    "MaxCaliber": 32,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 600
+    },
+    "Capacity": 3350,
+    "CannonsQuantity": 24,
+    "rcannon": 10,
+    "lcannon": 10,
+    "fcannon": 2,
+    "bcannon": 2,
+    "MaxCrew": 265,
+    "MinCrew": 37,
+    "BoardingCrew": 170,
+    "GunnerCrew": 30,
+    "CannonerCrew": 92,
+    "SailorCrew": 320,
+    "SpeedRate": 16.7,
+    "TurnRate": 56,
+    "Price": 240000,
+    "HP": 4255,
+    "SP": 100,
+    "CabinType": "Cabin_Medium",
+    "Type": {
+      "Merchant": false,
+      "War": true
+    },
+    "QuestShip": true,
+    "HullsAmount": 1,
+    "fWindAgainstSpeed": 2,
+    "sea_enchantment": 1.8,
+    "lowpolycrew": 17,
+    "buildtime": 60,
+    "WindAgainstSpeed": 10,
+    "Rocking": {
+      "y": 0.5,
+      "az": 0.04
+    },
+    "WaterLine": 0,
+    "SpeedDependWeight": 0.3,
+    "SubSeaDependWeight": 0.6,
+    "TurnDependWeight": 0.3,
+    "InertiaAccelerationX": 5.5,
+    "InertiaBrakingX": 5.5,
+    "InertiaAccelerationY": 8,
+    "InertiaBrakingY": 8,
+    "InertiaAccelerationZ": 6,
+    "InertiaBrakingZ": 6,
+    "Height": {
+      "Bombs": {
+        "Y": 1.7,
+        "DY": 0.8
+      },
+      "Grapes": {
+        "Y": 3.4,
+        "DY": 1.7
+      },
+      "Knippels": {
+        "Y": 10.1,
+        "DY": 9.2
+      },
+      "Balls": {
+        "Y": 1.7,
+        "DY": 0.8
+      }
+    },
+    "GeraldSails": {
+      "rey_b2": {
+        "_value": 1,
+        "vscale": 0.8
+      },
+      "rey_b3": {
+        "_value": 1,
+        "vscale": 0.8
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.2,
+      "LifeTime": 12,
+      "Width": "2.0, 3.0",
+      "Speed": "6.0, 8.0"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 7.5,
+      "Width": "4.0, 6.0",
+      "Speed": "0.15, 0.25"
+    }
+  },
+  {
+    "_type": "SHIP_KETCH",
+    "Name": "Ketch",
+    "Soundtype": "lugger",
+    "Class": 6,
+    "Cannon": "CANNON_TYPE_CANNON_LBS16",
+    "MaxCaliber": 16,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 10
+    },
+    "Capacity": 1188,
+    "CannonsQuantity": 10,
+    "rcannon": 5,
+    "lcannon": 5,
+    "fcannon": 0,
+    "bcannon": 0,
+    "MaxCrew": 98,
+    "MinCrew": 18,
+    "SpeedRate": 14.8,
+    "TurnRate": 58.8,
+    "Price": 48888,
+    "HP": 1188,
+    "SP": 100,
+    "Type": {
+      "Merchant": false,
+      "War": true
+    },
+    "QuestShip": true,
+    "sea_enchantment": 4,
+    "lowpolycrew": 9,
+    "buildtime": 20,
+    "WaterLine": 0.2,
+    "SpeedDependWeight": 0.07,
+    "SubSeaDependWeight": 0.4,
+    "TurnDependWeight": 0.07,
+    "WindAgainstSpeed": 8.8,
+    "InertiaAccelerationX": 3,
+    "InertiaBrakingX": 2,
+    "InertiaAccelerationY": 14,
+    "InertiaBrakingY": 5,
+    "InertiaAccelerationZ": 5,
+    "InertiaBrakingZ": 3,
+    "Height": {
+      "Bombs": {
+        "Y": 1,
+        "DY": 0.5
+      },
+      "Grapes": {
+        "Y": 1,
+        "DY": 0.5
+      },
+      "Knippels": {
+        "Y": 11,
+        "DY": 3.5
+      },
+      "Balls": {
+        "Y": 1,
+        "DY": 0.5
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.2,
+      "LifeTime": 9,
+      "Width": "1.0, 2.0",
+      "Speed": "5.2, 6.2"
+    },
+    "Track2": {
+      "ZStart": -0.15,
+      "LifeTime": 7,
+      "Width": "1.2, 2.0",
+      "Speed": "0.15, 0.25"
+    }
+  },
+  {
+    "_type": "SHIP_VEINARD",
+    "Name": "veinard",
+    "Soundtype": "lugger",
+    "Class": 6,
+    "Cannon": "CANNON_TYPE_CANNON_LBS12",
+    "MaxCaliber": 12,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 180
+    },
+    "Capacity": 1200,
+    "CannonsQuantity": 18,
+    "rcannon": 7,
+    "lcannon": 7,
+    "fcannon": 2,
+    "bcannon": 2,
+    "MaxCrew": 125,
+    "MinCrew": 18,
+    "BoardingCrew": 40,
+    "GunnerCrew": 5,
+    "CannonerCrew": 32,
+    "SailorCrew": 80,
+    "SpeedRate": 16,
+    "TurnRate": 50,
+    "Price": 35000,
+    "HP": 1750,
+    "SP": 100,
+    "CabinType": "Cabin_Medium",
+    "Type": {
+      "Merchant": false,
+      "War": true
+    },
+    "QuestShip": true,
+    "HullsAmount": 1,
+    "fWindAgainstSpeed": 7,
+    "sea_enchantment": 2,
+    "lowpolycrew": 9,
+    "buildtime": 20,
+    "WindAgainstSpeed": 7.5,
+    "Rocking": {
+      "y": 0.45,
+      "az": 0.02
+    },
+    "WaterLine": -0.78,
+    "SpeedDependWeight": 0.2,
+    "SubSeaDependWeight": 1.1,
+    "TurnDependWeight": 0.3,
+    "Height": {
+      "Bombs": {
+        "Y": 2,
+        "DY": 1
+      },
+      "Grapes": {
+        "Y": 3.8,
+        "DY": 1.9
+      },
+      "Knippels": {
+        "Y": 15.2,
+        "DY": 13.9
+      },
+      "Balls": {
+        "Y": 2,
+        "DY": 1
+      }
+    },
+    "InertiaAccelerationX": 8,
+    "InertiaBrakingX": 8,
+    "InertiaAccelerationY": 8,
+    "InertiaBrakingY": 8,
+    "InertiaAccelerationZ": 8,
+    "InertiaBrakingZ": 8,
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.2,
+      "LifeTime": 9,
+      "Width": "2.0, 2.5",
+      "Speed": "5.2, 6.2"
+    },
+    "Track2": {
+      "ZStart": -0.05,
+      "LifeTime": 7,
+      "Width": "3.0, 4.0",
+      "Speed": "0.15, 0.25"
+    }
+  },
+  {
+    "_type": "SHIP_FRIGATE_M",
+    "Name": "Frigate_M",
+    "Soundtype": "frigate",
+    "Class": 2,
+    "Cannon": "CANNON_TYPE_CANNON_LBS42",
+    "MaxCaliber": 42,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 860
+    },
+    "Capacity": 4200,
+    "CannonsQuantity": 60,
+    "CannonDiff": 0,
+    "rcannon": 26,
+    "lcannon": 26,
+    "fcannon": 4,
+    "bcannon": 4,
+    "MaxCrew": 450,
+    "MinCrew": 55,
+    "SpeedRate": 16.5,
+    "TurnRate": 39,
+    "Price": 425000,
+    "HP": 6550,
+    "SP": 100,
+    "CanEncounter": false,
+    "Type": {
+      "Merchant": false,
+      "War": true
+    },
+    "QuestShip": true,
+    "HullsAmount": 1,
+    "fWindAgainstSpeed": 2,
+    "sea_enchantment": 1.2,
+    "lowpolycrew": 25,
+    "buildtime": 100,
+    "Rocking": {
+      "y": 0.5,
+      "az": 0.035
+    },
+    "WaterLine": -0.6,
+    "SpeedDependWeight": 0.3,
+    "SubSeaDependWeight": 0.9,
+    "TurnDependWeight": 0.3,
+    "WindAgainstSpeed": 5.2,
+    "CabinType": "Cabin",
+    "DeckType": "Big",
+    "InertiaAccelerationX": 5,
+    "InertiaBrakingX": 5,
+    "InertiaAccelerationY": 4,
+    "InertiaBrakingY": 4,
+    "InertiaAccelerationZ": 5,
+    "InertiaBrakingZ": 5,
+    "Height": {
+      "Bombs": {
+        "Y": 2.4,
+        "DY": 2.3
+      },
+      "Grapes": {
+        "Y": 3,
+        "DY": 1.5
+      },
+      "Knippels": {
+        "Y": 16,
+        "DY": 15.1
+      },
+      "Balls": {
+        "Y": 2.4,
+        "DY": 2.3
+      }
+    },
+    "GeraldSails": {
+      "rey_b1": {
+        "_value": 1,
+        "vscale": 0.9
+      },
+      "rey_b2": {
+        "_value": 1,
+        "vscale": 0.7
+      },
+      "rey_b3": {
+        "_value": 1,
+        "vscale": 0.7
+      }
+    },
+    "Track": {
+      "Enable": true
+    },
+    "Track1": {
+      "ZStart": 0.25,
+      "LifeTime": 16.5,
+      "Width": "6.0, 8.2",
+      "Speed": "9.0, 9.0"
+    },
+    "Track2": {
+      "ZStart": 0,
+      "LifeTime": 13.5,
+      "Width": "8.0, 9.0",
+      "Speed": "0.15, 0.25"
+    }
+  },
+  {
+    "_type": "SHIP_FORT",
+    "Name": "Fort",
+    "isFort": true,
+    "Class": 1,
+    "Cannon": "CANNON_TYPE_CANNON_LBS32",
+    "MaxCaliber": 48,
+    "Weight": {
+      "_fn": "Tonnes2CWT",
+      "arg": 22500
+    },
+    "Capacity": 300000,
+    "CannonsQuantity": 68,
+    "rcannon": 68,
+    "lcannon": 0,
+    "fcannon": 0,
+    "bcannon": 0,
+    "MaxCrew": 1800,
+    "OptCrew": 1600,
+    "MinCrew": 400,
+    "BoardingCrew": 800,
+    "GunnerCrew": 800,
+    "CannonerCrew": 800,
+    "SailorCrew": 0,
+    "SpeedRate": 0,
+    "TurnRate": 0,
+    "Price": 12000,
+    "HP": 54000,
+    "SP": 100,
+    "buildtime": 240,
+    "CanEncounter": false
+  }
+]
