@@ -74,6 +74,34 @@
         font-size: 0.95rem;
       }
 
+      .top-nav {
+        margin-top: 12px;
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .top-nav a {
+        text-decoration: none;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        color: var(--text);
+        background: rgba(255, 255, 255, 0.03);
+        padding: 7px 12px;
+        font-size: 0.85rem;
+        transition: 0.16s ease;
+      }
+
+      .top-nav a:hover {
+        transform: translateY(-1px);
+        border-color: color-mix(in srgb, var(--accent) 55%, white 20%);
+      }
+
+      .top-nav a.active {
+        background: color-mix(in srgb, var(--accent) 26%, transparent);
+        border-color: color-mix(in srgb, var(--accent) 72%, white 10%);
+      }
+
       .toolbar {
         background: var(--panel);
         border: 1px solid var(--border);
@@ -289,6 +317,10 @@
           Выберите корабль, сравните характеристики и найдите подходящий для
           плавания и боя.
         </p>
+        <nav class="top-nav" aria-label="Разделы">
+          <a href="./index.html" class="active">Корабли</a>
+          <a href="./prices.html">Торговые цены</a>
+        </nav>
       </section>
 
       <section class="toolbar">

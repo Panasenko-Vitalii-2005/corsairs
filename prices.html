@@ -1,0 +1,744 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Торговые цены Corsairs</title>
+    <style>
+      :root {
+        --bg: #0f1a24;
+        --panel: rgba(14, 29, 43, 0.78);
+        --panel-solid: #132735;
+        --text: #e7ecf2;
+        --muted: #9fb1c3;
+        --accent: #2ec4b6;
+        --accent-2: #f6bd60;
+        --danger: #ff6b6b;
+        --border: rgba(255, 255, 255, 0.12);
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        --radius: 14px;
+        --import: #e76f51;
+        --export: #2a9d8f;
+        --default: #8b9aad;
+        --contraband: #f4a261;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        font-family: "Segoe UI Variable", "Trebuchet MS", "Verdana", sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(
+            circle at 12% -14%,
+            rgba(46, 196, 182, 0.2),
+            transparent 36%
+          ),
+          radial-gradient(
+            circle at 88% -16%,
+            rgba(246, 189, 96, 0.2),
+            transparent 32%
+          ),
+          linear-gradient(180deg, #0b151e 0%, var(--bg) 65%);
+        background-attachment: fixed;
+      }
+
+      .page {
+        width: min(1320px, 94vw);
+        margin: 28px auto 40px;
+        display: grid;
+        gap: 16px;
+      }
+
+      .header,
+      .toolbar,
+      .city-nav,
+      .content > section,
+      .content > aside {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+      }
+
+      .header {
+        padding: 20px;
+        backdrop-filter: blur(6px);
+      }
+
+      .title {
+        margin: 0 0 6px;
+        font-size: clamp(1.4rem, 2.4vw, 2rem);
+        letter-spacing: 0.02em;
+      }
+
+      .subtitle {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .top-nav {
+        margin-top: 12px;
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .top-nav a {
+        text-decoration: none;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        color: var(--text);
+        background: rgba(255, 255, 255, 0.03);
+        padding: 7px 12px;
+        font-size: 0.85rem;
+        transition: 0.16s ease;
+      }
+
+      .top-nav a:hover {
+        transform: translateY(-1px);
+        border-color: color-mix(in srgb, var(--accent) 55%, white 20%);
+      }
+
+      .top-nav a.active {
+        background: color-mix(in srgb, var(--accent) 26%, transparent);
+        border-color: color-mix(in srgb, var(--accent) 72%, white 10%);
+      }
+
+      .toolbar {
+        padding: 14px;
+        display: grid;
+        gap: 10px;
+      }
+
+      .toolbar-row {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+      }
+
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .field label {
+        color: var(--muted);
+        font-size: 0.8rem;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+      }
+
+      input,
+      select,
+      button {
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        background: var(--panel-solid);
+        color: var(--text);
+        padding: 9px 10px;
+        font: inherit;
+      }
+
+      button {
+        cursor: pointer;
+        transition: 0.16s ease;
+      }
+
+      button:hover {
+        transform: translateY(-1px);
+        border-color: color-mix(in srgb, var(--accent) 55%, white 20%);
+      }
+
+      .status {
+        color: var(--muted);
+        font-size: 0.9rem;
+        min-height: 1.2em;
+      }
+
+      .span-2 {
+        grid-column: span 2;
+      }
+
+      .span-3 {
+        grid-column: span 3;
+      }
+
+      .span-4 {
+        grid-column: span 4;
+      }
+
+      .city-nav {
+        padding: 12px;
+      }
+
+      .city-nav-title {
+        margin: 0 0 10px;
+        color: var(--muted);
+        font-size: 0.86rem;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+      }
+
+      .city-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .city-pill {
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--text);
+        padding: 6px 10px;
+        border-radius: 999px;
+        font-size: 0.82rem;
+      }
+
+      .city-pill.active {
+        background: color-mix(in srgb, var(--accent) 24%, transparent);
+        border-color: color-mix(in srgb, var(--accent) 72%, white 10%);
+      }
+
+      .content {
+        display: grid;
+        gap: 14px;
+        grid-template-columns: 1.7fr 1fr;
+        min-height: 62vh;
+      }
+
+      .goods,
+      .routes {
+        padding: 14px;
+      }
+
+      .panel-title {
+        margin: 0 0 10px;
+        font-size: 1rem;
+      }
+
+      .goods-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+        gap: 10px;
+      }
+
+      .good-card {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background:
+          linear-gradient(170deg, rgba(255, 255, 255, 0.04), transparent 40%),
+          var(--panel-solid);
+        padding: 10px;
+      }
+
+      .good-name {
+        margin: 0 0 8px;
+        font-size: 0.95rem;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 96px;
+        padding: 4px 9px;
+        border-radius: 999px;
+        font-size: 0.76rem;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+      }
+
+      .badge.export {
+        background: color-mix(in srgb, var(--export) 78%, white 10%);
+        color: #032a23;
+      }
+
+      .badge.import {
+        background: color-mix(in srgb, var(--import) 78%, white 10%);
+        color: #35130d;
+      }
+
+      .badge.default {
+        background: color-mix(in srgb, var(--default) 56%, white 16%);
+        color: #1f2c3b;
+      }
+
+      .badge.contraband {
+        background: color-mix(in srgb, var(--contraband) 78%, white 10%);
+        color: #362005;
+      }
+
+      .good-hint {
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 0.82rem;
+      }
+
+      .routes-subtitle {
+        margin: -4px 0 10px;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .route-box {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.02);
+        margin-bottom: 10px;
+      }
+
+      .route-label {
+        margin: 0 0 7px;
+        font-size: 0.82rem;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+      }
+
+      .route-list {
+        margin: 0;
+        padding-left: 18px;
+        display: grid;
+        gap: 4px;
+        font-size: 0.9rem;
+      }
+
+      .empty {
+        color: var(--muted);
+        text-align: center;
+        padding: 20px;
+        border: 1px dashed var(--border);
+        border-radius: 12px;
+      }
+
+      @media (max-width: 1080px) {
+        .content {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .toolbar-row {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .span-2,
+        .span-3,
+        .span-4 {
+          grid-column: span 2;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="header">
+        <h1 class="title">Торговый навигатор Corsairs</h1>
+        <p class="subtitle">
+          Выбирайте города и товары, чтобы быстро находить выгодные закупки и
+          продажи.
+        </p>
+        <nav class="top-nav" aria-label="Разделы">
+          <a href="./index.html">Корабли</a>
+          <a href="./prices.html" class="active">Торговые цены</a>
+        </nav>
+      </section>
+
+      <section class="toolbar">
+        <div class="toolbar-row">
+          <div class="field span-3">
+            <label for="search">Поиск товара</label>
+            <input id="search" type="text" placeholder="Например, порох" />
+          </div>
+
+          <div class="field span-3">
+            <label for="cityFilter">Город</label>
+            <select id="cityFilter">
+              <option value="all">Все города</option>
+            </select>
+          </div>
+
+          <div class="field span-3">
+            <label for="productFilter">Товар</label>
+            <select id="productFilter">
+              <option value="all">Все товары</option>
+            </select>
+          </div>
+
+          <div class="field span-3">
+            <label for="statusFilter">Торговый статус</label>
+            <select id="statusFilter">
+              <option value="all">Все</option>
+              <option value="Экспорт">Экспорт</option>
+              <option value="Импорт">Импорт</option>
+              <option value="Контрабанда">Контрабанда</option>
+              <option value="Default">Обычная цена</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="toolbar-row">
+          <div class="field span-2">
+            <label>&nbsp;</label>
+            <button id="resetBtn">Сбросить фильтры</button>
+          </div>
+          <div class="field span-4">
+            <label>Статус</label>
+            <div id="status" class="status">Инициализация...</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="city-nav">
+        <h2 class="city-nav-title">Быстрый выбор города</h2>
+        <div id="cityList" class="city-list"></div>
+      </section>
+
+      <section class="content">
+        <section class="goods">
+          <h2 class="panel-title" id="goodsTitle">Товары</h2>
+          <div id="goodsGrid" class="goods-grid"></div>
+        </section>
+
+        <aside class="routes">
+          <h2 class="panel-title">Маршруты по товару</h2>
+          <p class="routes-subtitle" id="routesSubtitle">
+            Выберите товар в фильтре, чтобы увидеть лучшие направления.
+          </p>
+          <div id="routesContent"></div>
+        </aside>
+      </section>
+    </main>
+
+    <script>
+      const STATUS_META = {
+        Экспорт: {
+          className: "export",
+          hint: "Обычно выгодно покупать: цена ниже средней.",
+        },
+        Импорт: {
+          className: "import",
+          hint: "Обычно выгодно продавать: цена выше средней.",
+        },
+        Контрабанда: {
+          className: "contraband",
+          hint: "Рискованная торговля с повышенной маржой.",
+        },
+        Default: {
+          className: "default",
+          hint: "Обычная рыночная цена без бонусов.",
+        },
+      };
+
+      const state = {
+        allCities: [],
+        allProducts: [],
+        selectedCity: "all",
+      };
+
+      const elements = {
+        search: document.getElementById("search"),
+        cityFilter: document.getElementById("cityFilter"),
+        productFilter: document.getElementById("productFilter"),
+        statusFilter: document.getElementById("statusFilter"),
+        resetBtn: document.getElementById("resetBtn"),
+        status: document.getElementById("status"),
+        cityList: document.getElementById("cityList"),
+        goodsTitle: document.getElementById("goodsTitle"),
+        goodsGrid: document.getElementById("goodsGrid"),
+        routesSubtitle: document.getElementById("routesSubtitle"),
+        routesContent: document.getElementById("routesContent"),
+      };
+
+      function updateStatus(message, isError = false) {
+        elements.status.textContent = message;
+        elements.status.style.color = isError
+          ? "var(--danger)"
+          : "var(--muted)";
+      }
+
+      function normalizeData(data) {
+        if (!Array.isArray(data)) {
+          throw new Error("Ожидался JSON-массив с городами.");
+        }
+
+        const cities = data.map((city, idx) => ({
+          id: idx,
+          name: String(city["Город"] ?? "Без названия"),
+          goods: Object.entries(city["Товары"] ?? {}).map(([name, status]) => ({
+            name: String(name),
+            status: String(status),
+          })),
+        }));
+
+        state.allCities = cities;
+        state.allProducts = [
+          ...new Set(
+            cities.flatMap((city) => city.goods.map((good) => good.name)),
+          ),
+        ].sort((a, b) => a.localeCompare(b, "ru"));
+      }
+
+      function fillFilters() {
+        const cityCurrent = elements.cityFilter.value;
+        const productCurrent = elements.productFilter.value;
+
+        elements.cityFilter.innerHTML =
+          '<option value="all">Все города</option>';
+        state.allCities
+          .map((city) => city.name)
+          .sort((a, b) => a.localeCompare(b, "ru"))
+          .forEach((cityName) => {
+            const option = document.createElement("option");
+            option.value = cityName;
+            option.textContent = cityName;
+            elements.cityFilter.appendChild(option);
+          });
+
+        elements.productFilter.innerHTML =
+          '<option value="all">Все товары</option>';
+        state.allProducts.forEach((product) => {
+          const option = document.createElement("option");
+          option.value = product;
+          option.textContent = product;
+          elements.productFilter.appendChild(option);
+        });
+
+        if (
+          [...elements.cityFilter.options].some((o) => o.value === cityCurrent)
+        ) {
+          elements.cityFilter.value = cityCurrent;
+        }
+        if (
+          [...elements.productFilter.options].some(
+            (o) => o.value === productCurrent,
+          )
+        ) {
+          elements.productFilter.value = productCurrent;
+        }
+      }
+
+      function renderCityPills() {
+        elements.cityList.innerHTML = "";
+
+        const allBtn = document.createElement("button");
+        allBtn.className = "city-pill";
+        if (state.selectedCity === "all") allBtn.classList.add("active");
+        allBtn.textContent = "Все города";
+        allBtn.addEventListener("click", () => {
+          state.selectedCity = "all";
+          elements.cityFilter.value = "all";
+          applyAndRender();
+        });
+        elements.cityList.appendChild(allBtn);
+
+        state.allCities
+          .map((city) => city.name)
+          .sort((a, b) => a.localeCompare(b, "ru"))
+          .forEach((cityName) => {
+            const btn = document.createElement("button");
+            btn.className = "city-pill";
+            if (state.selectedCity === cityName) btn.classList.add("active");
+            btn.textContent = cityName;
+            btn.addEventListener("click", () => {
+              state.selectedCity = cityName;
+              elements.cityFilter.value = cityName;
+              applyAndRender();
+            });
+            elements.cityList.appendChild(btn);
+          });
+      }
+
+      function getVisibleEntries() {
+        const q = elements.search.value.trim().toLowerCase();
+        const selectedCity = elements.cityFilter.value;
+        const selectedProduct = elements.productFilter.value;
+        const selectedStatus = elements.statusFilter.value;
+
+        return state.allCities
+          .filter(
+            (city) => selectedCity === "all" || city.name === selectedCity,
+          )
+          .flatMap((city) =>
+            city.goods
+              .filter(
+                (good) =>
+                  selectedProduct === "all" || good.name === selectedProduct,
+              )
+              .filter(
+                (good) =>
+                  selectedStatus === "all" || good.status === selectedStatus,
+              )
+              .filter((good) => {
+                if (!q) return true;
+                return `${city.name} ${good.name} ${good.status}`
+                  .toLowerCase()
+                  .includes(q);
+              })
+              .map((good) => ({ city: city.name, ...good })),
+          );
+      }
+
+      function statusLabel(status) {
+        return status === "Default" ? "Обычная цена" : status;
+      }
+
+      function renderGoods(entries) {
+        elements.goodsGrid.innerHTML = "";
+
+        if (!entries.length) {
+          elements.goodsGrid.innerHTML =
+            '<div class="empty">Ничего не найдено. Измените фильтры.</div>';
+          elements.goodsTitle.textContent = "Товары";
+          return;
+        }
+
+        const focusCity = elements.cityFilter.value;
+        elements.goodsTitle.textContent =
+          focusCity === "all"
+            ? "Товары по всем городам"
+            : `Товары в городе: ${focusCity}`;
+
+        const fragment = document.createDocumentFragment();
+
+        entries.forEach((entry) => {
+          const card = document.createElement("article");
+          card.className = "good-card";
+
+          const meta = STATUS_META[entry.status] ?? STATUS_META.Default;
+          card.innerHTML = `
+            <h3 class="good-name">${escapeHtml(entry.name)}</h3>
+            <span class="badge ${meta.className}">${statusLabel(entry.status)}</span>
+            <div class="good-hint">${escapeHtml(meta.hint)}</div>
+            <div class="good-hint">Город: ${escapeHtml(entry.city)}</div>
+          `;
+
+          fragment.appendChild(card);
+        });
+
+        elements.goodsGrid.appendChild(fragment);
+      }
+
+      function renderRoutes() {
+        const product = elements.productFilter.value;
+        elements.routesContent.innerHTML = "";
+
+        if (product === "all") {
+          elements.routesSubtitle.textContent =
+            "Выберите товар в фильтре, чтобы увидеть лучшие направления.";
+          elements.routesContent.innerHTML =
+            '<div class="empty">Например: выберите товар "Порох" или "Ром".</div>';
+          return;
+        }
+
+        const exports = [];
+        const imports = [];
+        const contraband = [];
+
+        state.allCities.forEach((city) => {
+          const good = city.goods.find((item) => item.name === product);
+          if (!good) return;
+          if (good.status === "Экспорт") exports.push(city.name);
+          else if (good.status === "Импорт") imports.push(city.name);
+          else if (good.status === "Контрабанда") contraband.push(city.name);
+        });
+
+        elements.routesSubtitle.textContent = `Товар: ${product}`;
+
+        elements.routesContent.innerHTML = `
+          <div class="route-box">
+            <h3 class="route-label">Где выгодно покупать (экспорт)</h3>
+            ${renderRouteList(exports, "Нет явных экспортных точек")}
+          </div>
+          <div class="route-box">
+            <h3 class="route-label">Где выгодно продавать (импорт)</h3>
+            ${renderRouteList(imports, "Нет явных импортных точек")}
+          </div>
+          <div class="route-box">
+            <h3 class="route-label">Зоны контрабанды</h3>
+            ${renderRouteList(contraband, "Контрабандные точки не найдены")}
+          </div>
+        `;
+      }
+
+      function renderRouteList(items, emptyText) {
+        if (!items.length) {
+          return `<div class="empty">${escapeHtml(emptyText)}</div>`;
+        }
+
+        const sorted = [...items].sort((a, b) => a.localeCompare(b, "ru"));
+        return `<ul class="route-list">${sorted
+          .map((city) => `<li>${escapeHtml(city)}</li>`)
+          .join("")}</ul>`;
+      }
+
+      function applyAndRender() {
+        const selectedCity = elements.cityFilter.value;
+        state.selectedCity = selectedCity;
+        renderCityPills();
+
+        const entries = getVisibleEntries().sort((a, b) => {
+          if (a.city === b.city) return a.name.localeCompare(b.name, "ru");
+          return a.city.localeCompare(b.city, "ru");
+        });
+
+        renderGoods(entries);
+        renderRoutes();
+        updateStatus(`Показано позиций: ${entries.length}`);
+      }
+
+      function escapeHtml(text) {
+        return String(text)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+
+      async function loadPricesData() {
+        updateStatus("Загрузка prices.json...");
+        try {
+          const response = await fetch("./prices.json", { cache: "no-store" });
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+          }
+          const data = await response.json();
+          normalizeData(data);
+          fillFilters();
+          renderCityPills();
+          applyAndRender();
+          updateStatus(`Загружено городов: ${state.allCities.length}`);
+        } catch {
+          updateStatus("Не удалось загрузить prices.json.", true);
+        }
+      }
+
+      elements.search.addEventListener("input", applyAndRender);
+      elements.cityFilter.addEventListener("change", applyAndRender);
+      elements.productFilter.addEventListener("change", applyAndRender);
+      elements.statusFilter.addEventListener("change", applyAndRender);
+
+      elements.resetBtn.addEventListener("click", () => {
+        elements.search.value = "";
+        elements.cityFilter.value = "all";
+        elements.productFilter.value = "all";
+        elements.statusFilter.value = "all";
+        state.selectedCity = "all";
+        applyAndRender();
+      });
+
+      loadPricesData();
+    </script>
+  </body>
+</html>
