@@ -58,6 +58,7 @@
       .header,
       .toolbar,
       .city-nav,
+      .trade-board,
       .content > section,
       .content > aside {
         background: var(--panel);
@@ -321,6 +322,51 @@
         border-radius: 12px;
       }
 
+      .trade-board {
+        padding: 14px;
+      }
+
+      .trade-board-wrap {
+        margin-top: 10px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        overflow: auto;
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .trade-table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 800px;
+        font-size: 0.9rem;
+      }
+
+      .trade-table th,
+      .trade-table td {
+        padding: 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        text-align: left;
+        vertical-align: top;
+      }
+
+      .trade-table th {
+        font-size: 0.8rem;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        color: var(--muted);
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .trade-table tr:hover td {
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .trade-note {
+        margin-top: 10px;
+        color: var(--muted);
+        font-size: 0.84rem;
+      }
+
       @media (max-width: 1080px) {
         .content {
           grid-template-columns: 1fr;
@@ -404,6 +450,38 @@
         <div id="cityList" class="city-list"></div>
       </section>
 
+      <section class="trade-board">
+        <h2 class="panel-title">Табло выгодного маршрута</h2>
+        <p class="routes-subtitle">
+          Выберите текущий и целевой город: таблица покажет топ товаров для
+          закупки с учетом статусов и базовой цены.
+        </p>
+
+        <div class="toolbar-row">
+          <div class="field span-4">
+            <label for="fromCity">Текущий город</label>
+            <select id="fromCity"></select>
+          </div>
+          <div class="field span-4">
+            <label for="toCity">Целевой город</label>
+            <select id="toCity"></select>
+          </div>
+          <div class="field span-2">
+            <label for="topCount">Топ</label>
+            <select id="topCount">
+              <option value="5">Топ-5</option>
+              <option value="10" selected>Топ-10</option>
+              <option value="15">Топ-15</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="tradeBoard" class="trade-board-wrap"></div>
+        <div class="trade-note">
+          Проценты доходности взяты из заданных вами средних коэффициентов.
+        </div>
+      </section>
+
       <section class="content">
         <section class="goods">
           <h2 class="panel-title" id="goodsTitle">Товары</h2>
@@ -440,6 +518,53 @@
         },
       };
 
+      const BASE_BUY_PRICES = Object.freeze({
+        Золото: 255,
+        Серебро: 230,
+        Оружие: 120,
+        Рабы: 110,
+        Лекарства: 95,
+        Провиант: 90,
+        "Красное дерево": 62.5,
+        Шелк: 62,
+        Бомбы: 60,
+        Сандал: 53.33,
+        Кофе: 46.5,
+        Одежда: 41,
+        Порох: 40,
+        "Черное дерево": 38,
+        Табак: 32.5,
+        Какао: 25,
+        Вино: 22.5,
+        Корица: 18.5,
+        Фрукты: 16,
+        Кожа: 14,
+        Ром: 13,
+        Хлопок: 13,
+        Книппели: 13,
+        Полотно: 12.5,
+        Паприка: 12.5,
+        Картечь: 12,
+        Пшеница: 10,
+        Масло: 10,
+        Сахар: 9,
+        Копра: 9,
+        Эль: 7,
+        Доски: 2.67,
+        Кирпичи: 2.67,
+        Парусина: 2.5,
+        Ядра: 2,
+      });
+
+      const PROFITABILITY = Object.freeze({
+        "Экспорт->Default": 0.257,
+        "Экспорт->Импорт": 0.743,
+        "Экспорт->Контрабанда": 2.538,
+        "Default->Импорт": 0.202,
+        "Default->Контрабанда": 1.439,
+        "Импорт->Контрабанда": 0.763,
+      });
+
       const state = {
         allCities: [],
         allProducts: [],
@@ -458,7 +583,16 @@
         goodsGrid: document.getElementById("goodsGrid"),
         routesSubtitle: document.getElementById("routesSubtitle"),
         routesContent: document.getElementById("routesContent"),
+        fromCity: document.getElementById("fromCity"),
+        toCity: document.getElementById("toCity"),
+        topCount: document.getElementById("topCount"),
+        tradeBoard: document.getElementById("tradeBoard"),
       };
+
+      const numberFmt = new Intl.NumberFormat("ru-RU", {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 2,
+      });
 
       function updateStatus(message, isError = false) {
         elements.status.textContent = message;
@@ -593,6 +727,148 @@
         return status === "Default" ? "Обычная цена" : status;
       }
 
+      function normalizeStatus(status) {
+        return status === "Default" ? "Default" : status;
+      }
+
+      function fillRouteCityFilters() {
+        const cityNames = state.allCities
+          .map((city) => city.name)
+          .sort((a, b) => a.localeCompare(b, "ru"));
+
+        const prevFrom = elements.fromCity.value;
+        const prevTo = elements.toCity.value;
+
+        elements.fromCity.innerHTML = "";
+        elements.toCity.innerHTML = "";
+
+        cityNames.forEach((cityName) => {
+          const fromOption = document.createElement("option");
+          fromOption.value = cityName;
+          fromOption.textContent = cityName;
+          elements.fromCity.appendChild(fromOption);
+
+          const toOption = document.createElement("option");
+          toOption.value = cityName;
+          toOption.textContent = cityName;
+          elements.toCity.appendChild(toOption);
+        });
+
+        if (cityNames.includes(prevFrom)) {
+          elements.fromCity.value = prevFrom;
+        } else {
+          elements.fromCity.value = cityNames[0] ?? "";
+        }
+
+        if (cityNames.includes(prevTo)) {
+          elements.toCity.value = prevTo;
+        } else {
+          elements.toCity.value = cityNames[1] ?? cityNames[0] ?? "";
+        }
+      }
+
+      function calculateTradeTop(fromCityName, toCityName) {
+        const fromCity = state.allCities.find(
+          (city) => city.name === fromCityName,
+        );
+        const toCity = state.allCities.find((city) => city.name === toCityName);
+        if (!fromCity || !toCity) return [];
+
+        const toGoodsMap = new Map(
+          toCity.goods.map((good) => [good.name, good]),
+        );
+
+        return fromCity.goods
+          .map((fromGood) => {
+            const toGood = toGoodsMap.get(fromGood.name);
+            if (!toGood) return null;
+
+            const pairKey = `${normalizeStatus(fromGood.status)}->${normalizeStatus(toGood.status)}`;
+            const roi = PROFITABILITY[pairKey];
+            const basePrice = BASE_BUY_PRICES[fromGood.name];
+
+            if (!Number.isFinite(roi) || !Number.isFinite(basePrice)) {
+              return null;
+            }
+
+            return {
+              name: fromGood.name,
+              fromStatus: fromGood.status,
+              toStatus: toGood.status,
+              basePrice,
+              roi,
+              profitPerUnit: basePrice * roi,
+            };
+          })
+          .filter(Boolean)
+          .sort((a, b) => {
+            if (b.profitPerUnit !== a.profitPerUnit) {
+              return b.profitPerUnit - a.profitPerUnit;
+            }
+            if (b.roi !== a.roi) return b.roi - a.roi;
+            return a.name.localeCompare(b.name, "ru");
+          });
+      }
+
+      function renderTradeBoard() {
+        const fromCityName = elements.fromCity.value;
+        const toCityName = elements.toCity.value;
+        const topLimit = Number(elements.topCount.value || 10);
+
+        if (!fromCityName || !toCityName) {
+          elements.tradeBoard.innerHTML =
+            '<div class="empty">Города недоступны для расчета.</div>';
+          return;
+        }
+
+        if (fromCityName === toCityName) {
+          elements.tradeBoard.innerHTML =
+            '<div class="empty">Выберите разные города: отправление и назначение.</div>';
+          return;
+        }
+
+        const opportunities = calculateTradeTop(fromCityName, toCityName);
+        if (!opportunities.length) {
+          elements.tradeBoard.innerHTML =
+            '<div class="empty">Нет выгодных комбинаций статусов для этого маршрута.</div>';
+          return;
+        }
+
+        const top = opportunities.slice(0, topLimit);
+        const rows = top
+          .map(
+            (item, index) => `
+              <tr>
+                <td><strong>${index + 1}</strong></td>
+                <td><strong>${escapeHtml(item.name)}</strong></td>
+                <td>${escapeHtml(statusLabel(item.fromStatus))}</td>
+                <td>${escapeHtml(statusLabel(item.toStatus))}</td>
+                <td>${numberFmt.format(item.basePrice)}</td>
+                <td>${numberFmt.format(item.roi * 100)}%</td>
+                <td><strong>${numberFmt.format(item.profitPerUnit)}</strong></td>
+              </tr>
+            `,
+          )
+          .join("");
+
+        elements.tradeBoard.innerHTML = `
+          <table class="trade-table">
+            <thead>
+              <tr>
+                <th>Топ</th>
+                <th>Товар</th>
+                <th>Статус в ${escapeHtml(fromCityName)}</th>
+                <th>Статус в ${escapeHtml(toCityName)}</th>
+                <th>Базовая цена (за 1 ц)</th>
+                <th>Доходность</th>
+                <th>Ожид. прибыль (за 1 ц)</th>
+              </tr>
+            </thead>
+            <tbody>${rows}</tbody>
+          </table>
+        `;
+      }
+
       function renderGoods(entries) {
         elements.goodsGrid.innerHTML = "";
 
@@ -694,6 +970,7 @@
 
         renderGoods(entries);
         renderRoutes();
+        renderTradeBoard();
         updateStatus(`Показано позиций: ${entries.length}`);
       }
 
@@ -716,6 +993,7 @@
           const data = await response.json();
           normalizeData(data);
           fillFilters();
+          fillRouteCityFilters();
           renderCityPills();
           applyAndRender();
           updateStatus(`Загружено городов: ${state.allCities.length}`);
@@ -728,6 +1006,9 @@
       elements.cityFilter.addEventListener("change", applyAndRender);
       elements.productFilter.addEventListener("change", applyAndRender);
       elements.statusFilter.addEventListener("change", applyAndRender);
+      elements.fromCity.addEventListener("change", renderTradeBoard);
+      elements.toCity.addEventListener("change", renderTradeBoard);
+      elements.topCount.addEventListener("change", renderTradeBoard);
 
       elements.resetBtn.addEventListener("click", () => {
         elements.search.value = "";
@@ -735,6 +1016,7 @@
         elements.productFilter.value = "all";
         elements.statusFilter.value = "all";
         state.selectedCity = "all";
+        fillRouteCityFilters();
         applyAndRender();
       });
 
