@@ -58,7 +58,6 @@
       .header,
       .toolbar,
       .city-nav,
-      .trade-board,
       .content > section,
       .content > aside {
         background: var(--panel);
@@ -322,51 +321,6 @@
         border-radius: 12px;
       }
 
-      .trade-board {
-        padding: 14px;
-      }
-
-      .trade-board-wrap {
-        margin-top: 10px;
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        overflow: auto;
-        background: rgba(255, 255, 255, 0.02);
-      }
-
-      .trade-table {
-        width: 100%;
-        border-collapse: collapse;
-        min-width: 800px;
-        font-size: 0.9rem;
-      }
-
-      .trade-table th,
-      .trade-table td {
-        padding: 10px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        text-align: left;
-        vertical-align: top;
-      }
-
-      .trade-table th {
-        font-size: 0.8rem;
-        letter-spacing: 0.03em;
-        text-transform: uppercase;
-        color: var(--muted);
-        background: rgba(255, 255, 255, 0.03);
-      }
-
-      .trade-table tr:hover td {
-        background: rgba(255, 255, 255, 0.02);
-      }
-
-      .trade-note {
-        margin-top: 10px;
-        color: var(--muted);
-        font-size: 0.84rem;
-      }
-
       @media (max-width: 1080px) {
         .content {
           grid-template-columns: 1fr;
@@ -397,6 +351,7 @@
         <nav class="top-nav" aria-label="Разделы">
           <a href="./index.html">Корабли</a>
           <a href="./prices.html" class="active">Торговые цены</a>
+          <a href="./trade-board.html">Табло маршрута</a>
         </nav>
       </section>
 
@@ -448,38 +403,6 @@
       <section class="city-nav">
         <h2 class="city-nav-title">Быстрый выбор города</h2>
         <div id="cityList" class="city-list"></div>
-      </section>
-
-      <section class="trade-board">
-        <h2 class="panel-title">Табло выгодного маршрута</h2>
-        <p class="routes-subtitle">
-          Выберите текущий и целевой город: таблица покажет топ товаров для
-          закупки с учетом статусов и базовой цены.
-        </p>
-
-        <div class="toolbar-row">
-          <div class="field span-4">
-            <label for="fromCity">Текущий город</label>
-            <select id="fromCity"></select>
-          </div>
-          <div class="field span-4">
-            <label for="toCity">Целевой город</label>
-            <select id="toCity"></select>
-          </div>
-          <div class="field span-2">
-            <label for="topCount">Топ</label>
-            <select id="topCount">
-              <option value="5">Топ-5</option>
-              <option value="10" selected>Топ-10</option>
-              <option value="15">Топ-15</option>
-            </select>
-          </div>
-        </div>
-
-        <div id="tradeBoard" class="trade-board-wrap"></div>
-        <div class="trade-note">
-          Проценты доходности взяты из заданных вами средних коэффициентов.
-        </div>
       </section>
 
       <section class="content">
@@ -556,13 +479,11 @@
         Ядра: 2,
       });
 
-      const PROFITABILITY = Object.freeze({
-        "Экспорт->Default": 0.257,
-        "Экспорт->Импорт": 0.743,
-        "Экспорт->Контрабанда": 2.538,
-        "Default->Импорт": 0.202,
-        "Default->Контрабанда": 1.439,
-        "Импорт->Контрабанда": 0.763,
+      const BUY_PRICE_MULTIPLIER = Object.freeze({
+        Экспорт: 0.693,
+        Default: 1,
+        Импорт: 1.379,
+        Контрабанда: 2.798,
       });
 
       const state = {
@@ -583,10 +504,6 @@
         goodsGrid: document.getElementById("goodsGrid"),
         routesSubtitle: document.getElementById("routesSubtitle"),
         routesContent: document.getElementById("routesContent"),
-        fromCity: document.getElementById("fromCity"),
-        toCity: document.getElementById("toCity"),
-        topCount: document.getElementById("topCount"),
-        tradeBoard: document.getElementById("tradeBoard"),
       };
 
       const numberFmt = new Intl.NumberFormat("ru-RU", {
@@ -727,146 +644,37 @@
         return status === "Default" ? "Обычная цена" : status;
       }
 
-      function normalizeStatus(status) {
-        return status === "Default" ? "Default" : status;
+      function buyStats(entry) {
+        const basePrice = BASE_BUY_PRICES[entry.name];
+        const multiplier = BUY_PRICE_MULTIPLIER[entry.status];
+
+        if (!Number.isFinite(basePrice) || !Number.isFinite(multiplier)) {
+          return {
+            basePrice: null,
+            estimatedBuy: null,
+            savingsVsDefault: null,
+          };
+        }
+
+        const estimatedBuy = basePrice * multiplier;
+        return {
+          basePrice,
+          estimatedBuy,
+          savingsVsDefault: basePrice - estimatedBuy,
+        };
       }
 
-      function fillRouteCityFilters() {
-        const cityNames = state.allCities
-          .map((city) => city.name)
-          .sort((a, b) => a.localeCompare(b, "ru"));
-
-        const prevFrom = elements.fromCity.value;
-        const prevTo = elements.toCity.value;
-
-        elements.fromCity.innerHTML = "";
-        elements.toCity.innerHTML = "";
-
-        cityNames.forEach((cityName) => {
-          const fromOption = document.createElement("option");
-          fromOption.value = cityName;
-          fromOption.textContent = cityName;
-          elements.fromCity.appendChild(fromOption);
-
-          const toOption = document.createElement("option");
-          toOption.value = cityName;
-          toOption.textContent = cityName;
-          elements.toCity.appendChild(toOption);
-        });
-
-        if (cityNames.includes(prevFrom)) {
-          elements.fromCity.value = prevFrom;
-        } else {
-          elements.fromCity.value = cityNames[0] ?? "";
+      function buyHint(stats) {
+        if (!Number.isFinite(stats.savingsVsDefault)) {
+          return "Нет базовой цены в справочнике.";
         }
-
-        if (cityNames.includes(prevTo)) {
-          elements.toCity.value = prevTo;
-        } else {
-          elements.toCity.value = cityNames[1] ?? cityNames[0] ?? "";
+        if (stats.savingsVsDefault > 0) {
+          return `Выгоднее обычной закупки на ${numberFmt.format(stats.savingsVsDefault)} за 1 ц.`;
         }
-      }
-
-      function calculateTradeTop(fromCityName, toCityName) {
-        const fromCity = state.allCities.find(
-          (city) => city.name === fromCityName,
-        );
-        const toCity = state.allCities.find((city) => city.name === toCityName);
-        if (!fromCity || !toCity) return [];
-
-        const toGoodsMap = new Map(
-          toCity.goods.map((good) => [good.name, good]),
-        );
-
-        return fromCity.goods
-          .map((fromGood) => {
-            const toGood = toGoodsMap.get(fromGood.name);
-            if (!toGood) return null;
-
-            const pairKey = `${normalizeStatus(fromGood.status)}->${normalizeStatus(toGood.status)}`;
-            const roi = PROFITABILITY[pairKey];
-            const basePrice = BASE_BUY_PRICES[fromGood.name];
-
-            if (!Number.isFinite(roi) || !Number.isFinite(basePrice)) {
-              return null;
-            }
-
-            return {
-              name: fromGood.name,
-              fromStatus: fromGood.status,
-              toStatus: toGood.status,
-              basePrice,
-              roi,
-              profitPerUnit: basePrice * roi,
-            };
-          })
-          .filter(Boolean)
-          .sort((a, b) => {
-            if (b.profitPerUnit !== a.profitPerUnit) {
-              return b.profitPerUnit - a.profitPerUnit;
-            }
-            if (b.roi !== a.roi) return b.roi - a.roi;
-            return a.name.localeCompare(b.name, "ru");
-          });
-      }
-
-      function renderTradeBoard() {
-        const fromCityName = elements.fromCity.value;
-        const toCityName = elements.toCity.value;
-        const topLimit = Number(elements.topCount.value || 10);
-
-        if (!fromCityName || !toCityName) {
-          elements.tradeBoard.innerHTML =
-            '<div class="empty">Города недоступны для расчета.</div>';
-          return;
+        if (stats.savingsVsDefault < 0) {
+          return `Дороже обычной закупки на ${numberFmt.format(Math.abs(stats.savingsVsDefault))} за 1 ц.`;
         }
-
-        if (fromCityName === toCityName) {
-          elements.tradeBoard.innerHTML =
-            '<div class="empty">Выберите разные города: отправление и назначение.</div>';
-          return;
-        }
-
-        const opportunities = calculateTradeTop(fromCityName, toCityName);
-        if (!opportunities.length) {
-          elements.tradeBoard.innerHTML =
-            '<div class="empty">Нет выгодных комбинаций статусов для этого маршрута.</div>';
-          return;
-        }
-
-        const top = opportunities.slice(0, topLimit);
-        const rows = top
-          .map(
-            (item, index) => `
-              <tr>
-                <td><strong>${index + 1}</strong></td>
-                <td><strong>${escapeHtml(item.name)}</strong></td>
-                <td>${escapeHtml(statusLabel(item.fromStatus))}</td>
-                <td>${escapeHtml(statusLabel(item.toStatus))}</td>
-                <td>${numberFmt.format(item.basePrice)}</td>
-                <td>${numberFmt.format(item.roi * 100)}%</td>
-                <td><strong>${numberFmt.format(item.profitPerUnit)}</strong></td>
-              </tr>
-            `,
-          )
-          .join("");
-
-        elements.tradeBoard.innerHTML = `
-          <table class="trade-table">
-            <thead>
-              <tr>
-                <th>Топ</th>
-                <th>Товар</th>
-                <th>Статус в ${escapeHtml(fromCityName)}</th>
-                <th>Статус в ${escapeHtml(toCityName)}</th>
-                <th>Базовая цена (за 1 ц)</th>
-                <th>Доходность</th>
-                <th>Ожид. прибыль (за 1 ц)</th>
-              </tr>
-            </thead>
-            <tbody>${rows}</tbody>
-          </table>
-        `;
+        return "Обычная рыночная закупка без скидки.";
       }
 
       function renderGoods(entries) {
@@ -883,19 +691,52 @@
         elements.goodsTitle.textContent =
           focusCity === "all"
             ? "Товары по всем городам"
-            : `Товары в городе: ${focusCity}`;
+            : `Лучшие товары для закупки в городе: ${focusCity}`;
+
+        const sortedEntries = [...entries].sort((a, b) => {
+          if (focusCity === "all") {
+            if (a.city !== b.city) return a.city.localeCompare(b.city, "ru");
+            return a.name.localeCompare(b.name, "ru");
+          }
+
+          const aStats = buyStats(a);
+          const bStats = buyStats(b);
+
+          const aScore = Number.isFinite(aStats.savingsVsDefault)
+            ? aStats.savingsVsDefault
+            : Number.NEGATIVE_INFINITY;
+          const bScore = Number.isFinite(bStats.savingsVsDefault)
+            ? bStats.savingsVsDefault
+            : Number.NEGATIVE_INFINITY;
+
+          if (bScore !== aScore) return bScore - aScore;
+
+          const aBase = Number.isFinite(aStats.basePrice)
+            ? aStats.basePrice
+            : -1;
+          const bBase = Number.isFinite(bStats.basePrice)
+            ? bStats.basePrice
+            : -1;
+          if (bBase !== aBase) return bBase - aBase;
+
+          return a.name.localeCompare(b.name, "ru");
+        });
 
         const fragment = document.createDocumentFragment();
 
-        entries.forEach((entry) => {
+        sortedEntries.forEach((entry) => {
           const card = document.createElement("article");
           card.className = "good-card";
 
           const meta = STATUS_META[entry.status] ?? STATUS_META.Default;
+          const stats = buyStats(entry);
           card.innerHTML = `
             <h3 class="good-name">${escapeHtml(entry.name)}</h3>
             <span class="badge ${meta.className}">${statusLabel(entry.status)}</span>
+            <div class="good-hint">Базовая цена: ${Number.isFinite(stats.basePrice) ? numberFmt.format(stats.basePrice) : "-"} за 1 ц</div>
+            <div class="good-hint">Оценка закупки: ${Number.isFinite(stats.estimatedBuy) ? numberFmt.format(stats.estimatedBuy) : "-"} за 1 ц</div>
             <div class="good-hint">${escapeHtml(meta.hint)}</div>
+            <div class="good-hint">${escapeHtml(buyHint(stats))}</div>
             <div class="good-hint">Город: ${escapeHtml(entry.city)}</div>
           `;
 
@@ -970,7 +811,6 @@
 
         renderGoods(entries);
         renderRoutes();
-        renderTradeBoard();
         updateStatus(`Показано позиций: ${entries.length}`);
       }
 
@@ -993,7 +833,6 @@
           const data = await response.json();
           normalizeData(data);
           fillFilters();
-          fillRouteCityFilters();
           renderCityPills();
           applyAndRender();
           updateStatus(`Загружено городов: ${state.allCities.length}`);
@@ -1006,9 +845,6 @@
       elements.cityFilter.addEventListener("change", applyAndRender);
       elements.productFilter.addEventListener("change", applyAndRender);
       elements.statusFilter.addEventListener("change", applyAndRender);
-      elements.fromCity.addEventListener("change", renderTradeBoard);
-      elements.toCity.addEventListener("change", renderTradeBoard);
-      elements.topCount.addEventListener("change", renderTradeBoard);
 
       elements.resetBtn.addEventListener("click", () => {
         elements.search.value = "";
@@ -1016,7 +852,6 @@
         elements.productFilter.value = "all";
         elements.statusFilter.value = "all";
         state.selectedCity = "all";
-        fillRouteCityFilters();
         applyAndRender();
       });
 
