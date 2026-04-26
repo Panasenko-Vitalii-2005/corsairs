@@ -247,6 +247,11 @@
           между статусами.
         </div>
       </section>
+
+      <section class="board">
+        <div class="status">ТОП-100 лучших маршрутов по прибыли (за 1 ц)</div>
+        <div id="routesTopBoard" class="board-wrap"></div>
+      </section>
     </main>
 
     <script>
@@ -311,6 +316,7 @@
         toCity: document.getElementById("toCity"),
         topCount: document.getElementById("topCount"),
         tradeBoard: document.getElementById("tradeBoard"),
+        routesTopBoard: document.getElementById("routesTopBoard"),
         status: document.getElementById("status"),
       };
 
@@ -475,6 +481,87 @@
         `;
       }
 
+      function calculateGlobalTopRoutes(limit = 100) {
+        const rows = [];
+
+        state.allCities.forEach((fromCity) => {
+          state.allCities.forEach((toCity) => {
+            if (fromCity.name === toCity.name) return;
+
+            const opportunities = calculateTradeTop(fromCity.name, toCity.name);
+            opportunities.forEach((item) => {
+              rows.push({
+                fromCity: fromCity.name,
+                toCity: toCity.name,
+                ...item,
+              });
+            });
+          });
+        });
+
+        return rows
+          .sort((a, b) => {
+            if (b.profitPerUnit !== a.profitPerUnit) {
+              return b.profitPerUnit - a.profitPerUnit;
+            }
+
+            if (a.fromCity !== b.fromCity) {
+              return a.fromCity.localeCompare(b.fromCity, "ru");
+            }
+
+            if (a.toCity !== b.toCity) {
+              return a.toCity.localeCompare(b.toCity, "ru");
+            }
+
+            return a.name.localeCompare(b.name, "ru");
+          })
+          .slice(0, limit);
+      }
+
+      function renderGlobalTopRoutes() {
+        const topRoutes = calculateGlobalTopRoutes(100);
+        if (!topRoutes.length) {
+          elements.routesTopBoard.innerHTML =
+            '<div class="empty">Нет данных для построения ТОП-100 маршрутов.</div>';
+          return;
+        }
+
+        const rows = topRoutes
+          .map(
+            (item, index) => `
+              <tr>
+                <td><strong>${index + 1}</strong></td>
+                <td><strong>${escapeHtml(item.fromCity)}</strong> -> <strong>${escapeHtml(item.toCity)}</strong></td>
+                <td><strong>${escapeHtml(item.name)}</strong></td>
+                <td>${escapeHtml(statusLabel(item.fromStatus))}</td>
+                <td>${escapeHtml(statusLabel(item.toStatus))}</td>
+                <td>${numberFmt.format(item.basePrice)}</td>
+                <td>${numberFmt.format(item.roi * 100)}%</td>
+                <td><strong>${numberFmt.format(item.profitPerUnit)}</strong></td>
+              </tr>
+            `,
+          )
+          .join("");
+
+        elements.routesTopBoard.innerHTML = `
+          <table class="trade-table">
+            <thead>
+              <tr>
+                <th>Топ</th>
+                <th>Маршрут</th>
+                <th>Товар</th>
+                <th>Статус в городе отправления</th>
+                <th>Статус в городе назначения</th>
+                <th>Базовая цена (за 1 ц)</th>
+                <th>Доходность</th>
+                <th>Ожид. прибыль (за 1 ц)</th>
+              </tr>
+            </thead>
+            <tbody>${rows}</tbody>
+          </table>
+        `;
+      }
+
       function escapeHtml(text) {
         return String(text)
           .replace(/&/g, "&amp;")
@@ -495,6 +582,7 @@
           normalizeData(data);
           fillRouteCityFilters();
           renderTradeBoard();
+          renderGlobalTopRoutes();
           updateStatus(`Загружено городов: ${state.allCities.length}`);
         } catch {
           updateStatus("Не удалось загрузить prices.json.", true);
