@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Предметы Corsairs</title>
+    <style>
+      :root {
+        --bg: #0f1a24;
+        --bg-soft: #162634;
+        --panel: rgba(14, 29, 43, 0.78);
+        --panel-solid: #132735;
+        --text: #e7ecf2;
+        --muted: #9fb1c3;
+        --accent: #2ec4b6;
+        --accent-2: #f6bd60;
+        --danger: #ff6b6b;
+        --border: rgba(255, 255, 255, 0.12);
+        --ok: #93d58d;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        --radius: 14px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        font-family: "Segoe UI Variable", "Trebuchet MS", "Verdana", sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(
+            circle at 20% -10%,
+            rgba(46, 196, 182, 0.2),
+            transparent 35%
+          ),
+          radial-gradient(
+            circle at 80% -20%,
+            rgba(246, 189, 96, 0.18),
+            transparent 35%
+          ),
+          linear-gradient(180deg, #0b151e 0%, var(--bg) 65%);
+        background-attachment: fixed;
+      }
+
+      .page {
+        width: min(1100px, 94vw);
+        margin: 28px auto 40px;
+        display: grid;
+        gap: 16px;
+      }
+
+      .header {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 20px;
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(6px);
+      }
+
+      .title {
+        margin: 0 0 6px;
+        font-size: clamp(1.4rem, 2.4vw, 2rem);
+        letter-spacing: 0.02em;
+      }
+
+      .subtitle {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .top-nav {
+        margin-top: 12px;
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .top-nav a {
+        text-decoration: none;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        color: var(--text);
+        background: rgba(255, 255, 255, 0.03);
+        padding: 7px 12px;
+        font-size: 0.85rem;
+        transition: 0.16s ease;
+      }
+
+      .top-nav a:hover {
+        transform: translateY(-1px);
+        border-color: color-mix(in srgb, var(--accent) 55%, white 20%);
+      }
+
+      .top-nav a.active {
+        background: color-mix(in srgb, var(--accent) 26%, transparent);
+        border-color: color-mix(in srgb, var(--accent) 72%, white 10%);
+      }
+
+      /* Toolbar */
+      .toolbar {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 14px 16px;
+        box-shadow: var(--shadow);
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        align-items: flex-end;
+      }
+
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        flex: 1 1 180px;
+      }
+
+      .field label {
+        color: var(--muted);
+        font-size: 0.78rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      input,
+      select {
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        background: var(--panel-solid);
+        color: var(--text);
+        padding: 9px 10px;
+        font: inherit;
+        font-size: 0.9rem;
+      }
+
+      input:focus,
+      select:focus {
+        outline: none;
+        border-color: color-mix(in srgb, var(--accent) 70%, transparent);
+      }
+
+      .status-bar {
+        color: var(--muted);
+        font-size: 0.85rem;
+        padding: 4px 0;
+      }
+
+      /* Table */
+      .table-wrap {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.92rem;
+      }
+
+      thead th {
+        background: rgba(0, 0, 0, 0.25);
+        padding: 12px 16px;
+        text-align: left;
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--muted);
+        white-space: nowrap;
+        user-select: none;
+        cursor: pointer;
+        position: sticky;
+        top: 0;
+        z-index: 2;
+      }
+
+      thead th:hover {
+        color: var(--text);
+        background: rgba(46, 196, 182, 0.12);
+      }
+
+      thead th.sort-asc::after {
+        content: " ▲";
+        color: var(--accent);
+        font-size: 0.7em;
+      }
+      thead th.sort-desc::after {
+        content: " ▼";
+        color: var(--accent);
+        font-size: 0.7em;
+      }
+
+      tbody tr {
+        border-top: 1px solid var(--border);
+        transition: background 0.12s;
+      }
+
+      tbody tr:hover {
+        background: rgba(46, 196, 182, 0.06);
+      }
+
+      td {
+        padding: 11px 16px;
+        vertical-align: middle;
+      }
+
+      td.num {
+        text-align: right;
+        font-variant-numeric: tabular-nums;
+        font-family: "Courier New", monospace;
+        color: var(--accent-2);
+      }
+
+      td.num.highlight-high {
+        color: var(--ok);
+      }
+
+      td.num.highlight-low {
+        color: var(--danger);
+      }
+
+      .badge-ratio {
+        display: inline-block;
+        padding: 2px 8px;
+        border-radius: 6px;
+        font-size: 0.82em;
+        font-variant-numeric: tabular-nums;
+        font-family: "Courier New", monospace;
+      }
+
+      .badge-ratio.tier-1 {
+        background: rgba(147, 213, 141, 0.18);
+        color: var(--ok);
+      }
+      .badge-ratio.tier-2 {
+        background: rgba(46, 196, 182, 0.15);
+        color: var(--accent);
+      }
+      .badge-ratio.tier-3 {
+        background: rgba(246, 189, 96, 0.15);
+        color: var(--accent-2);
+      }
+      .badge-ratio.tier-4 {
+        background: rgba(255, 107, 107, 0.12);
+        color: var(--danger);
+      }
+
+      .row-num {
+        color: var(--muted);
+        font-size: 0.8rem;
+      }
+
+      /* Responsive */
+      @media (max-width: 600px) {
+        .field {
+          flex: 1 1 100%;
+        }
+        td,
+        th {
+          padding: 9px 10px;
+        }
+        .hide-mobile {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <!-- Header -->
+      <header class="header">
+        <h1 class="title">Предметы &amp; Цены</h1>
+        <p class="subtitle">
+          Corsairs — стоимость предметов, вес и соотношение цена/вес
+        </p>
+        <nav class="top-nav" aria-label="Разделы">
+          <a href="./index.html">Корабли</a>
+          <a href="./prices.html">Торговые цены</a>
+          <a href="./trade-board.html">Табло маршрута</a>
+          <a href="./items.html" class="active">Предметы</a>
+        </nav>
+      </header>
+
+      <!-- Toolbar -->
+      <div class="toolbar">
+        <div class="field">
+          <label for="search">Поиск</label>
+          <input id="search" type="search" placeholder="Название предмета…" />
+        </div>
+        <div class="field">
+          <label for="sort-col">Сортировка</label>
+          <select id="sort-col">
+            <option value="name">Название</option>
+            <option value="price" selected>Цена</option>
+            <option value="weight">Вес</option>
+            <option value="ratio">Цена / Вес</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="sort-dir">Порядок</label>
+          <select id="sort-dir">
+            <option value="desc" selected>По убыванию</option>
+            <option value="asc">По возрастанию</option>
+          </select>
+        </div>
+        <div class="status-bar" id="status">Загрузка…</div>
+      </div>
+
+      <!-- Table -->
+      <div class="table-wrap">
+        <table id="items-table">
+          <thead>
+            <tr>
+              <th class="row-num hide-mobile">#</th>
+              <th data-col="name">Предмет</th>
+              <th data-col="price" class="sort-desc">Цена</th>
+              <th data-col="weight" class="hide-mobile">Вес</th>
+              <th data-col="ratio">Цена / Вес</th>
+            </tr>
+          </thead>
+          <tbody id="items-body"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <script>
+      const RAW = [
+        { Предмет: "Дага", Цена: "109", Вес: "0,9" },
+        { Предмет: "Венецианская шпага", Цена: "577", Вес: "2,8" },
+        { Предмет: "Скорпион", Цена: "775", Вес: "2,9" },
+        { Предмет: "Сарагоса", Цена: "847", Вес: "2,7" },
+        { Предмет: "Маринера", Цена: "990", Вес: "2,6" },
+        { Предмет: "Канонирский тесак", Цена: "601", Вес: "4,7" },
+        { Предмет: "Пехотная сабля", Цена: "538", Вес: "4,9" },
+        { Предмет: "Клевец", Цена: "542", Вес: "4,6" },
+        { Предмет: "Кайман", Цена: "530", Вес: "4,8" },
+        { Предмет: "Бильбо", Цена: "844", Вес: "4,6" },
+        { Предмет: "Катцбальгер", Цена: "789", Вес: "4,8" },
+        { Предмет: "Висельник", Цена: "782", Вес: "4,7" },
+        { Предмет: "Чиавона", Цена: "1727", Вес: "4,2" },
+        { Предмет: "Кортелач", Цена: "384", Вес: "10" },
+        { Предмет: "Госсемесер", Цена: "678", Вес: "9,6" },
+        { Предмет: "Риттершверт", Цена: "656", Вес: "9,1" },
+        { Предмет: "Боевой топор", Цена: "317", Вес: "11,5" },
+        { Предмет: "Сторта", Цена: "1176", Вес: "8,7" },
+        { Предмет: "Рейтарский палаш", Цена: "532", Вес: "9,9" },
+        { Предмет: "Клеймор", Цена: "319", Вес: "11,5" },
+        { Предмет: "Пистоль", Цена: "99", Вес: "3" },
+        { Предмет: "Колониальный пистолет", Цена: "396", Вес: "4" },
+        { Предмет: "Тромбон", Цена: "792", Вес: "6" },
+        { Предмет: "Бок-пистолет", Цена: "3564", Вес: "5" },
+        { Предмет: "Дешёвая подзорная труба", Цена: "247", Вес: "1" },
+        { Предмет: "Обычная подзорная труба", Цена: "1485", Вес: "1,5" },
+        { Предмет: "Лечебное зелье", Цена: "99", Вес: "0,8" },
+        { Предмет: "Эликсир", Цена: "495", Вес: "1" },
+        { Предмет: "Противоядие", Цена: "198", Вес: "0,4" },
+        { Предмет: "Микстура", Цена: "891", Вес: "0,4" },
+        { Предмет: "Отличное вино", Цена: "495", Вес: "1" },
+        { Предмет: "Бутылка рома", Цена: "148", Вес: "2" },
+        { Предмет: "Виноград", Цена: "29", Вес: "0,4" },
+        { Предмет: "Сапфир", Цена: "445", Вес: "0,2" },
+        { Предмет: "Алмаз", Цена: "693", Вес: "0,2" },
+        { Предмет: "Рубин", Цена: "544", Вес: "0,2" },
+        { Предмет: "Золотой слиток", Цена: "237", Вес: "0,7" },
+        { Предмет: "Изумруд", Цена: "495", Вес: "0,2" },
+        { Предмет: "Серебрянное кольцо с сапфиром", Цена: "99", Вес: "0,1" },
+        { Предмет: "Золотое кольцо с изумрудом", Цена: "198", Вес: "0,1" },
+        { Предмет: "Бронзовое кольцо", Цена: "9", Вес: "0,1" },
+        { Предмет: "Бронзовый крестик", Цена: "79", Вес: "0,2" },
+        { Предмет: "Золотое кольцо с сапфиром", Цена: "168", Вес: "0,1" },
+        { Предмет: "Большая жемчужина", Цена: "89", Вес: "0,3" },
+        { Предмет: "Маленькая жемчужина", Цена: "39", Вес: "0,1" },
+        { Предмет: "Камея", Цена: "148", Вес: "0,3" },
+        { Предмет: "Изумрудные подвески", Цена: "297", Вес: "0,5" },
+        { Предмет: "Ожерелье", Цена: "9", Вес: "0,3" },
+        { Предмет: "Серебрянный слиток", Цена: "108", Вес: "0,5" },
+        { Предмет: "Золотое кольцо с рубином", Цена: "326", Вес: "0,1" },
+        { Предмет: "Пуля", Цена: "3", Вес: "0,1" },
+        { Предмет: "Порох", Цена: "7", Вес: "0,1" },
+        { Предмет: "Лютня", Цена: "297", Вес: "6" },
+        { Предмет: "Свечи", Цена: "9", Вес: "1" },
+        { Предмет: "Ведро", Цена: "1", Вес: "3" },
+        { Предмет: "Коралл", Цена: "19", Вес: "1" },
+        { Предмет: "Трубка", Цена: "138", Вес: "0,8" },
+        { Предмет: "Кружка", Цена: "79", Вес: "1" },
+        { Предмет: "Мешочек соли", Цена: "3", Вес: "1" },
+        { Предмет: "Глиняный кувшин", Цена: "4", Вес: "2" },
+        { Предмет: "Двойная маска", Цена: "128", Вес: "1,5" },
+        { Предмет: "Идол великой матери", Цена: "148", Вес: "3,6" },
+        { Предмет: "Кубок-тотем Тепейоллотля", Цена: "1217", Вес: "10" },
+        { Предмет: "Древняя курительница", Цена: "39", Вес: "3" },
+        { Предмет: "Раскрашенный сосуд", Цена: "14", Вес: "3" },
+        { Предмет: "Тельная ладанка", Цена: "49", Вес: "2" },
+        { Предмет: "Алебсадровый сосуд", Цена: "19", Вес: "1" },
+        { Предмет: "Скальд", Цена: "6930", Вес: "30" },
+      ];
+
+      // Parse Russian-formatted numbers (comma as decimal separator)
+      function parseRu(s) {
+        return parseFloat(String(s).replace(",", "."));
+      }
+
+      const ITEMS = RAW.map((r) => ({
+        name: r["Предмет"],
+        price: parseRu(r["Цена"]),
+        weight: parseRu(r["Вес"]),
+        ratio: parseRu(r["Цена"]) / parseRu(r["Вес"]),
+      }));
+
+      // Compute ratio percentile thresholds for badge colouring
+      const ratios = ITEMS.map((i) => i.ratio).sort((a, b) => a - b);
+      const p25 = ratios[Math.floor(ratios.length * 0.25)];
+      const p50 = ratios[Math.floor(ratios.length * 0.5)];
+      const p75 = ratios[Math.floor(ratios.length * 0.75)];
+
+      function ratioBadgeClass(r) {
+        if (r >= p75) return "tier-1";
+        if (r >= p50) return "tier-2";
+        if (r >= p25) return "tier-3";
+        return "tier-4";
+      }
+
+      function fmtNum(n) {
+        return n % 1 === 0 ? n.toString() : n.toFixed(2).replace(".", ",");
+      }
+
+      function fmtRatio(n) {
+        return n.toFixed(1).replace(".", ",");
+      }
+
+      // State
+      let sortCol = "price";
+      let sortDir = "desc";
+      let query = "";
+
+      function getFiltered() {
+        let list = ITEMS;
+        if (query) {
+          const q = query.toLowerCase();
+          list = list.filter((i) => i.name.toLowerCase().includes(q));
+        }
+        list = [...list].sort((a, b) => {
+          let av = a[sortCol],
+            bv = b[sortCol];
+          if (sortCol === "name") {
+            av = av.toLowerCase();
+            bv = bv.toLowerCase();
+            return sortDir === "asc"
+              ? av.localeCompare(bv, "ru")
+              : bv.localeCompare(av, "ru");
+          }
+          return sortDir === "asc" ? av - bv : bv - av;
+        });
+        return list;
+      }
+
+      function render() {
+        const list = getFiltered();
+        const tbody = document.getElementById("items-body");
+        tbody.innerHTML = "";
+
+        list.forEach((item, idx) => {
+          const tr = document.createElement("tr");
+          const cls = ratioBadgeClass(item.ratio);
+          tr.innerHTML = `
+            <td class="row-num hide-mobile">${idx + 1}</td>
+            <td>${item.name}</td>
+            <td class="num">${item.price.toLocaleString("ru")}</td>
+            <td class="num hide-mobile">${fmtNum(item.weight)}</td>
+            <td><span class="badge-ratio ${cls}">${fmtRatio(item.ratio)}</span></td>
+          `;
+          tbody.appendChild(tr);
+        });
+
+        document.getElementById("status").textContent =
+          `Показано ${list.length} из ${ITEMS.length} предметов`;
+
+        // Update header sort indicators
+        document.querySelectorAll("thead th[data-col]").forEach((th) => {
+          th.classList.remove("sort-asc", "sort-desc");
+          if (th.dataset.col === sortCol) {
+            th.classList.add(sortDir === "asc" ? "sort-asc" : "sort-desc");
+          }
+        });
+
+        // Sync controls
+        document.getElementById("sort-col").value = sortCol;
+        document.getElementById("sort-dir").value = sortDir;
+      }
+
+      // Column header click sorting
+      document.querySelectorAll("thead th[data-col]").forEach((th) => {
+        th.addEventListener("click", () => {
+          const col = th.dataset.col;
+          if (sortCol === col) {
+            sortDir = sortDir === "asc" ? "desc" : "asc";
+          } else {
+            sortCol = col;
+            sortDir = col === "name" ? "asc" : "desc";
+          }
+          render();
+        });
+      });
+
+      // Toolbar controls
+      document.getElementById("sort-col").addEventListener("change", (e) => {
+        sortCol = e.target.value;
+        render();
+      });
+
+      document.getElementById("sort-dir").addEventListener("change", (e) => {
+        sortDir = e.target.value;
+        render();
+      });
+
+      document.getElementById("search").addEventListener("input", (e) => {
+        query = e.target.value.trim();
+        render();
+      });
+
+      render();
+    </script>
+  </body>
+</html>
