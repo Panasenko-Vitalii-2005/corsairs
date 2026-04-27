@@ -249,7 +249,15 @@
       </section>
 
       <section class="board">
-        <div class="status">ТОП-100 лучших маршрутов по прибыли (за 1 ц)</div>
+        <div class="toolbar-row">
+          <div class="field span-4">
+            <label for="routesFromCity">Город закупки для ТОП-100</label>
+            <select id="routesFromCity"></select>
+          </div>
+        </div>
+        <div class="status" id="routesStatus">
+          ТОП-100 лучших маршрутов по прибыли (за 1 ц)
+        </div>
         <div id="routesTopBoard" class="board-wrap"></div>
       </section>
     </main>
@@ -302,6 +310,15 @@
         "Импорт->Контрабанда": 0.763,
       });
 
+      const EXCLUDED_GOODS = new Set([
+        "Оружие",
+        "Провиант",
+        "Лекарства",
+        "Бомбы",
+        "Порох",
+        "Рабы",
+      ]);
+
       const state = {
         allCities: [],
       };
@@ -315,6 +332,8 @@
         fromCity: document.getElementById("fromCity"),
         toCity: document.getElementById("toCity"),
         topCount: document.getElementById("topCount"),
+        routesFromCity: document.getElementById("routesFromCity"),
+        routesStatus: document.getElementById("routesStatus"),
         tradeBoard: document.getElementById("tradeBoard"),
         routesTopBoard: document.getElementById("routesTopBoard"),
         status: document.getElementById("status"),
@@ -355,6 +374,8 @@
 
         elements.fromCity.innerHTML = "";
         elements.toCity.innerHTML = "";
+        elements.routesFromCity.innerHTML =
+          '<option value="">Все города</option>';
 
         cityNames.forEach((cityName) => {
           const fromOption = document.createElement("option");
@@ -366,6 +387,11 @@
           toOption.value = cityName;
           toOption.textContent = cityName;
           elements.toCity.appendChild(toOption);
+
+          const routeFromOption = document.createElement("option");
+          routeFromOption.value = cityName;
+          routeFromOption.textContent = cityName;
+          elements.routesFromCity.appendChild(routeFromOption);
         });
 
         if (cityNames.includes(prevFrom)) {
@@ -381,7 +407,8 @@
         }
       }
 
-      function calculateTradeTop(fromCityName, toCityName) {
+      function calculateTradeTop(fromCityName, toCityName, options = {}) {
+        const { excludeGoods = false } = options;
         const fromCity = state.allCities.find(
           (city) => city.name === fromCityName,
         );
@@ -394,6 +421,8 @@
 
         return fromCity.goods
           .map((fromGood) => {
+            if (excludeGoods && EXCLUDED_GOODS.has(fromGood.name)) return null;
+
             const toGood = toGoodsMap.get(fromGood.name);
             if (!toGood) return null;
 
@@ -481,14 +510,22 @@
         `;
       }
 
-      function calculateGlobalTopRoutes(limit = 100) {
+      function calculateGlobalTopRoutes(limit = 100, fromCityFilter = "") {
         const rows = [];
 
         state.allCities.forEach((fromCity) => {
+          if (fromCityFilter && fromCity.name !== fromCityFilter) return;
+
           state.allCities.forEach((toCity) => {
             if (fromCity.name === toCity.name) return;
 
-            const opportunities = calculateTradeTop(fromCity.name, toCity.name);
+            const opportunities = calculateTradeTop(
+              fromCity.name,
+              toCity.name,
+              {
+                excludeGoods: true,
+              },
+            );
             opportunities.forEach((item) => {
               rows.push({
                 fromCity: fromCity.name,
@@ -519,7 +556,13 @@
       }
 
       function renderGlobalTopRoutes() {
-        const topRoutes = calculateGlobalTopRoutes(100);
+        const fromCityFilter = elements.routesFromCity.value;
+        const topRoutes = calculateGlobalTopRoutes(100, fromCityFilter);
+
+        elements.routesStatus.textContent = fromCityFilter
+          ? `ТОП-100 маршрутов по прибыли из ${fromCityFilter} (за 1 ц)`
+          : "ТОП-100 лучших маршрутов по прибыли (за 1 ц)";
+
         if (!topRoutes.length) {
           elements.routesTopBoard.innerHTML =
             '<div class="empty">Нет данных для построения ТОП-100 маршрутов.</div>';
@@ -592,6 +635,7 @@
       elements.fromCity.addEventListener("change", renderTradeBoard);
       elements.toCity.addEventListener("change", renderTradeBoard);
       elements.topCount.addEventListener("change", renderTradeBoard);
+      elements.routesFromCity.addEventListener("change", renderGlobalTopRoutes);
 
       loadPricesData();
     </script>
