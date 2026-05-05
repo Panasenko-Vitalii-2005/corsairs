@@ -141,6 +141,30 @@
         font: inherit;
       }
 
+      .toggle-field {
+        display: flex;
+        align-items: flex-end;
+      }
+
+      .toggle-label {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        background: var(--panel-solid);
+        color: var(--text);
+        padding: 9px 10px;
+        min-height: 42px;
+        user-select: none;
+      }
+
+      .toggle-label input {
+        margin: 0;
+        accent-color: var(--accent);
+      }
+
       .status {
         color: var(--muted);
         margin-top: 8px;
@@ -238,6 +262,12 @@
               <option value="15">Топ-15</option>
             </select>
           </div>
+          <div class="field span-2 toggle-field">
+            <label class="toggle-label" for="legalOnly">
+              <input id="legalOnly" type="checkbox" />
+              Только легальная торговля
+            </label>
+          </div>
         </div>
 
         <div id="status" class="status">Инициализация...</div>
@@ -332,6 +362,7 @@
         fromCity: document.getElementById("fromCity"),
         toCity: document.getElementById("toCity"),
         topCount: document.getElementById("topCount"),
+        legalOnly: document.getElementById("legalOnly"),
         routesFromCity: document.getElementById("routesFromCity"),
         routesStatus: document.getElementById("routesStatus"),
         tradeBoard: document.getElementById("tradeBoard"),
@@ -408,7 +439,7 @@
       }
 
       function calculateTradeTop(fromCityName, toCityName, options = {}) {
-        const { excludeGoods = false } = options;
+        const { excludeGoods = false, legalOnly = false } = options;
         const fromCity = state.allCities.find(
           (city) => city.name === fromCityName,
         );
@@ -425,6 +456,7 @@
 
             const toGood = toGoodsMap.get(fromGood.name);
             if (!toGood) return null;
+            if (legalOnly && toGood.status === "Контрабанда") return null;
 
             const pairKey = `${fromGood.status}->${toGood.status}`;
             const roi = PROFITABILITY[pairKey];
@@ -455,6 +487,7 @@
         const fromCityName = elements.fromCity.value;
         const toCityName = elements.toCity.value;
         const topLimit = Number(elements.topCount.value || 10);
+        const legalOnly = elements.legalOnly.checked;
 
         if (!fromCityName || !toCityName) {
           elements.tradeBoard.innerHTML =
@@ -468,7 +501,9 @@
           return;
         }
 
-        const opportunities = calculateTradeTop(fromCityName, toCityName);
+        const opportunities = calculateTradeTop(fromCityName, toCityName, {
+          legalOnly,
+        });
         if (!opportunities.length) {
           elements.tradeBoard.innerHTML =
             '<div class="empty">Нет выгодных комбинаций для выбранного маршрута.</div>';
@@ -510,7 +545,11 @@
         `;
       }
 
-      function calculateGlobalTopRoutes(limit = 100, fromCityFilter = "") {
+      function calculateGlobalTopRoutes(
+        limit = 100,
+        fromCityFilter = "",
+        legalOnly = false,
+      ) {
         const rows = [];
 
         state.allCities.forEach((fromCity) => {
@@ -524,6 +563,7 @@
               toCity.name,
               {
                 excludeGoods: true,
+                legalOnly,
               },
             );
             opportunities.forEach((item) => {
@@ -557,11 +597,17 @@
 
       function renderGlobalTopRoutes() {
         const fromCityFilter = elements.routesFromCity.value;
-        const topRoutes = calculateGlobalTopRoutes(100, fromCityFilter);
+        const legalOnly = elements.legalOnly.checked;
+        const topRoutes = calculateGlobalTopRoutes(
+          100,
+          fromCityFilter,
+          legalOnly,
+        );
 
+        const legalSuffix = legalOnly ? " • только легальная торговля" : "";
         elements.routesStatus.textContent = fromCityFilter
-          ? `ТОП-100 маршрутов по прибыли из ${fromCityFilter} (за 1 ц)`
-          : "ТОП-100 лучших маршрутов по прибыли (за 1 ц)";
+          ? `ТОП-100 маршрутов по прибыли из ${fromCityFilter} (за 1 ц)${legalSuffix}`
+          : `ТОП-100 лучших маршрутов по прибыли (за 1 ц)${legalSuffix}`;
 
         if (!topRoutes.length) {
           elements.routesTopBoard.innerHTML =
@@ -636,6 +682,10 @@
       elements.toCity.addEventListener("change", renderTradeBoard);
       elements.topCount.addEventListener("change", renderTradeBoard);
       elements.routesFromCity.addEventListener("change", renderGlobalTopRoutes);
+      elements.legalOnly.addEventListener("change", () => {
+        renderTradeBoard();
+        renderGlobalTopRoutes();
+      });
 
       loadPricesData();
     </script>
